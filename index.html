@@ -1,0 +1,5063 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>boilerplate API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>boilerplate</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># INIT/HELPERS
+####################################################################################
+
+import requests
+from io import BytesIO
+import base64
+
+#[dev]
+from store_client import StoreClient
+#[/dev]
+
+from pprint import pprint
+from dataclasses import dataclass
+import json
+import re
+
+WARNINGS = []
+
+LOGGING = True
+
+STORE = StoreClient(&#34;6c72da37-fed3-4efb-9bfc-612bf2996fb6&#34;)
+
+import zlib
+from base64 import urlsafe_b64encode as b64e, urlsafe_b64decode as b64d
+
+def obscure(string: str) -&gt; str:
+    data = string.encode(&#39;utf-8&#39;)
+    return b64e(zlib.compress(data, 9)).decode(&#39;utf-8&#39;)
+
+def unobscure(string: str) -&gt; str:
+    obscured = string.encode(&#39;utf-8&#39;)
+    return zlib.decompress(b64d(obscured)).decode(&#39;utf-8&#39;)
+
+class StoreAccessor():
+    def __init__(self, parent, name):
+        self.parent = parent
+        self.name = name
+
+    def get_pat(self):
+        return unobscure( self.parent.get(f&#39;{self.name}_pat&#39;) )
+    
+    def set_pat(self, value):
+        return self.parent.set(f&#39;{self.name}_pat&#39;, obscure(value))
+    
+    def get_user(self):
+        return unobscure( self.parent.get(f&#39;{self.name}_user&#39;) )
+    
+    def set_user(self, value):
+        return self.parent.set(f&#39;{self.name}_user&#39;, obscure(value))
+
+STORE.ADO   = StoreAccessor(STORE, &#39;ado&#39;)
+STORE.ASANA = StoreAccessor(STORE, &#39;asana&#39;)
+
+class HaltException(Exception):
+    def __init__(self, msg, data=None):
+        self.message = msg
+        self.data = data
+
+def output(func, input_data):
+    new_data = get_output(func)
+    pprint(new_data)
+    input_data.update(new_data)
+    dump_input_data(input_data)
+    return new_data
+
+def dump_input_data(d, filepath=&#39;input_data.json&#39;):
+    with open(&#39;input_data.json&#39;, &#39;w&#39;) as f:
+        json.dump( d, f )
+
+    return True
+
+def load_input_data(filepath=&#39;input_data.json&#39;):
+    with open(&#39;input_data.json&#39;, &#39;r&#39;) as f:
+        return json.load(f)
+
+def consume_store_list(queue):
+    &#34;&#34;&#34;Retrieve, then clear, a list from the store.
+
+    Args:
+        store (str, UUID): The Store&#39;s UUID
+        name (str, key): The key to access
+
+    Returns:
+        list: A list retrieved from the store.
+    &#34;&#34;&#34;
+    l = get_list(queue)
+    if not isinstance( l, list ) or not l:
+        l = []
+    clear_list(queue) # Reset
+
+    return l
+
+def retry(queue, entity_id, fields=None):
+    store = StoreClient(&#34;6c72da37-fed3-4efb-9bfc-612bf2996fb6&#34;)
+    store.list_push(queue, entity_id)
+
+    return True
+
+def clear_list(queue):
+    STORE.set(queue, {
+        &#39;list&#39;: []
+    })
+
+    return True
+
+def text_to_html(text):
+    text = text.replace(&#39;\n&#39;, &#39;&lt;br/&gt;&#39;).replace(r&#34;&amp;nbsp;&#34;, &#34; &#34;)
+    
+    return f&#34;&lt;div&gt;{text}&lt;/div&gt;&#34;
+
+def push_to_list(queue, entity_id):
+    STORE.list_push(queue, entity_id)
+
+    return True
+
+def get_list(queue):
+    l = STORE.get(queue)
+
+    if not isinstance(l, dict):
+        l = {&#39;list&#39;: []}
+
+    l = l.get(&#39;list&#39;, [])
+
+    return l
+
+
+def date_to_json( date ):
+    dt = date.split(&#34;T&#34;)
+
+    return {
+        &#34;date&#34;: dt[0] if dt else None,
+        &#34;datetime&#34;: (dt[0] + dt[1]) if dt and len(dt) &gt; 1 else None
+    }
+
+def convert_custom_fields(taskfields, fields):
+    for f in taskfields:
+        cfn = f&#39;custom_fields.{f.name}&#39;
+        options = f.options
+
+        val = fields.get(cfn)
+
+        if val:
+            newcfn = f&#39;custom_fields.{f.id}&#39;
+
+            print(&#34;---&#34;)
+            print(cfn)
+            print(newcfn)
+            print(&#34;---&#34;)
+
+            if options:
+                print(f&#39;Option set: &#39;)
+                pprint(options)
+                for option in options:
+                    o = option[&#39;name&#39;].replace(&#34;\\&#34;,&#34;/&#34;).upper()
+                    v = str(val).replace(&#34;\\&#34;, &#34;/&#34;).upper()
+                    n = re.findall(r&#34;\d\.&#34;, v)
+                    print(o)
+                    print(&#39;  =  &#39;)
+                    print(v)
+                    if v in o:
+                        val = option[&#39;gid&#39;]
+                    if n and o.startswith(n[0]):
+                        val = option[&#39;gid&#39;]
+
+            fields[newcfn] = val
+
+            del fields[cfn]
+            continue
+
+    for k in fields:
+        if k.startswith(&#39;custom_fields.&#39;) and not re.match(r&#39;custom_fields\.\d+&#39;,k):
+            fields[k] = None
+
+    fields = {k:v for k,v in fields.items() if v != None}
+
+    for k,v in fields.items():
+        print(f&#34;Matching {str(v).strip()}&#34;)
+        if re.match(r&#34;\d{4}-\d{2}-\d{2}&#34;, str(v).strip()):
+            v = date_to_json(v)
+            fields[k] = v
+
+    return fields
+
+def dictpath_set(target, path, new_value=None):
+    return dictpath( target, path, new_value, True, False )
+
+def dictpath( target, path, new_value=None, set_values=False, strict=False ):
+    steps = path.split(&#34;.&#34;)
+
+    base = target
+    
+    for i,step in enumerate(steps):
+        last = i == len(steps) - 1
+        
+        if not target.get(step) and not strict:
+            if not last:
+                target[step] = {}
+            else:
+                print(&#39;last&#39;)
+                break
+
+        target = target[step]
+
+    if set_values:
+        target[step] = new_value
+    
+    return target[step]
+
+def log( msg ):
+    if LOGGING: print(msg)
+
+def unzip_kv(lines, key):
+    keys = [x[key] for x in lines]
+    values = [x for x in lines]
+
+    return dict( zip(keys,values) )
+
+def errorDict(msg, data=None):
+    return {
+        &#34;errored&#34;: True,
+        &#34;message&#34;: msg,
+        &#34;data&#34;: data
+    }
+
+def warn(msg, data=None):
+    WARNINGS.append({
+        &#34;message&#34;: msg,
+        &#34;data&#34;: data
+    })
+    return WARNINGS
+
+# Provides output, and catches HaltExceptions in the code, returning them
+def get_output(main_func):
+    try:
+        data = main_func()
+        data.update({
+            &#34;warnings&#34;: WARNINGS
+        })
+        return data
+    except HaltException as e:
+        return errorDict(e.message, {
+            &#34;error_data&#34;: e.data,
+            &#34;warnings&#34;: WARNINGS
+        })
+
+def remove_html_tags(input_str):
+    replacements = {
+        &#34;\n&#34;: [&#39;br&#39;, &#39;p&#39;, &#39;h1&#39;, &#39;h2&#39;, &#39;h3&#39;, &#39;h4&#39;,&#39;tr&#39;, &#39;th&#39;],
+        &#34;\n=======\n&#34;: [&#39;/h1&#39;],
+        &#34;\n-------\n&#34;: [&#39;/h2&#39;],
+        &#34;\n-----\n&#34;: [&#39;/h3&#39;],
+        &#34;\n---\n&#34;: [&#39;/h4&#39;],
+        &#34;\n\n&#34;: [&#39;/p&#39;],
+        &#34;- &#34;: [&#39;li&#39;],
+        &#34;----------------------------------------&#34;: [&#39;hr&#39;]
+    }
+
+    def replace_tag(inp, tag, replacement):
+        return inp.replace(f&#34;&lt;{tag}&gt;&#34;,replacement).replace(f&#34;&lt;{tag}/&gt;&#34;, replacement)
+
+    input_str = input_str.strip()
+
+    for r,l in replacements.items():
+        for t in l:
+            input_str = replace_tag( input_str, t, r)
+            
+    input_str = input_str.replace(r&#34;&amp;nbsp;&#34;, &#34; &#34;)
+
+    # Get rid of all other HTML tags
+    regex = r&#34;&lt;[^&gt;]+&gt;&#34;
+    return re.sub(regex, &#34;&#34;, input_str)
+
+class ClientResponse():
+    def __init__(self, body, error=None):
+        self.body = body if body and not error else error
+        self.error = error
+
+    def __str__(self):
+        return str(self.body)
+    
+    def __get__(self):
+        return self.body
+
+
+class ZapierBoolean():
+    &#34;&#34;&#34;Because Zapier hates me as I hate it.
+    &#34;&#34;&#34;
+
+    def __init__(self, some_bool):
+        self.value = some_bool
+
+    def __str__(self):
+        return str(self.value)
+
+    def __eq__(self, other):
+        return bool(self) == bool(other)
+
+    def __bool__(self):
+        return (
+            self.value == True
+            or
+            (
+                isinstance(self.value, str)
+                and
+                (
+                    self.value.lower() == &#34;true&#34;
+                    or self.value.lower() == &#34;yes&#34;
+                    or self.value.lower() == &#34;y&#34;
+                )
+
+            )
+
+        )
+
+
+
+
+
+# ERRORS
+####################################################################################
+
+class ProjectNotFoundError(Exception):
+    pass
+
+class TeamNotFoundError(Exception):
+    pass
+
+class AreaNotGivenError(Exception):
+    pass
+
+
+# CLASSES
+####################################################################################
+
+class LoggingClient():
+    def __init__(self):
+        self.logs = []
+
+    def _log_req(self, method, url, response, **kwargs):
+        try:
+            response_serialised = response.json()
+        except Exception:
+            response_serialised = response.text
+            if len(response_serialised) &gt; 1000:
+                response_serialised = response_serialised[:1000] + &#39;... (truncated data)&#39;
+
+        self.logs.append(dict(method=method, url=url, response=response, response_serialised=response_serialised, response_headers=response.headers, **kwargs))
+
+class AdoClient(LoggingClient):
+    &#34;&#34;&#34;HTTP Client for Azure DevOps.
+    &#34;&#34;&#34;
+    def __init__( self, user, pat, org, version=&#34;7.1-preview.3&#34; ):
+        self.user = user
+        self.pat = pat
+        self.org = org
+        self.proj = None
+        self.version = version
+        self.base_version = version
+        self.request_cache = {}
+        super().__init__()
+
+    @classmethod
+    def is_error(cls, d):
+        return &#39;errorCode&#39; in d or &#39;innerException&#39; in d or not isinstance(d, dict)
+
+    def work_item_project(self, work_item_dict):
+        proj_name = work_item_dict.get(&#39;fields&#39;, {}).get(&#39;System.TeamProject&#39;)
+
+        return self.find_project(proj_name)
+
+    def set_version(self, version=None):
+        version = version or self.base_version
+        self.version = version
+        return self
+
+    def set_org(self, org):
+        &#34;&#34;&#34;Set the target organisation for this client. 
+        
+        :param org: The organisation name
+        :type org: string
+        :return: self
+        &#34;&#34;&#34;
+        self.org = org
+        return self
+
+    def set_project(self, proj):
+        &#34;&#34;&#34;Set the target project for this client.
+        
+        :param proj: The project ID
+        :type proj: string
+        :return: self
+        &#34;&#34;&#34;
+        self.proj = proj
+        return self
+
+    def reset_project(self):
+        self.proj = None
+        return self
+    
+    def set_team(self, team):
+        &#34;&#34;&#34;Set the target team for this client.
+        
+        :param team: The team ID
+        :type team: string
+        :return: self
+        &#34;&#34;&#34;
+        self.team = team
+        return self
+
+    def set_board(self, board):
+        &#34;&#34;&#34;Set the board target for this client.
+
+        Args:
+            board (str): The ID of the board.
+
+        Returns:
+            self: Self
+        &#34;&#34;&#34;
+        self.board = board
+        return self
+
+    def get_core_url(self, *args):
+        &#34;&#34;&#34;Gets the URL for Core API endpoints (including only the organisation)
+        
+        :return: A URL composed of the Organisation and the base URL.
+        :rtype: string
+        &#34;&#34;&#34;
+        return f&#34;https://dev.azure.com/{self.org}/_apis/{&#39;/&#39;.join( args )}/&#34;
+
+    def get_main_url(self, *args):
+        &#34;&#34;&#34;Gets the URL for Core API endpoints, including the organisation, project, and team.
+        
+        :param *args: Path parameters to append to the end of the URL.
+        :return: A URL composed of the organisation, project, team and the base URL, along with optional path parameters appended.
+        :rtype: string
+        &#34;&#34;&#34;
+        if not self.team:
+            return self.get_project_url(*args)
+
+        return f&#34;https://dev.azure.com/{self.org}/{self.proj[&#39;id&#39;]}/{self.team[&#39;id&#39;]}/_apis/{&#39;/&#39;.join( args )}/&#34;
+
+    def get_search_url(self, *args):
+        return f&#34;https://almsearch.dev.azure.com/{self.org}/{self.proj[&#39;id&#39;]}/_apis/{&#39;/&#39;.join( args )}/&#34;
+
+    def get_project_url(self, *args):
+        &#34;&#34;&#34;Gets the URL for Core API endpoints, including the organisation and project.
+        
+        :param *args: Path parameters to append to the end of the URL.
+        :return: A URL composed of the organisation, project, and the base URL, along with optional path parameters appended.
+        :rtype: string
+        &#34;&#34;&#34;
+        if not self.proj:
+            return self.get_core_url(*args)
+
+        return f&#34;https://dev.azure.com/{self.org}/{self.proj[&#39;id&#39;]}/_apis/{&#39;/&#39;.join( args )}/&#34;
+
+    def kv_to_azure_ops(self, fields, default_op=&#34;add&#34;, fieldpath_prefix=&#34;/fields/&#34;):
+        ops = []
+
+        for k,v in fields.items():
+            klist = k.split(&#34;||&#34;)
+            op = default_op
+
+            if k.startswith(&#34;/&#34;):
+                fieldpath_prefix = &#34;&#34;
+
+            if len(klist) &gt; 1:
+                key, op = klist
+            else:
+                key = klist[0]
+
+            obj = {
+                &#34;op&#34;: op,
+                &#34;path&#34;: fieldpath_prefix + key,
+                &#34;value&#34;: v
+            }
+
+            ops.append( obj )
+
+        return ops
+
+    def create_field(self, name, desc=None, ftype=&#34;string&#34;, usage=&#34;workItem&#34;, readOnly=False, canSortBy=False, isQueryable=True ):
+        d = {
+            &#34;name&#34;: name,
+            &#34;referenceName&#34;: &#34;SupportedOperations.GreaterThanEquals&#34;,
+            &#34;description&#34;: desc,
+            &#34;type&#34;: ftype,
+            &#34;usage&#34;: usage,
+            &#34;readOnly&#34;: readOnly,
+            &#34;canSortBy&#34;: canSortBy,
+            &#34;isQueryable&#34;: isQueryable,
+            &#34;supportedOperations&#34;: [
+                {
+                &#34;referenceName&#34;: &#34;SupportedOperations.Equals&#34;,
+                &#34;name&#34;: &#34;=&#34;
+                }
+            ]
+        }
+        return self._req( &#39;POST&#39;, &#39;fields&#39;, self.get_project_url, [&#39;wit&#39;], params={ &#34;api-version&#34;:&#34;6.0&#34; }, json=d )
+        
+    def _req( self, method, endpoint, url_function=None, url_function_args=(), get_content=False, **kwargs ):
+        &#34;&#34;&#34;Private function to call requests.request() safely.
+        
+        :param method: The method to use eg. &#39;GET&#39;, &#39;POST&#39;, &#39;DELETE&#39;, &#39;PATCH&#39;, &#39;PUT&#39;.
+        :param endpoint: The final element of the URL eg. https://api.com/api/path/to/my/endpoint
+        :param url_function: The URL function to use to build the correct URL eg. `get_project_url`, `get_main_url`, `get_core_url`.
+        :param url_function_args: The arguments to pass to the URL function, which will add path params before the endpoint.
+        :param **kwargs: Any other keywords you need to pass to the request.
+        :return: The response from the request.
+        :rtype: dict or str
+        &#34;&#34;&#34;
+
+        url_function = url_function or self.get_core_url
+
+        url = url_function(*url_function_args) + endpoint
+
+        log(f&#34;{method} =&gt; {url}&#34;)
+
+        params = {
+            &#34;api-version&#34;: self.version
+        }
+        params.update(kwargs.get(&#34;params&#34;,{}))
+
+        kwargs[&#34;params&#34;] = params
+
+        res = requests.request(method, url, **kwargs, auth=( self.user, self.pat ))
+
+        try:
+            body = res.json()
+        except:
+            body = { &#34;text&#34;: res.text }
+
+        self._log_req( method, url, res, **kwargs )
+
+        if get_content: return res.content
+
+        body.update({
+            &#34;response_meta&#34;: {
+                &#34;status_code&#34;: res.status_code,
+                &#34;ok&#34;: res.ok
+            }
+        })
+
+        return body
+    
+    def _list( self, res ):
+        &#34;&#34;&#34;Helper function to list values from a response.
+
+        Args:
+            res (dict): The dict to list.
+
+        Returns:
+            list: The list contained within the dict, if any.
+        &#34;&#34;&#34;
+        try:
+            return res.get(&#39;value&#39;, [])
+        except:
+            return res
+
+    def list_teams( self ):
+        &#34;&#34;&#34;Retrieve a list of teams.
+
+        :return: A list of teams.
+        :rtype: list
+        &#34;&#34;&#34;
+        return self._list(self._req( &#39;GET&#39;, &#39;teams&#39; ))
+
+    def list_extension_documents( self, publisher, extension_name, collection_name ):
+        # _apis/ExtensionManagement/InstalledExtensions/agile-extensions/dod/Data/Scopes/Default/Current/Collections/definitionOfDone/Documents
+        return self._req( &#34;GET&#34;, f&#39;ExtensionManagement/InstalledExtensions/{publisher}/{extension_name}/Data/Scopes/Default/Current/Collections/{collection_name}/Documents&#39;, lambda *_:f&#34;https://{self.org}.extmgmt.visualstudio.com/_apis/&#34;, [], False, params={&#39;api-version&#39;: &#39;6.1-preview&#39;} )
+
+    def find_project(self, project_name):
+        projects = self.list_projects()
+        try:
+            return [x for x in projects if x[&#39;name&#39;] == project_name][0]
+        except Exception:
+            return None
+
+    def list_projects( self ):
+        &#34;&#34;&#34;Retrieve a list of projects.
+
+        :return: A list of projects.
+        :rtype: list
+        &#34;&#34;&#34;
+        return self._list(self._req( &#39;GET&#39;, &#39;projects&#39; ))
+
+    def list_iterations( self ):
+        &#34;&#34;&#34;Retrieve a list of iterations for a team.
+
+        Returns:
+            list: A list of iteration objects.
+        &#34;&#34;&#34;
+        return self._req( &#34;GET&#34;, &#34;iterations&#34;, self.get_main_url, [&#34;work&#34;, &#34;teamsettings&#34;], params={&#34;api-version&#34;: 6.0} )
+
+    def list_boards( self ):
+        &#34;&#34;&#34;Retrieve a list of boards.
+
+        :return: A list of boards.
+        :rtype: list
+        &#34;&#34;&#34;
+        return self._list(self._req( &#39;GET&#39;, &#39;boards&#39;, self.get_main_url, [&#39;work&#39;] ))
+
+    def list_project_board_columns( self ):
+        return self._list(self._req( &#39;GET&#39;, &#39;boardcolumns&#39;, self.get_project_url, [&#39;work&#39;] ))
+
+    def list_project_board_rows( self ):
+        return self._list(self._req( &#39;GET&#39;, &#39;boardrows&#39;, self.get_project_url, [&#39;work&#39;] ))
+
+    def list_board_columns( self, board_id ):
+        return self._list(self._req( &#39;GET&#39;, &#39;columns&#39;, self.get_main_url, [&#39;work&#39;, &#39;boards&#39;, str(board_id)] ))
+
+    def list_board_rows( self, board_id ):
+        return self._list(self._req( &#39;GET&#39;, &#39;rows&#39;, self.get_main_url, [&#39;work&#39;, &#39;boards&#39;, str(board_id)] ))
+
+    def list_work_item_types( self ):
+        return [x[&#34;name&#34;] for x in self._list(self._req(&#39;GET&#39;, &#39;workitemtypes&#39;, self.get_project_url, [&#39;wit&#39;], params={&#34;api-version&#34;: &#34;6.0&#34;}))]
+
+    def list_fields( self ):
+        return [{&#34;name&#34;: x[&#34;name&#34;], &#34;ref&#34;: x[&#34;referenceName&#34;]} for x in self._list(self._req(&#39;GET&#39;, &#39;fields&#39;, self.get_project_url, [&#39;wit&#39;], params={&#34;api-version&#34;: &#34;6.0&#34;, &#34;$expand&#34;: &#34;extensionFields&#34;}))]
+
+    def get_work_item( self, id ):
+        &#34;&#34;&#34;Retrieve a specific work item via its ID.
+
+        :return: A single work item.
+        :rtype: dict
+        &#34;&#34;&#34;
+        return self._req( &#39;GET&#39;, str(id), self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;], params={ &#34;$expand&#34;: &#34;All&#34; } )
+
+    def get_work_items( self, ids ):
+        &#34;&#34;&#34;Retrieve multiple work items via its ID.
+
+        :return: A number of work items.
+        :rtype: dict
+        &#34;&#34;&#34;
+        d = {
+            &#34;ids&#34;: ids,
+            &#34;fields&#34;: [
+                &#34;System.Id&#34;,
+                &#34;System.ChangedDate&#34;
+            ]
+        }
+        return self._req( &#39;POST&#39;, &#39;workitemsbatch&#39;, self.get_project_url, [&#39;wit&#39;,], params={ &#34;api-version&#34;:&#34;6.0&#34;, &#34;$expand&#34;: &#34;All&#34; }, json=d )
+        
+    def query_work_items(self, query):
+        return self._req(&#39;POST&#39;, &#39;wiql&#39;, self.get_core_url, [&#39;wit&#39;], json={
+            &#34;query&#34;: query
+        },
+        params={
+            &#34;api-version&#34;: &#34;6.0&#34;,
+            &#34;timePrecision&#34;: True
+        })
+
+    def list_work_item_comments(self, id):
+        return self._req( &#39;GET&#39;, &#34;comments&#34;, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;, str(id)] )
+
+    def add_comment_to_work_item(self, text, id):
+        return self._req( &#39;POST&#39;, &#34;comments&#34;, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;, str(id)], json={&#34;text&#34;: text}, params={&#34;api-version&#34;:&#34;6.0-preview.3&#34;} )
+
+    def add_hyperlink_to_work_item(self, name, link):
+        res = self.update_work_item(id, {
+            &#34;-&#34;: {
+                &#34;rel&#34;: &#34;Hyperlink&#34;,
+                &#34;url&#34;: link,
+                &#34;attributes&#34;: {
+                    &#39;usage&#39;: name
+                }
+            }
+        },fieldpath_prefix=&#39;/relations/&#39;)
+
+        return res
+    
+    def add_attachment_relation_to_work_item(self, url, filename, id):
+        &#34;&#34;&#34;Helper function to add an attachment relation to a work item.
+
+        Args:
+            url (str): The URL to relate.
+            filename (str): The filename of the attachment.
+            id (str): The work item ID.
+
+        Returns:
+            dict: the update_work_item response.
+        &#34;&#34;&#34;
+        res = self.update_work_item(id, {
+            &#34;-&#34;: {
+                &#34;rel&#34;: &#34;AttachedFile&#34;,
+                &#34;url&#34;: url,
+                &#34;attributes&#34;: {
+                    &#39;name&#39;: filename,
+                    &#39;comment&#39;: &#39;File uploaded via integration.&#39;
+                }
+            }
+        },fieldpath_prefix=&#39;/relations/&#39;)
+
+        return res
+
+    def upload_attachment_to_work_item(self, file_path, id, name=&#34;&#34; ):
+        if isinstance(file_path, str):
+            with open(file_path, &#39;rb&#39;) as f:
+                data = f.read()
+        else:
+            data = file_path
+        
+        upl_res = self._req(&#39;POST&#39;, &#39;attachments&#39;, self.get_project_url, [&#39;wit&#39;], headers={&#34;Content-Type&#34;: &#34;application/octet-stream&#34;}, data=data, params={&#34;api-version&#34;: &#34;6.0&#34;})
+
+        att_res = self.add_attachment_relation_to_work_item( upl_res.get(&#34;url&#34;), name, id )
+
+        return [upl_res, att_res]
+    
+
+    def list_work_item_attachments(self, id):
+        wi = self.get_work_item(id)
+
+        rels = wi.get(&#34;relations&#34;,[])
+
+        return [{
+            &#34;url&#34;: a[&#34;url&#34;],
+            &#34;id&#34;: a[&#39;attributes&#39;][&#34;id&#34;],
+            &#34;filename&#34;: a[&#39;attributes&#39;].get(&#34;name&#34;,&#34;&#34;)
+        } for a in rels if a.get(&#34;rel&#34;,&#34;&#34;) == &#34;AttachedFile&#34;]
+
+    def get_attachment_content(self, aid):
+        &#34;&#34;&#34;Retrieve the content data of an attachment in our ADO database.
+
+        &#34;&#34;&#34;
+        return self._req(&#39;GET&#39;, f&#39;attachments/{aid}&#39;, self.get_core_url, [&#39;wit&#39;], params={&#39;api-version&#39;: &#39;6.0&#39;}, get_content=True)
+
+    def work_item_has_attachment(self, id, filename):
+        attachments = self.list_work_item_attachments(id)
+        filenames = [a[&#34;filename&#34;] for a in attachments]
+
+        if filename in filenames: return True
+        return False
+
+    def _search_results( self, res ):
+        results = res.get(&#34;results&#34;,[])
+
+        return [ x[&#34;fields&#34;] for x in results ]
+
+    def search_work_items( self, text, area, skip=0, top=100, order_by_fields=[[&#34;system.id&#34;, &#34;ASC&#34;]]):
+        &#34;&#34;&#34;Retrieve a list of search results for work items in the current project.
+
+        Args:
+            text (str): The text to search for.
+            area (str): The `AreaPath &lt;https://learn.microsoft.com/en-us/azure/devops/boards/queries/query-by-area-iteration-path?view=azure-devops/&gt;`_ to query by.
+            skip (int, optional): The number of entries to skip - basically a &#39;cursor&#39; parameter. Defaults to 0.
+            top (int, optional): The number of entries maximum to return. Defaults to 100.
+            order_by_fields (list, optional): The order-by for the fields given, in a list of lists format; [ [&#39;field&#39;, &#39;ASC|DESC&#39;] ]. Defaults to [ [&#34;system.id&#34;, &#34;ASC&#34;] ].
+
+        Returns:
+            dict: The response containing search results.
+        &#34;&#34;&#34;
+        data = {
+            &#34;searchText&#34;: text,
+            &#34;$skip&#34;: skip,
+            &#34;$top&#34;: top,
+            &#34;filters&#34;: {
+                &#34;System.AreaPath&#34;: [
+                    area
+                ]
+            },
+            &#34;$orderBy&#34;: [
+                {&#34;field&#34;: x[0], &#34;sortOrder&#34;: x[1]} for x in order_by_fields   
+            ],
+            &#34;includeFacets&#34;: True
+        }
+
+        return self._search_results( self._req(&#39;POST&#39;, &#39;workitemsearchresults&#39;, self.get_search_url, [&#39;search&#39;], json=data, params={&#34;api-version&#34;: &#34;6.0-preview.1&#34;}) )
+
+    def update_work_item(self, workitem_id, fields={}, fieldpath_prefix=&#34;/fields/&#34;):
+        &#34;&#34;&#34;Updates the given workitem by its ID, with a set of fields.
+
+        Args:
+            workitem_id (str): The workitem&#39;s ID, as a six digit string.
+            fields (dict, optional): Fields with the format {&#34;key&#34;: &#34;value&#34;, ...}. Defaults to {}.
+
+        Returns:
+            dict: The response dict, containing changes that were made plus their statuses.
+        &#34;&#34;&#34;
+
+        azureOps = self.kv_to_azure_ops( fields, fieldpath_prefix=fieldpath_prefix )
+
+        pprint(azureOps)
+
+        headers = {
+            &#34;Content-Type&#34;: &#34;application/json-patch+json&#34;
+        }
+
+        return self._req(&#39;PATCH&#39;, workitem_id, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;], headers=headers, json=azureOps)
+
+    def create_work_item(self, fields={}, workitem_type=&#34;task&#34;):
+        &#34;&#34;&#34;Creates a work item with the relevant fields given.
+
+        Args:
+            fields (dict): A dict of fields with the format {&#34;key&#34;: &#34;value&#34;, ...}. Remember to supply &#34;System.&lt;key&gt;&#34; for system fields! Defaults to {}.
+        &#34;&#34;&#34;
+
+        headers = {
+            &#34;Content-Type&#34;: &#34;application/json-patch+json&#34;
+        }
+
+        return self._req( &#39;POST&#39;, f&#34;${workitem_type}&#34;, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;], json=self.kv_to_azure_ops( fields ), headers=headers, params={&#34;api-version&#34;: &#34;6.0&#34;} )
+
+#####################################################################################
+
+class AsanaTask():
+    def __init__(self):
+        pass
+
+    @classmethod
+    def get(cls, api, task_id):
+        return cls.from_dict( api.get_task(task_id) )
+
+    @classmethod
+    def from_dict(cls, task):
+        c = cls()
+        c.errored = False
+        c.taskdata = task
+
+        if &#34;data&#34; not in task:
+            task = {
+                &#34;data&#34;: task
+            }
+
+        task = task[&#34;data&#34;]
+        try:
+            c.id = task[&#34;gid&#34;]
+            c.workspace_id = task.get(&#34;workspace&#34;,{}).get(&#34;gid&#34;)
+            c.project_id = task.get(&#39;projects&#39;,[{&#39;gid&#39;: None}])[0][&#39;gid&#39;]
+            c.tags = task.get(&#34;tags&#34;)
+            c.due = task.get(&#34;due_on&#34;)
+            c.name = task[&#34;name&#34;]
+            c.notes = task.get(&#34;notes&#34;)
+            c.fields = c._instance_fields(task.get(&#34;custom_fields&#34;,[]))
+        except KeyError:
+            c.errored = True
+
+        return c
+
+    def __getitem__(self, name):
+        return self.get_field_by_name( name )
+
+    def __iter__(self):
+        return iter(self.fields)
+
+    def __bool__(self):
+        return not self.errored
+
+    def get_field_by_name(self, name):
+        try:
+            return [x for x in self.fields if x.name == name][0]
+        except Exception as e:
+            return None
+
+    def _instance_fields(self, fields):
+        return [AsanaTaskField.from_dict(x) for x in fields]
+
+    def names(self):
+        return [x.name for x in self.fields]
+
+    def items(self):
+        l = [(x.name, x.value) for x in self.fields]
+        l = [[x[0], x[1]] for x in l if x[1] != &#39;&#39; and x[1] != None]
+        return l
+
+#####################################################################################
+    
+@dataclass
+class AsanaTaskField():
+    id: str
+    value: str
+    description: str
+    enabled: bool
+    type: str
+    name: str
+    options: list
+
+    def __init__(self):
+        pass
+
+    @classmethod
+    def from_dict(cls, field):
+        c = cls()
+    
+        field = field.get(&#39;custom_field&#39;, field)
+
+        c.fielddata = field
+        c.id = field[&#34;gid&#34;]
+        c.value = field.get(&#34;display_value&#34;,&#34;&#34;)
+        c.options = field.get(&#34;enum_options&#34;)
+        c.description = field.get(&#34;description&#34;,&#39;&#39;)
+        c.enabled = field.get(&#34;enabled&#34;,&#39;&#39;)
+        c.type = field.get(&#34;type&#34;,&#39;&#39;)
+        c.name = field.get(&#34;name&#34;,&#39;&#39;)
+        return c
+    
+#####################################################################################
+
+class AsanaClient(LoggingClient):
+    def __init__(self, token, project=None, workspace=None):
+        self.token = token
+        self.url = &#34;https://app.asana.com/api/1.0/&#34;
+        self.project = project
+        self.workspace = workspace
+
+        super().__init__()
+
+        self.headers = {
+            &#34;Authorization&#34;: &#34;Bearer {token}&#34;.format(token=self.token)
+        }
+
+    def task( self ):
+        return AsanaTask.get( self,  )
+
+    @classmethod
+    def is_error(cls, d):
+        return &#39;errors&#39; in d or (not isinstance(d, dict) and not isinstance(d, AsanaTask) and not isinstance(d, AsanaTaskField))
+        
+    def set_project(self, proj_id):
+        self.project = proj_id
+        return self
+
+    def set_workspace(self, workspace_id):
+        self.workspace = workspace_id
+        return self
+
+    def _req( self, method, endpoint, get_content=False, **kwargs ):
+        &#34;&#34;&#34;Private function to call requests.request() safely.
+        
+        :param method: The method to use eg. &#39;GET&#39;, &#39;POST&#39;, &#39;DELETE&#39;, &#39;PATCH&#39;, &#39;PUT&#39;.
+        :param endpoint: The final element of the URL eg. https://api.com/api/path/to/my/endpoint
+        :param url_function: The URL function to use to build the correct URL eg. `get_project_url`, `get_main_url`, `get_core_url`.
+        :param url_function_args: The arguments to pass to the URL function, which will add path params before the endpoint.
+        :param **kwargs: Any other keywords you need to pass to the request.
+        :return: The response from the request.
+        :rtype: dict or str
+        &#34;&#34;&#34;
+
+        # url_function = url_function or self.get_core_url
+
+        url = self.url + endpoint
+
+        print(f&#34;{method} =&gt; {url}&#34;)
+        
+        params = {
+            &#34;workspace&#34;: self.workspace,
+            &#34;project&#34;: self.project
+        }
+        params.update(kwargs.get(&#34;params&#34;,{}))
+
+        kwargs[&#34;params&#34;] = params
+
+        headers = self.headers
+        headers.update(kwargs.get(&#34;headers&#34;,{}))
+
+        kwargs[&#34;headers&#34;] = headers
+
+        res = requests.request(method, url, **kwargs)
+
+        try:
+            body = res.json()
+        except:
+            body = { &#34;text&#34;: res.text }
+
+        self._log_req( method, url, res, **kwargs )
+
+        if get_content: return res.content
+
+        body.update({
+            &#34;response_meta&#34;: {
+                &#34;status_code&#34;: res.status_code,
+                &#34;ok&#34;: res.ok
+            }
+        })
+
+        return body
+
+    def list_tasks( self, modified_since=None, tag=None ):
+        params = {}
+
+        if modified_since:
+            params[&#34;modified_since&#34;] = modified_since
+        if tag:
+            params[&#34;tag&#34;] = tag
+
+        return self._req( &#34;GET&#34;, &#34;tasks&#34;, params=params )
+
+    def list_tags( self ):
+        return self._req(&#34;GET&#34;, &#34;tags&#34;)
+
+    def list_tagged_tasks(self, tag_id, modified_since=None ):
+        params = {}
+
+        if modified_since:
+            params[&#34;modified_since&#34;] = modified_since
+            
+        return self._req( &#34;GET&#34;, f&#34;tags/{tag_id}/tasks&#34;, params=params )
+
+    def list_workspaces( self ):
+        return self._req( &#34;GET&#34;, &#34;workspaces&#34; )
+
+    def list_project_sections( self, project ):
+        return self._req(&#34;GET&#34;, f&#34;projects/{project}/sections&#34;)
+
+    def get_main_workspace( self ):
+        return self.list_workspaces().get(&#34;data&#34;, [])[0]
+
+    def get_project( self, gid ):
+        return self._req(&#39;GET&#39;, f&#39;projects/{gid}&#39;)
+
+    def get_tags(self):
+        return self._req(&#39;GET&#39;, f&#39;workspaces/{self.workspace}/tags&#39;)
+
+    def create_tag(self, name, color, notes=&#34;Added by System.&#34;):
+        return self._req(&#39;POST&#39;, f&#39;tags&#39;, json={
+            &#34;data&#34;: {
+                &#34;name&#34;: name,
+                &#34;color&#34;: color,
+                &#34;notes&#34;: notes,
+            }
+        })
+
+    def add_tag(self, task_gid, tag_name, tag_list):
+        matching_tag = [x for x in tag_list if x[&#39;name&#39;] == tag_name]
+
+        if not matching_tag:
+            matching_tag = [self.create_tag( tag_name, &#39;light-green&#39; )]
+
+        pprint(matching_tag)
+        try:
+            return self._req(&#39;POST&#39;, f&#39;tasks/{task_gid}/addTag&#39;, json={
+                &#34;data&#34;: {
+                    &#34;tag&#34;: matching_tag[0][&#39;gid&#39;]
+                }
+            })
+        except Exception as e:
+            return { &#34;error&#34;: &#34;An error occurred when adding the tag.&#34;, &#34;message&#34;: str(e) }
+
+    def remove_tag(self, task_gid, tag_name, tag_list):
+        matching_tag = [x for x in tag_list if x[&#39;name&#39;] == tag_name][0]
+
+        if not matching_tag:
+            return None
+
+        return self._req(&#39;POST&#39;, f&#39;tasks/{task_gid}/removeTag&#39;, json={
+            &#34;data&#34;: {&#34;tag&#34;: matching_tag[&#39;gid&#39;]}
+        })
+
+    def sync_all_tags( self, task, tag_names, tag_list ):
+        tags = [x.strip() for x in tag_names.split(&#39;;&#39;)]
+
+        task = task.get(&#39;data&#39;, task)
+
+        pprint(task)
+
+        task_tags = task.get(&#39;tags&#39;, [])
+
+        task_gid = task.get(&#39;gid&#39;)
+
+        if not task_gid: return None
+
+        # pprint(task)
+
+
+        # Task: A, B, C
+        # Request: B, C, N
+
+        
+
+        delete_tags = [x for x in task_tags if x[&#39;name&#39;].strip() not in [y for y in tags]]
+        add_tags = [x for x in tags if x not in [y[&#39;name&#39;].strip() for y in task_tags]]
+
+        results = {
+            &#39;deleted&#39;: [],
+            &#39;created&#39;: []
+        }
+        
+        for t in delete_tags:
+            res = self.remove_tag(task_gid, t[&#39;name&#39;], tag_list)
+            results[&#39;deleted&#39;].append( res )
+
+        for t in add_tags:
+            res = self.add_tag(task_gid, t, tag_list)
+            results[&#39;created&#39;].append( res )
+
+        return results
+
+    def move_to_section(self, task_gid, section_gid):
+        return self._req(&#34;POST&#34;, f&#34;sections/{section_gid}/addTask&#34;, json={
+            &#34;data&#34;: {
+                &#34;task&#34;: str( task_gid )
+            }
+        })
+
+    def search_tasks(self, search_dict):
+        return self._req(&#34;GET&#34;, f&#39;workspaces/{self.workspace}/tasks/search&#39;, params=search_dict)
+
+    def get_task( self, id ):
+        return self._req( &#34;GET&#34;, f&#39;tasks/{id}&#39; )
+
+    def get_task_stories(self, id):
+        return self._req( &#34;GET&#34;, f&#39;tasks/{id}/stories&#39; ).get(&#34;data&#34;, {})
+    
+    def get_task_comments(self, id):
+        stories = self.get_task_stories(id)
+        return [x for x in stories if x[&#34;resource_subtype&#34;] == &#34;comment_added&#34;]
+
+    def get_task_attachments(self, id):
+        attachments = self._req(&#34;GET&#34;, &#39;attachments&#39;, params={
+            &#34;parent&#34;: id
+        })
+        return attachments
+    
+    def get_attachment(self, gid):
+        return self._req(&#34;GET&#34;, f&#34;attachments/{gid}&#34;).get(&#34;data&#34;,{})
+
+    def list_custom_fields(self):
+        return self._req(&#34;GET&#34;, f&#34;workspaces/{self.workspace}/custom_fields&#34;)
+
+    def upload_task_attachment(self, gid, file_name, file_content, file_content_type=None):
+
+        return self._req( &#34;POST&#34;, f&#34;tasks/{gid}/attachments&#34;, files=[(&#39;file&#39;, (file_name, file_content, file_content_type))] )
+
+    def _taskfields(self, d):
+        newdict = { }
+
+        for k,v in d.items():
+            dictpath_set( newdict, k, v )
+
+        return newdict
+
+    def add_task_tag(self, gid, tag_id):
+        return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/addTag&#34;, json={
+            &#34;data&#34;: {
+                &#34;tag&#34;: str(tag_id)
+            }
+        })
+    
+    def remove_task_tag(self, gid, tag_id):
+        return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/removeTag&#34;, json={
+            &#34;data&#34;: {
+                &#34;tag&#34;: str(tag_id)
+            }
+        })
+
+    def add_task_comment(self, gid, comment):
+        return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/stories&#34;, json={
+                &#34;data&#34;: {
+                    &#34;text&#34;: comment
+                }
+        })
+
+    def create_task(self, fields):
+        &#34;&#34;&#34;Creates a task in Asana with the fields given.
+        The fields are in dict format, with a &#34;.&#34; prefix
+        for custom fields, and normal for other fields, eg.
+        {
+            &#34;name&#34;: &#34;Test Task&#34;
+            &#34;.Area&#34;: &#34;LEX BART TOOL\\ASANA ZAP ADO BART TEST&#34;,
+        }
+
+        Args:
+            fields (dict): A dict of fields to pass to the Task.
+        &#34;&#34;&#34;
+
+        return self._req(&#34;POST&#34;, f&#34;tasks&#34;, json=self.get_update_payload(fields))
+
+    def get_update_payload(self, fields):
+
+        fields = self._taskfields( fields )
+
+        return {
+            &#34;data&#34;: fields
+        }
+    
+    def update_task(self, id, fields):
+        &#34;&#34;&#34;Updates a task in Asana with the fields given.
+        The fields are in dict format, with a &#34;.&#34; prefix
+        for custom fields, and normal for other fields, eg.
+        {
+            &#34;name&#34;: &#34;Test Task&#34;
+            &#34;.Area&#34;: &#34;LEX BART TOOL\\ASANA ZAP ADO BART TEST&#34;,
+        }
+
+        Args:
+            id (str): The task GID.
+            fields (dict): A dict of fields to pass to the Task.
+        &#34;&#34;&#34;
+
+        return self._req(&#34;PUT&#34;, f&#34;tasks/{id}&#34;, json=self.get_update_payload(fields))
+
+    def download_attachment(self, gid, return_content_only=False):
+        attachment = self.get_attachment(gid)
+
+        file_url = attachment.get(&#34;download_url&#34;)
+        file_name = attachment.get(&#34;name&#34;)
+
+        if not file_url: return None
+
+        tempfile = f&#34;temp_{file_name}&#34;
+
+        filedata = requests.get(file_url, allow_redirects=True)
+
+        if return_content_only:
+            return filedata.content
+
+        with open(tempfile, &#34;wb&#34;) as f:
+            f.write(filedata.content)
+
+        return tempfile
+
+
+#####################################################################################
+
+class LookupFunction():
+    def __init__(self, function, key):
+        self.function = function
+        self.key = key
+
+    def __call__(self, *args, **kwargs):
+        return self.function(*args, **kwargs)
+
+class LookupTable():
+    def __init__(self):
+        self.steps = []
+
+    def _dictvalues(self, d, use_dot_notation=True):
+        newdict = {}
+        for k,v in d.items():
+            k,v = self._parse(k,v)
+            newdict[k] = v
+        
+        return newdict
+
+    def _parse(self, k, v):
+        parsing_rules = {
+            &#34;$K&#34;: k, # Replace with the key
+            &#34;$S&#34;: &#34;System.{k}&#34;.format(k=k.replace(&#34; &#34;, &#34;&#34;)), # Replace with System.{key}
+        }
+
+        for kk,vv in parsing_rules.items():
+            v = v.replace(kk, vv)
+
+        return k, v
+
+    def __getitem__(self, key):
+        return self.data.get(key,None)
+    
+    def __setitem__(self, key, val):
+        self._setvalue( key, val )
+
+    def add_func(self, func):
+        self.steps.append({
+            &#34;function&#34;: func
+        })
+
+        return self
+
+    def add_step(self, lookup_dict, remove_unconverted=False, use_dot_notation=True, **kwargs):
+        fallbacks = kwargs.get(&#34;fallbacks&#34;, {})
+        self.steps.append({
+            &#34;dict&#34;: self._dictvalues(lookup_dict, use_dot_notation=use_dot_notation),
+            &#34;remove_unconverted&#34;: remove_unconverted,
+            &#34;fallbacks&#34;: fallbacks
+        })
+        
+        return self
+
+    def reverse_steps(self):
+        &#34;&#34;&#34;Swaps the keys and values of the steps,
+        and reverses the order.
+        &#34;&#34;&#34;
+
+        newsteps = []
+
+        for step in self.steps:
+            if not &#39;dict&#39; in step: continue
+            d = step[&#39;dict&#39;]
+            r = step[&#39;remove_unconverted&#39;]
+            newd = dict( zip( d.values(), d.keys() ) )
+            newstep = {
+                &#39;dict&#39;: newd,
+                &#39;remove_unconverted&#39;: r
+            }
+            newsteps.append(newstep)
+
+        newsteps.reverse()
+
+        self.steps = newsteps
+
+        return self
+
+    def convert(self, input_dict, case_sensitive=True):
+        output_dicts = []
+
+        # initial_dict = input_dict
+
+        # foo: bar
+        # bar: baz
+
+        # foo -&gt; bar -&gt; bar
+
+        for step in self.steps:
+
+            lookup_dict = step[&#34;dict&#34;]
+
+            if not case_sensitive:
+                lookup_dict = {k.upper():v for k,v in lookup_dict.items()}
+                input_dict  = {k.upper():v for k,v in input_dict.items()}
+
+            remove_unconverted = step[&#34;remove_unconverted&#34;]
+            
+            step_dict = {}
+
+            for k,v in input_dict.items():
+                
+                converted_key = lookup_dict.get(k)
+
+                # if callable(converted_key):
+                #     converted_key = converted_key(v)
+                
+                if converted_key:
+                    step_dict[converted_key] = v
+                    continue
+                # else:
+                #     fallback = fallbacks.get(converted_key)
+                if not remove_unconverted: step_dict[k] = v
+
+            input_dict = dict(step_dict) # Set the input to the latest step output
+            output_dicts.append( step_dict )
+
+        return output_dicts[-1]
+
+#####################################################################################
+#####################################################################################
+#####################################################################################
+#####################################################################################
+#####################################################################################</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="boilerplate.clear_list"><code class="name flex">
+<span>def <span class="ident">clear_list</span></span>(<span>queue)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clear_list(queue):
+    STORE.set(queue, {
+        &#39;list&#39;: []
+    })
+
+    return True</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.consume_store_list"><code class="name flex">
+<span>def <span class="ident">consume_store_list</span></span>(<span>queue)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve, then clear, a list from the store.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>store</code></strong> :&ensp;<code>str, UUID</code></dt>
+<dd>The Store's UUID</dd>
+<dt><strong><code>name</code></strong> :&ensp;<code>str, key</code></dt>
+<dd>The key to access</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list retrieved from the store.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def consume_store_list(queue):
+    &#34;&#34;&#34;Retrieve, then clear, a list from the store.
+
+    Args:
+        store (str, UUID): The Store&#39;s UUID
+        name (str, key): The key to access
+
+    Returns:
+        list: A list retrieved from the store.
+    &#34;&#34;&#34;
+    l = get_list(queue)
+    if not isinstance( l, list ) or not l:
+        l = []
+    clear_list(queue) # Reset
+
+    return l</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.convert_custom_fields"><code class="name flex">
+<span>def <span class="ident">convert_custom_fields</span></span>(<span>taskfields, fields)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def convert_custom_fields(taskfields, fields):
+    for f in taskfields:
+        cfn = f&#39;custom_fields.{f.name}&#39;
+        options = f.options
+
+        val = fields.get(cfn)
+
+        if val:
+            newcfn = f&#39;custom_fields.{f.id}&#39;
+
+            print(&#34;---&#34;)
+            print(cfn)
+            print(newcfn)
+            print(&#34;---&#34;)
+
+            if options:
+                print(f&#39;Option set: &#39;)
+                pprint(options)
+                for option in options:
+                    o = option[&#39;name&#39;].replace(&#34;\\&#34;,&#34;/&#34;).upper()
+                    v = str(val).replace(&#34;\\&#34;, &#34;/&#34;).upper()
+                    n = re.findall(r&#34;\d\.&#34;, v)
+                    print(o)
+                    print(&#39;  =  &#39;)
+                    print(v)
+                    if v in o:
+                        val = option[&#39;gid&#39;]
+                    if n and o.startswith(n[0]):
+                        val = option[&#39;gid&#39;]
+
+            fields[newcfn] = val
+
+            del fields[cfn]
+            continue
+
+    for k in fields:
+        if k.startswith(&#39;custom_fields.&#39;) and not re.match(r&#39;custom_fields\.\d+&#39;,k):
+            fields[k] = None
+
+    fields = {k:v for k,v in fields.items() if v != None}
+
+    for k,v in fields.items():
+        print(f&#34;Matching {str(v).strip()}&#34;)
+        if re.match(r&#34;\d{4}-\d{2}-\d{2}&#34;, str(v).strip()):
+            v = date_to_json(v)
+            fields[k] = v
+
+    return fields</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.date_to_json"><code class="name flex">
+<span>def <span class="ident">date_to_json</span></span>(<span>date)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def date_to_json( date ):
+    dt = date.split(&#34;T&#34;)
+
+    return {
+        &#34;date&#34;: dt[0] if dt else None,
+        &#34;datetime&#34;: (dt[0] + dt[1]) if dt and len(dt) &gt; 1 else None
+    }</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.dictpath"><code class="name flex">
+<span>def <span class="ident">dictpath</span></span>(<span>target, path, new_value=None, set_values=False, strict=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dictpath( target, path, new_value=None, set_values=False, strict=False ):
+    steps = path.split(&#34;.&#34;)
+
+    base = target
+    
+    for i,step in enumerate(steps):
+        last = i == len(steps) - 1
+        
+        if not target.get(step) and not strict:
+            if not last:
+                target[step] = {}
+            else:
+                print(&#39;last&#39;)
+                break
+
+        target = target[step]
+
+    if set_values:
+        target[step] = new_value
+    
+    return target[step]</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.dictpath_set"><code class="name flex">
+<span>def <span class="ident">dictpath_set</span></span>(<span>target, path, new_value=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dictpath_set(target, path, new_value=None):
+    return dictpath( target, path, new_value, True, False )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.dump_input_data"><code class="name flex">
+<span>def <span class="ident">dump_input_data</span></span>(<span>d, filepath='input_data.json')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dump_input_data(d, filepath=&#39;input_data.json&#39;):
+    with open(&#39;input_data.json&#39;, &#39;w&#39;) as f:
+        json.dump( d, f )
+
+    return True</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.errorDict"><code class="name flex">
+<span>def <span class="ident">errorDict</span></span>(<span>msg, data=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def errorDict(msg, data=None):
+    return {
+        &#34;errored&#34;: True,
+        &#34;message&#34;: msg,
+        &#34;data&#34;: data
+    }</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.get_list"><code class="name flex">
+<span>def <span class="ident">get_list</span></span>(<span>queue)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_list(queue):
+    l = STORE.get(queue)
+
+    if not isinstance(l, dict):
+        l = {&#39;list&#39;: []}
+
+    l = l.get(&#39;list&#39;, [])
+
+    return l</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.get_output"><code class="name flex">
+<span>def <span class="ident">get_output</span></span>(<span>main_func)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_output(main_func):
+    try:
+        data = main_func()
+        data.update({
+            &#34;warnings&#34;: WARNINGS
+        })
+        return data
+    except HaltException as e:
+        return errorDict(e.message, {
+            &#34;error_data&#34;: e.data,
+            &#34;warnings&#34;: WARNINGS
+        })</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.load_input_data"><code class="name flex">
+<span>def <span class="ident">load_input_data</span></span>(<span>filepath='input_data.json')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_input_data(filepath=&#39;input_data.json&#39;):
+    with open(&#39;input_data.json&#39;, &#39;r&#39;) as f:
+        return json.load(f)</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.log"><code class="name flex">
+<span>def <span class="ident">log</span></span>(<span>msg)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def log( msg ):
+    if LOGGING: print(msg)</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.obscure"><code class="name flex">
+<span>def <span class="ident">obscure</span></span>(<span>string: str) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def obscure(string: str) -&gt; str:
+    data = string.encode(&#39;utf-8&#39;)
+    return b64e(zlib.compress(data, 9)).decode(&#39;utf-8&#39;)</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.output"><code class="name flex">
+<span>def <span class="ident">output</span></span>(<span>func, input_data)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def output(func, input_data):
+    new_data = get_output(func)
+    pprint(new_data)
+    input_data.update(new_data)
+    dump_input_data(input_data)
+    return new_data</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.push_to_list"><code class="name flex">
+<span>def <span class="ident">push_to_list</span></span>(<span>queue, entity_id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def push_to_list(queue, entity_id):
+    STORE.list_push(queue, entity_id)
+
+    return True</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.remove_html_tags"><code class="name flex">
+<span>def <span class="ident">remove_html_tags</span></span>(<span>input_str)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_html_tags(input_str):
+    replacements = {
+        &#34;\n&#34;: [&#39;br&#39;, &#39;p&#39;, &#39;h1&#39;, &#39;h2&#39;, &#39;h3&#39;, &#39;h4&#39;,&#39;tr&#39;, &#39;th&#39;],
+        &#34;\n=======\n&#34;: [&#39;/h1&#39;],
+        &#34;\n-------\n&#34;: [&#39;/h2&#39;],
+        &#34;\n-----\n&#34;: [&#39;/h3&#39;],
+        &#34;\n---\n&#34;: [&#39;/h4&#39;],
+        &#34;\n\n&#34;: [&#39;/p&#39;],
+        &#34;- &#34;: [&#39;li&#39;],
+        &#34;----------------------------------------&#34;: [&#39;hr&#39;]
+    }
+
+    def replace_tag(inp, tag, replacement):
+        return inp.replace(f&#34;&lt;{tag}&gt;&#34;,replacement).replace(f&#34;&lt;{tag}/&gt;&#34;, replacement)
+
+    input_str = input_str.strip()
+
+    for r,l in replacements.items():
+        for t in l:
+            input_str = replace_tag( input_str, t, r)
+            
+    input_str = input_str.replace(r&#34;&amp;nbsp;&#34;, &#34; &#34;)
+
+    # Get rid of all other HTML tags
+    regex = r&#34;&lt;[^&gt;]+&gt;&#34;
+    return re.sub(regex, &#34;&#34;, input_str)</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.retry"><code class="name flex">
+<span>def <span class="ident">retry</span></span>(<span>queue, entity_id, fields=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def retry(queue, entity_id, fields=None):
+    store = StoreClient(&#34;6c72da37-fed3-4efb-9bfc-612bf2996fb6&#34;)
+    store.list_push(queue, entity_id)
+
+    return True</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.text_to_html"><code class="name flex">
+<span>def <span class="ident">text_to_html</span></span>(<span>text)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def text_to_html(text):
+    text = text.replace(&#39;\n&#39;, &#39;&lt;br/&gt;&#39;).replace(r&#34;&amp;nbsp;&#34;, &#34; &#34;)
+    
+    return f&#34;&lt;div&gt;{text}&lt;/div&gt;&#34;</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.unobscure"><code class="name flex">
+<span>def <span class="ident">unobscure</span></span>(<span>string: str) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def unobscure(string: str) -&gt; str:
+    obscured = string.encode(&#39;utf-8&#39;)
+    return zlib.decompress(b64d(obscured)).decode(&#39;utf-8&#39;)</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.unzip_kv"><code class="name flex">
+<span>def <span class="ident">unzip_kv</span></span>(<span>lines, key)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def unzip_kv(lines, key):
+    keys = [x[key] for x in lines]
+    values = [x for x in lines]
+
+    return dict( zip(keys,values) )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.warn"><code class="name flex">
+<span>def <span class="ident">warn</span></span>(<span>msg, data=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def warn(msg, data=None):
+    WARNINGS.append({
+        &#34;message&#34;: msg,
+        &#34;data&#34;: data
+    })
+    return WARNINGS</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="boilerplate.AdoClient"><code class="flex name class">
+<span>class <span class="ident">AdoClient</span></span>
+<span>(</span><span>user, pat, org, version='7.1-preview.3')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>HTTP Client for Azure DevOps.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AdoClient(LoggingClient):
+    &#34;&#34;&#34;HTTP Client for Azure DevOps.
+    &#34;&#34;&#34;
+    def __init__( self, user, pat, org, version=&#34;7.1-preview.3&#34; ):
+        self.user = user
+        self.pat = pat
+        self.org = org
+        self.proj = None
+        self.version = version
+        self.base_version = version
+        self.request_cache = {}
+        super().__init__()
+
+    @classmethod
+    def is_error(cls, d):
+        return &#39;errorCode&#39; in d or &#39;innerException&#39; in d or not isinstance(d, dict)
+
+    def work_item_project(self, work_item_dict):
+        proj_name = work_item_dict.get(&#39;fields&#39;, {}).get(&#39;System.TeamProject&#39;)
+
+        return self.find_project(proj_name)
+
+    def set_version(self, version=None):
+        version = version or self.base_version
+        self.version = version
+        return self
+
+    def set_org(self, org):
+        &#34;&#34;&#34;Set the target organisation for this client. 
+        
+        :param org: The organisation name
+        :type org: string
+        :return: self
+        &#34;&#34;&#34;
+        self.org = org
+        return self
+
+    def set_project(self, proj):
+        &#34;&#34;&#34;Set the target project for this client.
+        
+        :param proj: The project ID
+        :type proj: string
+        :return: self
+        &#34;&#34;&#34;
+        self.proj = proj
+        return self
+
+    def reset_project(self):
+        self.proj = None
+        return self
+    
+    def set_team(self, team):
+        &#34;&#34;&#34;Set the target team for this client.
+        
+        :param team: The team ID
+        :type team: string
+        :return: self
+        &#34;&#34;&#34;
+        self.team = team
+        return self
+
+    def set_board(self, board):
+        &#34;&#34;&#34;Set the board target for this client.
+
+        Args:
+            board (str): The ID of the board.
+
+        Returns:
+            self: Self
+        &#34;&#34;&#34;
+        self.board = board
+        return self
+
+    def get_core_url(self, *args):
+        &#34;&#34;&#34;Gets the URL for Core API endpoints (including only the organisation)
+        
+        :return: A URL composed of the Organisation and the base URL.
+        :rtype: string
+        &#34;&#34;&#34;
+        return f&#34;https://dev.azure.com/{self.org}/_apis/{&#39;/&#39;.join( args )}/&#34;
+
+    def get_main_url(self, *args):
+        &#34;&#34;&#34;Gets the URL for Core API endpoints, including the organisation, project, and team.
+        
+        :param *args: Path parameters to append to the end of the URL.
+        :return: A URL composed of the organisation, project, team and the base URL, along with optional path parameters appended.
+        :rtype: string
+        &#34;&#34;&#34;
+        if not self.team:
+            return self.get_project_url(*args)
+
+        return f&#34;https://dev.azure.com/{self.org}/{self.proj[&#39;id&#39;]}/{self.team[&#39;id&#39;]}/_apis/{&#39;/&#39;.join( args )}/&#34;
+
+    def get_search_url(self, *args):
+        return f&#34;https://almsearch.dev.azure.com/{self.org}/{self.proj[&#39;id&#39;]}/_apis/{&#39;/&#39;.join( args )}/&#34;
+
+    def get_project_url(self, *args):
+        &#34;&#34;&#34;Gets the URL for Core API endpoints, including the organisation and project.
+        
+        :param *args: Path parameters to append to the end of the URL.
+        :return: A URL composed of the organisation, project, and the base URL, along with optional path parameters appended.
+        :rtype: string
+        &#34;&#34;&#34;
+        if not self.proj:
+            return self.get_core_url(*args)
+
+        return f&#34;https://dev.azure.com/{self.org}/{self.proj[&#39;id&#39;]}/_apis/{&#39;/&#39;.join( args )}/&#34;
+
+    def kv_to_azure_ops(self, fields, default_op=&#34;add&#34;, fieldpath_prefix=&#34;/fields/&#34;):
+        ops = []
+
+        for k,v in fields.items():
+            klist = k.split(&#34;||&#34;)
+            op = default_op
+
+            if k.startswith(&#34;/&#34;):
+                fieldpath_prefix = &#34;&#34;
+
+            if len(klist) &gt; 1:
+                key, op = klist
+            else:
+                key = klist[0]
+
+            obj = {
+                &#34;op&#34;: op,
+                &#34;path&#34;: fieldpath_prefix + key,
+                &#34;value&#34;: v
+            }
+
+            ops.append( obj )
+
+        return ops
+
+    def create_field(self, name, desc=None, ftype=&#34;string&#34;, usage=&#34;workItem&#34;, readOnly=False, canSortBy=False, isQueryable=True ):
+        d = {
+            &#34;name&#34;: name,
+            &#34;referenceName&#34;: &#34;SupportedOperations.GreaterThanEquals&#34;,
+            &#34;description&#34;: desc,
+            &#34;type&#34;: ftype,
+            &#34;usage&#34;: usage,
+            &#34;readOnly&#34;: readOnly,
+            &#34;canSortBy&#34;: canSortBy,
+            &#34;isQueryable&#34;: isQueryable,
+            &#34;supportedOperations&#34;: [
+                {
+                &#34;referenceName&#34;: &#34;SupportedOperations.Equals&#34;,
+                &#34;name&#34;: &#34;=&#34;
+                }
+            ]
+        }
+        return self._req( &#39;POST&#39;, &#39;fields&#39;, self.get_project_url, [&#39;wit&#39;], params={ &#34;api-version&#34;:&#34;6.0&#34; }, json=d )
+        
+    def _req( self, method, endpoint, url_function=None, url_function_args=(), get_content=False, **kwargs ):
+        &#34;&#34;&#34;Private function to call requests.request() safely.
+        
+        :param method: The method to use eg. &#39;GET&#39;, &#39;POST&#39;, &#39;DELETE&#39;, &#39;PATCH&#39;, &#39;PUT&#39;.
+        :param endpoint: The final element of the URL eg. https://api.com/api/path/to/my/endpoint
+        :param url_function: The URL function to use to build the correct URL eg. `get_project_url`, `get_main_url`, `get_core_url`.
+        :param url_function_args: The arguments to pass to the URL function, which will add path params before the endpoint.
+        :param **kwargs: Any other keywords you need to pass to the request.
+        :return: The response from the request.
+        :rtype: dict or str
+        &#34;&#34;&#34;
+
+        url_function = url_function or self.get_core_url
+
+        url = url_function(*url_function_args) + endpoint
+
+        log(f&#34;{method} =&gt; {url}&#34;)
+
+        params = {
+            &#34;api-version&#34;: self.version
+        }
+        params.update(kwargs.get(&#34;params&#34;,{}))
+
+        kwargs[&#34;params&#34;] = params
+
+        res = requests.request(method, url, **kwargs, auth=( self.user, self.pat ))
+
+        try:
+            body = res.json()
+        except:
+            body = { &#34;text&#34;: res.text }
+
+        self._log_req( method, url, res, **kwargs )
+
+        if get_content: return res.content
+
+        body.update({
+            &#34;response_meta&#34;: {
+                &#34;status_code&#34;: res.status_code,
+                &#34;ok&#34;: res.ok
+            }
+        })
+
+        return body
+    
+    def _list( self, res ):
+        &#34;&#34;&#34;Helper function to list values from a response.
+
+        Args:
+            res (dict): The dict to list.
+
+        Returns:
+            list: The list contained within the dict, if any.
+        &#34;&#34;&#34;
+        try:
+            return res.get(&#39;value&#39;, [])
+        except:
+            return res
+
+    def list_teams( self ):
+        &#34;&#34;&#34;Retrieve a list of teams.
+
+        :return: A list of teams.
+        :rtype: list
+        &#34;&#34;&#34;
+        return self._list(self._req( &#39;GET&#39;, &#39;teams&#39; ))
+
+    def list_extension_documents( self, publisher, extension_name, collection_name ):
+        # _apis/ExtensionManagement/InstalledExtensions/agile-extensions/dod/Data/Scopes/Default/Current/Collections/definitionOfDone/Documents
+        return self._req( &#34;GET&#34;, f&#39;ExtensionManagement/InstalledExtensions/{publisher}/{extension_name}/Data/Scopes/Default/Current/Collections/{collection_name}/Documents&#39;, lambda *_:f&#34;https://{self.org}.extmgmt.visualstudio.com/_apis/&#34;, [], False, params={&#39;api-version&#39;: &#39;6.1-preview&#39;} )
+
+    def find_project(self, project_name):
+        projects = self.list_projects()
+        try:
+            return [x for x in projects if x[&#39;name&#39;] == project_name][0]
+        except Exception:
+            return None
+
+    def list_projects( self ):
+        &#34;&#34;&#34;Retrieve a list of projects.
+
+        :return: A list of projects.
+        :rtype: list
+        &#34;&#34;&#34;
+        return self._list(self._req( &#39;GET&#39;, &#39;projects&#39; ))
+
+    def list_iterations( self ):
+        &#34;&#34;&#34;Retrieve a list of iterations for a team.
+
+        Returns:
+            list: A list of iteration objects.
+        &#34;&#34;&#34;
+        return self._req( &#34;GET&#34;, &#34;iterations&#34;, self.get_main_url, [&#34;work&#34;, &#34;teamsettings&#34;], params={&#34;api-version&#34;: 6.0} )
+
+    def list_boards( self ):
+        &#34;&#34;&#34;Retrieve a list of boards.
+
+        :return: A list of boards.
+        :rtype: list
+        &#34;&#34;&#34;
+        return self._list(self._req( &#39;GET&#39;, &#39;boards&#39;, self.get_main_url, [&#39;work&#39;] ))
+
+    def list_project_board_columns( self ):
+        return self._list(self._req( &#39;GET&#39;, &#39;boardcolumns&#39;, self.get_project_url, [&#39;work&#39;] ))
+
+    def list_project_board_rows( self ):
+        return self._list(self._req( &#39;GET&#39;, &#39;boardrows&#39;, self.get_project_url, [&#39;work&#39;] ))
+
+    def list_board_columns( self, board_id ):
+        return self._list(self._req( &#39;GET&#39;, &#39;columns&#39;, self.get_main_url, [&#39;work&#39;, &#39;boards&#39;, str(board_id)] ))
+
+    def list_board_rows( self, board_id ):
+        return self._list(self._req( &#39;GET&#39;, &#39;rows&#39;, self.get_main_url, [&#39;work&#39;, &#39;boards&#39;, str(board_id)] ))
+
+    def list_work_item_types( self ):
+        return [x[&#34;name&#34;] for x in self._list(self._req(&#39;GET&#39;, &#39;workitemtypes&#39;, self.get_project_url, [&#39;wit&#39;], params={&#34;api-version&#34;: &#34;6.0&#34;}))]
+
+    def list_fields( self ):
+        return [{&#34;name&#34;: x[&#34;name&#34;], &#34;ref&#34;: x[&#34;referenceName&#34;]} for x in self._list(self._req(&#39;GET&#39;, &#39;fields&#39;, self.get_project_url, [&#39;wit&#39;], params={&#34;api-version&#34;: &#34;6.0&#34;, &#34;$expand&#34;: &#34;extensionFields&#34;}))]
+
+    def get_work_item( self, id ):
+        &#34;&#34;&#34;Retrieve a specific work item via its ID.
+
+        :return: A single work item.
+        :rtype: dict
+        &#34;&#34;&#34;
+        return self._req( &#39;GET&#39;, str(id), self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;], params={ &#34;$expand&#34;: &#34;All&#34; } )
+
+    def get_work_items( self, ids ):
+        &#34;&#34;&#34;Retrieve multiple work items via its ID.
+
+        :return: A number of work items.
+        :rtype: dict
+        &#34;&#34;&#34;
+        d = {
+            &#34;ids&#34;: ids,
+            &#34;fields&#34;: [
+                &#34;System.Id&#34;,
+                &#34;System.ChangedDate&#34;
+            ]
+        }
+        return self._req( &#39;POST&#39;, &#39;workitemsbatch&#39;, self.get_project_url, [&#39;wit&#39;,], params={ &#34;api-version&#34;:&#34;6.0&#34;, &#34;$expand&#34;: &#34;All&#34; }, json=d )
+        
+    def query_work_items(self, query):
+        return self._req(&#39;POST&#39;, &#39;wiql&#39;, self.get_core_url, [&#39;wit&#39;], json={
+            &#34;query&#34;: query
+        },
+        params={
+            &#34;api-version&#34;: &#34;6.0&#34;,
+            &#34;timePrecision&#34;: True
+        })
+
+    def list_work_item_comments(self, id):
+        return self._req( &#39;GET&#39;, &#34;comments&#34;, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;, str(id)] )
+
+    def add_comment_to_work_item(self, text, id):
+        return self._req( &#39;POST&#39;, &#34;comments&#34;, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;, str(id)], json={&#34;text&#34;: text}, params={&#34;api-version&#34;:&#34;6.0-preview.3&#34;} )
+
+    def add_hyperlink_to_work_item(self, name, link):
+        res = self.update_work_item(id, {
+            &#34;-&#34;: {
+                &#34;rel&#34;: &#34;Hyperlink&#34;,
+                &#34;url&#34;: link,
+                &#34;attributes&#34;: {
+                    &#39;usage&#39;: name
+                }
+            }
+        },fieldpath_prefix=&#39;/relations/&#39;)
+
+        return res
+    
+    def add_attachment_relation_to_work_item(self, url, filename, id):
+        &#34;&#34;&#34;Helper function to add an attachment relation to a work item.
+
+        Args:
+            url (str): The URL to relate.
+            filename (str): The filename of the attachment.
+            id (str): The work item ID.
+
+        Returns:
+            dict: the update_work_item response.
+        &#34;&#34;&#34;
+        res = self.update_work_item(id, {
+            &#34;-&#34;: {
+                &#34;rel&#34;: &#34;AttachedFile&#34;,
+                &#34;url&#34;: url,
+                &#34;attributes&#34;: {
+                    &#39;name&#39;: filename,
+                    &#39;comment&#39;: &#39;File uploaded via integration.&#39;
+                }
+            }
+        },fieldpath_prefix=&#39;/relations/&#39;)
+
+        return res
+
+    def upload_attachment_to_work_item(self, file_path, id, name=&#34;&#34; ):
+        if isinstance(file_path, str):
+            with open(file_path, &#39;rb&#39;) as f:
+                data = f.read()
+        else:
+            data = file_path
+        
+        upl_res = self._req(&#39;POST&#39;, &#39;attachments&#39;, self.get_project_url, [&#39;wit&#39;], headers={&#34;Content-Type&#34;: &#34;application/octet-stream&#34;}, data=data, params={&#34;api-version&#34;: &#34;6.0&#34;})
+
+        att_res = self.add_attachment_relation_to_work_item( upl_res.get(&#34;url&#34;), name, id )
+
+        return [upl_res, att_res]
+    
+
+    def list_work_item_attachments(self, id):
+        wi = self.get_work_item(id)
+
+        rels = wi.get(&#34;relations&#34;,[])
+
+        return [{
+            &#34;url&#34;: a[&#34;url&#34;],
+            &#34;id&#34;: a[&#39;attributes&#39;][&#34;id&#34;],
+            &#34;filename&#34;: a[&#39;attributes&#39;].get(&#34;name&#34;,&#34;&#34;)
+        } for a in rels if a.get(&#34;rel&#34;,&#34;&#34;) == &#34;AttachedFile&#34;]
+
+    def get_attachment_content(self, aid):
+        &#34;&#34;&#34;Retrieve the content data of an attachment in our ADO database.
+
+        &#34;&#34;&#34;
+        return self._req(&#39;GET&#39;, f&#39;attachments/{aid}&#39;, self.get_core_url, [&#39;wit&#39;], params={&#39;api-version&#39;: &#39;6.0&#39;}, get_content=True)
+
+    def work_item_has_attachment(self, id, filename):
+        attachments = self.list_work_item_attachments(id)
+        filenames = [a[&#34;filename&#34;] for a in attachments]
+
+        if filename in filenames: return True
+        return False
+
+    def _search_results( self, res ):
+        results = res.get(&#34;results&#34;,[])
+
+        return [ x[&#34;fields&#34;] for x in results ]
+
+    def search_work_items( self, text, area, skip=0, top=100, order_by_fields=[[&#34;system.id&#34;, &#34;ASC&#34;]]):
+        &#34;&#34;&#34;Retrieve a list of search results for work items in the current project.
+
+        Args:
+            text (str): The text to search for.
+            area (str): The `AreaPath &lt;https://learn.microsoft.com/en-us/azure/devops/boards/queries/query-by-area-iteration-path?view=azure-devops/&gt;`_ to query by.
+            skip (int, optional): The number of entries to skip - basically a &#39;cursor&#39; parameter. Defaults to 0.
+            top (int, optional): The number of entries maximum to return. Defaults to 100.
+            order_by_fields (list, optional): The order-by for the fields given, in a list of lists format; [ [&#39;field&#39;, &#39;ASC|DESC&#39;] ]. Defaults to [ [&#34;system.id&#34;, &#34;ASC&#34;] ].
+
+        Returns:
+            dict: The response containing search results.
+        &#34;&#34;&#34;
+        data = {
+            &#34;searchText&#34;: text,
+            &#34;$skip&#34;: skip,
+            &#34;$top&#34;: top,
+            &#34;filters&#34;: {
+                &#34;System.AreaPath&#34;: [
+                    area
+                ]
+            },
+            &#34;$orderBy&#34;: [
+                {&#34;field&#34;: x[0], &#34;sortOrder&#34;: x[1]} for x in order_by_fields   
+            ],
+            &#34;includeFacets&#34;: True
+        }
+
+        return self._search_results( self._req(&#39;POST&#39;, &#39;workitemsearchresults&#39;, self.get_search_url, [&#39;search&#39;], json=data, params={&#34;api-version&#34;: &#34;6.0-preview.1&#34;}) )
+
+    def update_work_item(self, workitem_id, fields={}, fieldpath_prefix=&#34;/fields/&#34;):
+        &#34;&#34;&#34;Updates the given workitem by its ID, with a set of fields.
+
+        Args:
+            workitem_id (str): The workitem&#39;s ID, as a six digit string.
+            fields (dict, optional): Fields with the format {&#34;key&#34;: &#34;value&#34;, ...}. Defaults to {}.
+
+        Returns:
+            dict: The response dict, containing changes that were made plus their statuses.
+        &#34;&#34;&#34;
+
+        azureOps = self.kv_to_azure_ops( fields, fieldpath_prefix=fieldpath_prefix )
+
+        pprint(azureOps)
+
+        headers = {
+            &#34;Content-Type&#34;: &#34;application/json-patch+json&#34;
+        }
+
+        return self._req(&#39;PATCH&#39;, workitem_id, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;], headers=headers, json=azureOps)
+
+    def create_work_item(self, fields={}, workitem_type=&#34;task&#34;):
+        &#34;&#34;&#34;Creates a work item with the relevant fields given.
+
+        Args:
+            fields (dict): A dict of fields with the format {&#34;key&#34;: &#34;value&#34;, ...}. Remember to supply &#34;System.&lt;key&gt;&#34; for system fields! Defaults to {}.
+        &#34;&#34;&#34;
+
+        headers = {
+            &#34;Content-Type&#34;: &#34;application/json-patch+json&#34;
+        }
+
+        return self._req( &#39;POST&#39;, f&#34;${workitem_type}&#34;, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;], json=self.kv_to_azure_ops( fields ), headers=headers, params={&#34;api-version&#34;: &#34;6.0&#34;} )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="boilerplate.LoggingClient" href="#boilerplate.LoggingClient">LoggingClient</a></li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="boilerplate.AdoClient.is_error"><code class="name flex">
+<span>def <span class="ident">is_error</span></span>(<span>d)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def is_error(cls, d):
+    return &#39;errorCode&#39; in d or &#39;innerException&#39; in d or not isinstance(d, dict)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="boilerplate.AdoClient.add_attachment_relation_to_work_item"><code class="name flex">
+<span>def <span class="ident">add_attachment_relation_to_work_item</span></span>(<span>self, url, filename, id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper function to add an attachment relation to a work item.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>url</code></strong> :&ensp;<code>str</code></dt>
+<dd>The URL to relate.</dd>
+<dt><strong><code>filename</code></strong> :&ensp;<code>str</code></dt>
+<dd>The filename of the attachment.</dd>
+<dt><strong><code>id</code></strong> :&ensp;<code>str</code></dt>
+<dd>The work item ID.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>the update_work_item response.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_attachment_relation_to_work_item(self, url, filename, id):
+    &#34;&#34;&#34;Helper function to add an attachment relation to a work item.
+
+    Args:
+        url (str): The URL to relate.
+        filename (str): The filename of the attachment.
+        id (str): The work item ID.
+
+    Returns:
+        dict: the update_work_item response.
+    &#34;&#34;&#34;
+    res = self.update_work_item(id, {
+        &#34;-&#34;: {
+            &#34;rel&#34;: &#34;AttachedFile&#34;,
+            &#34;url&#34;: url,
+            &#34;attributes&#34;: {
+                &#39;name&#39;: filename,
+                &#39;comment&#39;: &#39;File uploaded via integration.&#39;
+            }
+        }
+    },fieldpath_prefix=&#39;/relations/&#39;)
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.add_comment_to_work_item"><code class="name flex">
+<span>def <span class="ident">add_comment_to_work_item</span></span>(<span>self, text, id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_comment_to_work_item(self, text, id):
+    return self._req( &#39;POST&#39;, &#34;comments&#34;, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;, str(id)], json={&#34;text&#34;: text}, params={&#34;api-version&#34;:&#34;6.0-preview.3&#34;} )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.add_hyperlink_to_work_item"><code class="name flex">
+<span>def <span class="ident">add_hyperlink_to_work_item</span></span>(<span>self, name, link)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_hyperlink_to_work_item(self, name, link):
+    res = self.update_work_item(id, {
+        &#34;-&#34;: {
+            &#34;rel&#34;: &#34;Hyperlink&#34;,
+            &#34;url&#34;: link,
+            &#34;attributes&#34;: {
+                &#39;usage&#39;: name
+            }
+        }
+    },fieldpath_prefix=&#39;/relations/&#39;)
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.create_field"><code class="name flex">
+<span>def <span class="ident">create_field</span></span>(<span>self, name, desc=None, ftype='string', usage='workItem', readOnly=False, canSortBy=False, isQueryable=True)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_field(self, name, desc=None, ftype=&#34;string&#34;, usage=&#34;workItem&#34;, readOnly=False, canSortBy=False, isQueryable=True ):
+    d = {
+        &#34;name&#34;: name,
+        &#34;referenceName&#34;: &#34;SupportedOperations.GreaterThanEquals&#34;,
+        &#34;description&#34;: desc,
+        &#34;type&#34;: ftype,
+        &#34;usage&#34;: usage,
+        &#34;readOnly&#34;: readOnly,
+        &#34;canSortBy&#34;: canSortBy,
+        &#34;isQueryable&#34;: isQueryable,
+        &#34;supportedOperations&#34;: [
+            {
+            &#34;referenceName&#34;: &#34;SupportedOperations.Equals&#34;,
+            &#34;name&#34;: &#34;=&#34;
+            }
+        ]
+    }
+    return self._req( &#39;POST&#39;, &#39;fields&#39;, self.get_project_url, [&#39;wit&#39;], params={ &#34;api-version&#34;:&#34;6.0&#34; }, json=d )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.create_work_item"><code class="name flex">
+<span>def <span class="ident">create_work_item</span></span>(<span>self, fields={}, workitem_type='task')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a work item with the relevant fields given.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>fields</code></strong> :&ensp;<code>dict</code></dt>
+<dd>A dict of fields with the format {"key": "value", &hellip;}. Remember to supply "System.<key>" for system fields! Defaults to {}.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_work_item(self, fields={}, workitem_type=&#34;task&#34;):
+    &#34;&#34;&#34;Creates a work item with the relevant fields given.
+
+    Args:
+        fields (dict): A dict of fields with the format {&#34;key&#34;: &#34;value&#34;, ...}. Remember to supply &#34;System.&lt;key&gt;&#34; for system fields! Defaults to {}.
+    &#34;&#34;&#34;
+
+    headers = {
+        &#34;Content-Type&#34;: &#34;application/json-patch+json&#34;
+    }
+
+    return self._req( &#39;POST&#39;, f&#34;${workitem_type}&#34;, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;], json=self.kv_to_azure_ops( fields ), headers=headers, params={&#34;api-version&#34;: &#34;6.0&#34;} )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.find_project"><code class="name flex">
+<span>def <span class="ident">find_project</span></span>(<span>self, project_name)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def find_project(self, project_name):
+    projects = self.list_projects()
+    try:
+        return [x for x in projects if x[&#39;name&#39;] == project_name][0]
+    except Exception:
+        return None</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.get_attachment_content"><code class="name flex">
+<span>def <span class="ident">get_attachment_content</span></span>(<span>self, aid)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve the content data of an attachment in our ADO database.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_attachment_content(self, aid):
+    &#34;&#34;&#34;Retrieve the content data of an attachment in our ADO database.
+
+    &#34;&#34;&#34;
+    return self._req(&#39;GET&#39;, f&#39;attachments/{aid}&#39;, self.get_core_url, [&#39;wit&#39;], params={&#39;api-version&#39;: &#39;6.0&#39;}, get_content=True)</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.get_core_url"><code class="name flex">
+<span>def <span class="ident">get_core_url</span></span>(<span>self, *args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets the URL for Core API endpoints (including only the organisation)</p>
+<p>:return: A URL composed of the Organisation and the base URL.
+:rtype: string</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_core_url(self, *args):
+    &#34;&#34;&#34;Gets the URL for Core API endpoints (including only the organisation)
+    
+    :return: A URL composed of the Organisation and the base URL.
+    :rtype: string
+    &#34;&#34;&#34;
+    return f&#34;https://dev.azure.com/{self.org}/_apis/{&#39;/&#39;.join( args )}/&#34;</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.get_main_url"><code class="name flex">
+<span>def <span class="ident">get_main_url</span></span>(<span>self, *args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets the URL for Core API endpoints, including the organisation, project, and team.</p>
+<p>:param *args: Path parameters to append to the end of the URL.
+:return: A URL composed of the organisation, project, team and the base URL, along with optional path parameters appended.
+:rtype: string</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_main_url(self, *args):
+    &#34;&#34;&#34;Gets the URL for Core API endpoints, including the organisation, project, and team.
+    
+    :param *args: Path parameters to append to the end of the URL.
+    :return: A URL composed of the organisation, project, team and the base URL, along with optional path parameters appended.
+    :rtype: string
+    &#34;&#34;&#34;
+    if not self.team:
+        return self.get_project_url(*args)
+
+    return f&#34;https://dev.azure.com/{self.org}/{self.proj[&#39;id&#39;]}/{self.team[&#39;id&#39;]}/_apis/{&#39;/&#39;.join( args )}/&#34;</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.get_project_url"><code class="name flex">
+<span>def <span class="ident">get_project_url</span></span>(<span>self, *args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets the URL for Core API endpoints, including the organisation and project.</p>
+<p>:param *args: Path parameters to append to the end of the URL.
+:return: A URL composed of the organisation, project, and the base URL, along with optional path parameters appended.
+:rtype: string</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_project_url(self, *args):
+    &#34;&#34;&#34;Gets the URL for Core API endpoints, including the organisation and project.
+    
+    :param *args: Path parameters to append to the end of the URL.
+    :return: A URL composed of the organisation, project, and the base URL, along with optional path parameters appended.
+    :rtype: string
+    &#34;&#34;&#34;
+    if not self.proj:
+        return self.get_core_url(*args)
+
+    return f&#34;https://dev.azure.com/{self.org}/{self.proj[&#39;id&#39;]}/_apis/{&#39;/&#39;.join( args )}/&#34;</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.get_search_url"><code class="name flex">
+<span>def <span class="ident">get_search_url</span></span>(<span>self, *args)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_search_url(self, *args):
+    return f&#34;https://almsearch.dev.azure.com/{self.org}/{self.proj[&#39;id&#39;]}/_apis/{&#39;/&#39;.join( args )}/&#34;</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.get_work_item"><code class="name flex">
+<span>def <span class="ident">get_work_item</span></span>(<span>self, id)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve a specific work item via its ID.</p>
+<p>:return: A single work item.
+:rtype: dict</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_work_item( self, id ):
+    &#34;&#34;&#34;Retrieve a specific work item via its ID.
+
+    :return: A single work item.
+    :rtype: dict
+    &#34;&#34;&#34;
+    return self._req( &#39;GET&#39;, str(id), self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;], params={ &#34;$expand&#34;: &#34;All&#34; } )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.get_work_items"><code class="name flex">
+<span>def <span class="ident">get_work_items</span></span>(<span>self, ids)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve multiple work items via its ID.</p>
+<p>:return: A number of work items.
+:rtype: dict</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_work_items( self, ids ):
+    &#34;&#34;&#34;Retrieve multiple work items via its ID.
+
+    :return: A number of work items.
+    :rtype: dict
+    &#34;&#34;&#34;
+    d = {
+        &#34;ids&#34;: ids,
+        &#34;fields&#34;: [
+            &#34;System.Id&#34;,
+            &#34;System.ChangedDate&#34;
+        ]
+    }
+    return self._req( &#39;POST&#39;, &#39;workitemsbatch&#39;, self.get_project_url, [&#39;wit&#39;,], params={ &#34;api-version&#34;:&#34;6.0&#34;, &#34;$expand&#34;: &#34;All&#34; }, json=d )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.kv_to_azure_ops"><code class="name flex">
+<span>def <span class="ident">kv_to_azure_ops</span></span>(<span>self, fields, default_op='add', fieldpath_prefix='/fields/')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def kv_to_azure_ops(self, fields, default_op=&#34;add&#34;, fieldpath_prefix=&#34;/fields/&#34;):
+    ops = []
+
+    for k,v in fields.items():
+        klist = k.split(&#34;||&#34;)
+        op = default_op
+
+        if k.startswith(&#34;/&#34;):
+            fieldpath_prefix = &#34;&#34;
+
+        if len(klist) &gt; 1:
+            key, op = klist
+        else:
+            key = klist[0]
+
+        obj = {
+            &#34;op&#34;: op,
+            &#34;path&#34;: fieldpath_prefix + key,
+            &#34;value&#34;: v
+        }
+
+        ops.append( obj )
+
+    return ops</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.list_board_columns"><code class="name flex">
+<span>def <span class="ident">list_board_columns</span></span>(<span>self, board_id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_board_columns( self, board_id ):
+    return self._list(self._req( &#39;GET&#39;, &#39;columns&#39;, self.get_main_url, [&#39;work&#39;, &#39;boards&#39;, str(board_id)] ))</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.list_board_rows"><code class="name flex">
+<span>def <span class="ident">list_board_rows</span></span>(<span>self, board_id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_board_rows( self, board_id ):
+    return self._list(self._req( &#39;GET&#39;, &#39;rows&#39;, self.get_main_url, [&#39;work&#39;, &#39;boards&#39;, str(board_id)] ))</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.list_boards"><code class="name flex">
+<span>def <span class="ident">list_boards</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve a list of boards.</p>
+<p>:return: A list of boards.
+:rtype: list</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_boards( self ):
+    &#34;&#34;&#34;Retrieve a list of boards.
+
+    :return: A list of boards.
+    :rtype: list
+    &#34;&#34;&#34;
+    return self._list(self._req( &#39;GET&#39;, &#39;boards&#39;, self.get_main_url, [&#39;work&#39;] ))</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.list_extension_documents"><code class="name flex">
+<span>def <span class="ident">list_extension_documents</span></span>(<span>self, publisher, extension_name, collection_name)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_extension_documents( self, publisher, extension_name, collection_name ):
+    # _apis/ExtensionManagement/InstalledExtensions/agile-extensions/dod/Data/Scopes/Default/Current/Collections/definitionOfDone/Documents
+    return self._req( &#34;GET&#34;, f&#39;ExtensionManagement/InstalledExtensions/{publisher}/{extension_name}/Data/Scopes/Default/Current/Collections/{collection_name}/Documents&#39;, lambda *_:f&#34;https://{self.org}.extmgmt.visualstudio.com/_apis/&#34;, [], False, params={&#39;api-version&#39;: &#39;6.1-preview&#39;} )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.list_fields"><code class="name flex">
+<span>def <span class="ident">list_fields</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_fields( self ):
+    return [{&#34;name&#34;: x[&#34;name&#34;], &#34;ref&#34;: x[&#34;referenceName&#34;]} for x in self._list(self._req(&#39;GET&#39;, &#39;fields&#39;, self.get_project_url, [&#39;wit&#39;], params={&#34;api-version&#34;: &#34;6.0&#34;, &#34;$expand&#34;: &#34;extensionFields&#34;}))]</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.list_iterations"><code class="name flex">
+<span>def <span class="ident">list_iterations</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve a list of iterations for a team.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of iteration objects.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_iterations( self ):
+    &#34;&#34;&#34;Retrieve a list of iterations for a team.
+
+    Returns:
+        list: A list of iteration objects.
+    &#34;&#34;&#34;
+    return self._req( &#34;GET&#34;, &#34;iterations&#34;, self.get_main_url, [&#34;work&#34;, &#34;teamsettings&#34;], params={&#34;api-version&#34;: 6.0} )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.list_project_board_columns"><code class="name flex">
+<span>def <span class="ident">list_project_board_columns</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_project_board_columns( self ):
+    return self._list(self._req( &#39;GET&#39;, &#39;boardcolumns&#39;, self.get_project_url, [&#39;work&#39;] ))</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.list_project_board_rows"><code class="name flex">
+<span>def <span class="ident">list_project_board_rows</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_project_board_rows( self ):
+    return self._list(self._req( &#39;GET&#39;, &#39;boardrows&#39;, self.get_project_url, [&#39;work&#39;] ))</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.list_projects"><code class="name flex">
+<span>def <span class="ident">list_projects</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve a list of projects.</p>
+<p>:return: A list of projects.
+:rtype: list</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_projects( self ):
+    &#34;&#34;&#34;Retrieve a list of projects.
+
+    :return: A list of projects.
+    :rtype: list
+    &#34;&#34;&#34;
+    return self._list(self._req( &#39;GET&#39;, &#39;projects&#39; ))</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.list_teams"><code class="name flex">
+<span>def <span class="ident">list_teams</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve a list of teams.</p>
+<p>:return: A list of teams.
+:rtype: list</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_teams( self ):
+    &#34;&#34;&#34;Retrieve a list of teams.
+
+    :return: A list of teams.
+    :rtype: list
+    &#34;&#34;&#34;
+    return self._list(self._req( &#39;GET&#39;, &#39;teams&#39; ))</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.list_work_item_attachments"><code class="name flex">
+<span>def <span class="ident">list_work_item_attachments</span></span>(<span>self, id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_work_item_attachments(self, id):
+    wi = self.get_work_item(id)
+
+    rels = wi.get(&#34;relations&#34;,[])
+
+    return [{
+        &#34;url&#34;: a[&#34;url&#34;],
+        &#34;id&#34;: a[&#39;attributes&#39;][&#34;id&#34;],
+        &#34;filename&#34;: a[&#39;attributes&#39;].get(&#34;name&#34;,&#34;&#34;)
+    } for a in rels if a.get(&#34;rel&#34;,&#34;&#34;) == &#34;AttachedFile&#34;]</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.list_work_item_comments"><code class="name flex">
+<span>def <span class="ident">list_work_item_comments</span></span>(<span>self, id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_work_item_comments(self, id):
+    return self._req( &#39;GET&#39;, &#34;comments&#34;, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;, str(id)] )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.list_work_item_types"><code class="name flex">
+<span>def <span class="ident">list_work_item_types</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_work_item_types( self ):
+    return [x[&#34;name&#34;] for x in self._list(self._req(&#39;GET&#39;, &#39;workitemtypes&#39;, self.get_project_url, [&#39;wit&#39;], params={&#34;api-version&#34;: &#34;6.0&#34;}))]</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.query_work_items"><code class="name flex">
+<span>def <span class="ident">query_work_items</span></span>(<span>self, query)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def query_work_items(self, query):
+    return self._req(&#39;POST&#39;, &#39;wiql&#39;, self.get_core_url, [&#39;wit&#39;], json={
+        &#34;query&#34;: query
+    },
+    params={
+        &#34;api-version&#34;: &#34;6.0&#34;,
+        &#34;timePrecision&#34;: True
+    })</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.reset_project"><code class="name flex">
+<span>def <span class="ident">reset_project</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset_project(self):
+    self.proj = None
+    return self</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.search_work_items"><code class="name flex">
+<span>def <span class="ident">search_work_items</span></span>(<span>self, text, area, skip=0, top=100, order_by_fields=[['system.id', 'ASC']])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve a list of search results for work items in the current project.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>text</code></strong> :&ensp;<code>str</code></dt>
+<dd>The text to search for.</dd>
+<dt><strong><code>area</code></strong> :&ensp;<code>str</code></dt>
+<dd>The <code>AreaPath &lt;https://learn.microsoft.com/en-us/azure/devops/boards/queries/query-by-area-iteration-path?view=azure-devops/&gt;</code>_ to query by.</dd>
+<dt><strong><code>skip</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>The number of entries to skip - basically a 'cursor' parameter. Defaults to 0.</dd>
+<dt><strong><code>top</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>The number of entries maximum to return. Defaults to 100.</dd>
+<dt><strong><code>order_by_fields</code></strong> :&ensp;<code>list</code>, optional</dt>
+<dd>The order-by for the fields given, in a list of lists format; [ ['field', 'ASC|DESC'] ]. Defaults to [ ["system.id", "ASC"] ].</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>The response containing search results.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def search_work_items( self, text, area, skip=0, top=100, order_by_fields=[[&#34;system.id&#34;, &#34;ASC&#34;]]):
+    &#34;&#34;&#34;Retrieve a list of search results for work items in the current project.
+
+    Args:
+        text (str): The text to search for.
+        area (str): The `AreaPath &lt;https://learn.microsoft.com/en-us/azure/devops/boards/queries/query-by-area-iteration-path?view=azure-devops/&gt;`_ to query by.
+        skip (int, optional): The number of entries to skip - basically a &#39;cursor&#39; parameter. Defaults to 0.
+        top (int, optional): The number of entries maximum to return. Defaults to 100.
+        order_by_fields (list, optional): The order-by for the fields given, in a list of lists format; [ [&#39;field&#39;, &#39;ASC|DESC&#39;] ]. Defaults to [ [&#34;system.id&#34;, &#34;ASC&#34;] ].
+
+    Returns:
+        dict: The response containing search results.
+    &#34;&#34;&#34;
+    data = {
+        &#34;searchText&#34;: text,
+        &#34;$skip&#34;: skip,
+        &#34;$top&#34;: top,
+        &#34;filters&#34;: {
+            &#34;System.AreaPath&#34;: [
+                area
+            ]
+        },
+        &#34;$orderBy&#34;: [
+            {&#34;field&#34;: x[0], &#34;sortOrder&#34;: x[1]} for x in order_by_fields   
+        ],
+        &#34;includeFacets&#34;: True
+    }
+
+    return self._search_results( self._req(&#39;POST&#39;, &#39;workitemsearchresults&#39;, self.get_search_url, [&#39;search&#39;], json=data, params={&#34;api-version&#34;: &#34;6.0-preview.1&#34;}) )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.set_board"><code class="name flex">
+<span>def <span class="ident">set_board</span></span>(<span>self, board)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set the board target for this client.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>board</code></strong> :&ensp;<code>str</code></dt>
+<dd>The ID of the board.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>self</code></dt>
+<dd>Self</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_board(self, board):
+    &#34;&#34;&#34;Set the board target for this client.
+
+    Args:
+        board (str): The ID of the board.
+
+    Returns:
+        self: Self
+    &#34;&#34;&#34;
+    self.board = board
+    return self</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.set_org"><code class="name flex">
+<span>def <span class="ident">set_org</span></span>(<span>self, org)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set the target organisation for this client. </p>
+<p>:param org: The organisation name
+:type org: string
+:return: self</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_org(self, org):
+    &#34;&#34;&#34;Set the target organisation for this client. 
+    
+    :param org: The organisation name
+    :type org: string
+    :return: self
+    &#34;&#34;&#34;
+    self.org = org
+    return self</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.set_project"><code class="name flex">
+<span>def <span class="ident">set_project</span></span>(<span>self, proj)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set the target project for this client.</p>
+<p>:param proj: The project ID
+:type proj: string
+:return: self</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_project(self, proj):
+    &#34;&#34;&#34;Set the target project for this client.
+    
+    :param proj: The project ID
+    :type proj: string
+    :return: self
+    &#34;&#34;&#34;
+    self.proj = proj
+    return self</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.set_team"><code class="name flex">
+<span>def <span class="ident">set_team</span></span>(<span>self, team)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set the target team for this client.</p>
+<p>:param team: The team ID
+:type team: string
+:return: self</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_team(self, team):
+    &#34;&#34;&#34;Set the target team for this client.
+    
+    :param team: The team ID
+    :type team: string
+    :return: self
+    &#34;&#34;&#34;
+    self.team = team
+    return self</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.set_version"><code class="name flex">
+<span>def <span class="ident">set_version</span></span>(<span>self, version=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_version(self, version=None):
+    version = version or self.base_version
+    self.version = version
+    return self</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.update_work_item"><code class="name flex">
+<span>def <span class="ident">update_work_item</span></span>(<span>self, workitem_id, fields={}, fieldpath_prefix='/fields/')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Updates the given workitem by its ID, with a set of fields.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>workitem_id</code></strong> :&ensp;<code>str</code></dt>
+<dd>The workitem's ID, as a six digit string.</dd>
+<dt><strong><code>fields</code></strong> :&ensp;<code>dict</code>, optional</dt>
+<dd>Fields with the format {"key": "value", &hellip;}. Defaults to {}.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>The response dict, containing changes that were made plus their statuses.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_work_item(self, workitem_id, fields={}, fieldpath_prefix=&#34;/fields/&#34;):
+    &#34;&#34;&#34;Updates the given workitem by its ID, with a set of fields.
+
+    Args:
+        workitem_id (str): The workitem&#39;s ID, as a six digit string.
+        fields (dict, optional): Fields with the format {&#34;key&#34;: &#34;value&#34;, ...}. Defaults to {}.
+
+    Returns:
+        dict: The response dict, containing changes that were made plus their statuses.
+    &#34;&#34;&#34;
+
+    azureOps = self.kv_to_azure_ops( fields, fieldpath_prefix=fieldpath_prefix )
+
+    pprint(azureOps)
+
+    headers = {
+        &#34;Content-Type&#34;: &#34;application/json-patch+json&#34;
+    }
+
+    return self._req(&#39;PATCH&#39;, workitem_id, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;], headers=headers, json=azureOps)</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.upload_attachment_to_work_item"><code class="name flex">
+<span>def <span class="ident">upload_attachment_to_work_item</span></span>(<span>self, file_path, id, name='')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def upload_attachment_to_work_item(self, file_path, id, name=&#34;&#34; ):
+    if isinstance(file_path, str):
+        with open(file_path, &#39;rb&#39;) as f:
+            data = f.read()
+    else:
+        data = file_path
+    
+    upl_res = self._req(&#39;POST&#39;, &#39;attachments&#39;, self.get_project_url, [&#39;wit&#39;], headers={&#34;Content-Type&#34;: &#34;application/octet-stream&#34;}, data=data, params={&#34;api-version&#34;: &#34;6.0&#34;})
+
+    att_res = self.add_attachment_relation_to_work_item( upl_res.get(&#34;url&#34;), name, id )
+
+    return [upl_res, att_res]</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.work_item_has_attachment"><code class="name flex">
+<span>def <span class="ident">work_item_has_attachment</span></span>(<span>self, id, filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def work_item_has_attachment(self, id, filename):
+    attachments = self.list_work_item_attachments(id)
+    filenames = [a[&#34;filename&#34;] for a in attachments]
+
+    if filename in filenames: return True
+    return False</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AdoClient.work_item_project"><code class="name flex">
+<span>def <span class="ident">work_item_project</span></span>(<span>self, work_item_dict)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def work_item_project(self, work_item_dict):
+    proj_name = work_item_dict.get(&#39;fields&#39;, {}).get(&#39;System.TeamProject&#39;)
+
+    return self.find_project(proj_name)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="boilerplate.AreaNotGivenError"><code class="flex name class">
+<span>class <span class="ident">AreaNotGivenError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Common base class for all non-exit exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AreaNotGivenError(Exception):
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="boilerplate.AsanaClient"><code class="flex name class">
+<span>class <span class="ident">AsanaClient</span></span>
+<span>(</span><span>token, project=None, workspace=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AsanaClient(LoggingClient):
+    def __init__(self, token, project=None, workspace=None):
+        self.token = token
+        self.url = &#34;https://app.asana.com/api/1.0/&#34;
+        self.project = project
+        self.workspace = workspace
+
+        super().__init__()
+
+        self.headers = {
+            &#34;Authorization&#34;: &#34;Bearer {token}&#34;.format(token=self.token)
+        }
+
+    def task( self ):
+        return AsanaTask.get( self,  )
+
+    @classmethod
+    def is_error(cls, d):
+        return &#39;errors&#39; in d or (not isinstance(d, dict) and not isinstance(d, AsanaTask) and not isinstance(d, AsanaTaskField))
+        
+    def set_project(self, proj_id):
+        self.project = proj_id
+        return self
+
+    def set_workspace(self, workspace_id):
+        self.workspace = workspace_id
+        return self
+
+    def _req( self, method, endpoint, get_content=False, **kwargs ):
+        &#34;&#34;&#34;Private function to call requests.request() safely.
+        
+        :param method: The method to use eg. &#39;GET&#39;, &#39;POST&#39;, &#39;DELETE&#39;, &#39;PATCH&#39;, &#39;PUT&#39;.
+        :param endpoint: The final element of the URL eg. https://api.com/api/path/to/my/endpoint
+        :param url_function: The URL function to use to build the correct URL eg. `get_project_url`, `get_main_url`, `get_core_url`.
+        :param url_function_args: The arguments to pass to the URL function, which will add path params before the endpoint.
+        :param **kwargs: Any other keywords you need to pass to the request.
+        :return: The response from the request.
+        :rtype: dict or str
+        &#34;&#34;&#34;
+
+        # url_function = url_function or self.get_core_url
+
+        url = self.url + endpoint
+
+        print(f&#34;{method} =&gt; {url}&#34;)
+        
+        params = {
+            &#34;workspace&#34;: self.workspace,
+            &#34;project&#34;: self.project
+        }
+        params.update(kwargs.get(&#34;params&#34;,{}))
+
+        kwargs[&#34;params&#34;] = params
+
+        headers = self.headers
+        headers.update(kwargs.get(&#34;headers&#34;,{}))
+
+        kwargs[&#34;headers&#34;] = headers
+
+        res = requests.request(method, url, **kwargs)
+
+        try:
+            body = res.json()
+        except:
+            body = { &#34;text&#34;: res.text }
+
+        self._log_req( method, url, res, **kwargs )
+
+        if get_content: return res.content
+
+        body.update({
+            &#34;response_meta&#34;: {
+                &#34;status_code&#34;: res.status_code,
+                &#34;ok&#34;: res.ok
+            }
+        })
+
+        return body
+
+    def list_tasks( self, modified_since=None, tag=None ):
+        params = {}
+
+        if modified_since:
+            params[&#34;modified_since&#34;] = modified_since
+        if tag:
+            params[&#34;tag&#34;] = tag
+
+        return self._req( &#34;GET&#34;, &#34;tasks&#34;, params=params )
+
+    def list_tags( self ):
+        return self._req(&#34;GET&#34;, &#34;tags&#34;)
+
+    def list_tagged_tasks(self, tag_id, modified_since=None ):
+        params = {}
+
+        if modified_since:
+            params[&#34;modified_since&#34;] = modified_since
+            
+        return self._req( &#34;GET&#34;, f&#34;tags/{tag_id}/tasks&#34;, params=params )
+
+    def list_workspaces( self ):
+        return self._req( &#34;GET&#34;, &#34;workspaces&#34; )
+
+    def list_project_sections( self, project ):
+        return self._req(&#34;GET&#34;, f&#34;projects/{project}/sections&#34;)
+
+    def get_main_workspace( self ):
+        return self.list_workspaces().get(&#34;data&#34;, [])[0]
+
+    def get_project( self, gid ):
+        return self._req(&#39;GET&#39;, f&#39;projects/{gid}&#39;)
+
+    def get_tags(self):
+        return self._req(&#39;GET&#39;, f&#39;workspaces/{self.workspace}/tags&#39;)
+
+    def create_tag(self, name, color, notes=&#34;Added by System.&#34;):
+        return self._req(&#39;POST&#39;, f&#39;tags&#39;, json={
+            &#34;data&#34;: {
+                &#34;name&#34;: name,
+                &#34;color&#34;: color,
+                &#34;notes&#34;: notes,
+            }
+        })
+
+    def add_tag(self, task_gid, tag_name, tag_list):
+        matching_tag = [x for x in tag_list if x[&#39;name&#39;] == tag_name]
+
+        if not matching_tag:
+            matching_tag = [self.create_tag( tag_name, &#39;light-green&#39; )]
+
+        pprint(matching_tag)
+        try:
+            return self._req(&#39;POST&#39;, f&#39;tasks/{task_gid}/addTag&#39;, json={
+                &#34;data&#34;: {
+                    &#34;tag&#34;: matching_tag[0][&#39;gid&#39;]
+                }
+            })
+        except Exception as e:
+            return { &#34;error&#34;: &#34;An error occurred when adding the tag.&#34;, &#34;message&#34;: str(e) }
+
+    def remove_tag(self, task_gid, tag_name, tag_list):
+        matching_tag = [x for x in tag_list if x[&#39;name&#39;] == tag_name][0]
+
+        if not matching_tag:
+            return None
+
+        return self._req(&#39;POST&#39;, f&#39;tasks/{task_gid}/removeTag&#39;, json={
+            &#34;data&#34;: {&#34;tag&#34;: matching_tag[&#39;gid&#39;]}
+        })
+
+    def sync_all_tags( self, task, tag_names, tag_list ):
+        tags = [x.strip() for x in tag_names.split(&#39;;&#39;)]
+
+        task = task.get(&#39;data&#39;, task)
+
+        pprint(task)
+
+        task_tags = task.get(&#39;tags&#39;, [])
+
+        task_gid = task.get(&#39;gid&#39;)
+
+        if not task_gid: return None
+
+        # pprint(task)
+
+
+        # Task: A, B, C
+        # Request: B, C, N
+
+        
+
+        delete_tags = [x for x in task_tags if x[&#39;name&#39;].strip() not in [y for y in tags]]
+        add_tags = [x for x in tags if x not in [y[&#39;name&#39;].strip() for y in task_tags]]
+
+        results = {
+            &#39;deleted&#39;: [],
+            &#39;created&#39;: []
+        }
+        
+        for t in delete_tags:
+            res = self.remove_tag(task_gid, t[&#39;name&#39;], tag_list)
+            results[&#39;deleted&#39;].append( res )
+
+        for t in add_tags:
+            res = self.add_tag(task_gid, t, tag_list)
+            results[&#39;created&#39;].append( res )
+
+        return results
+
+    def move_to_section(self, task_gid, section_gid):
+        return self._req(&#34;POST&#34;, f&#34;sections/{section_gid}/addTask&#34;, json={
+            &#34;data&#34;: {
+                &#34;task&#34;: str( task_gid )
+            }
+        })
+
+    def search_tasks(self, search_dict):
+        return self._req(&#34;GET&#34;, f&#39;workspaces/{self.workspace}/tasks/search&#39;, params=search_dict)
+
+    def get_task( self, id ):
+        return self._req( &#34;GET&#34;, f&#39;tasks/{id}&#39; )
+
+    def get_task_stories(self, id):
+        return self._req( &#34;GET&#34;, f&#39;tasks/{id}/stories&#39; ).get(&#34;data&#34;, {})
+    
+    def get_task_comments(self, id):
+        stories = self.get_task_stories(id)
+        return [x for x in stories if x[&#34;resource_subtype&#34;] == &#34;comment_added&#34;]
+
+    def get_task_attachments(self, id):
+        attachments = self._req(&#34;GET&#34;, &#39;attachments&#39;, params={
+            &#34;parent&#34;: id
+        })
+        return attachments
+    
+    def get_attachment(self, gid):
+        return self._req(&#34;GET&#34;, f&#34;attachments/{gid}&#34;).get(&#34;data&#34;,{})
+
+    def list_custom_fields(self):
+        return self._req(&#34;GET&#34;, f&#34;workspaces/{self.workspace}/custom_fields&#34;)
+
+    def upload_task_attachment(self, gid, file_name, file_content, file_content_type=None):
+
+        return self._req( &#34;POST&#34;, f&#34;tasks/{gid}/attachments&#34;, files=[(&#39;file&#39;, (file_name, file_content, file_content_type))] )
+
+    def _taskfields(self, d):
+        newdict = { }
+
+        for k,v in d.items():
+            dictpath_set( newdict, k, v )
+
+        return newdict
+
+    def add_task_tag(self, gid, tag_id):
+        return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/addTag&#34;, json={
+            &#34;data&#34;: {
+                &#34;tag&#34;: str(tag_id)
+            }
+        })
+    
+    def remove_task_tag(self, gid, tag_id):
+        return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/removeTag&#34;, json={
+            &#34;data&#34;: {
+                &#34;tag&#34;: str(tag_id)
+            }
+        })
+
+    def add_task_comment(self, gid, comment):
+        return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/stories&#34;, json={
+                &#34;data&#34;: {
+                    &#34;text&#34;: comment
+                }
+        })
+
+    def create_task(self, fields):
+        &#34;&#34;&#34;Creates a task in Asana with the fields given.
+        The fields are in dict format, with a &#34;.&#34; prefix
+        for custom fields, and normal for other fields, eg.
+        {
+            &#34;name&#34;: &#34;Test Task&#34;
+            &#34;.Area&#34;: &#34;LEX BART TOOL\\ASANA ZAP ADO BART TEST&#34;,
+        }
+
+        Args:
+            fields (dict): A dict of fields to pass to the Task.
+        &#34;&#34;&#34;
+
+        return self._req(&#34;POST&#34;, f&#34;tasks&#34;, json=self.get_update_payload(fields))
+
+    def get_update_payload(self, fields):
+
+        fields = self._taskfields( fields )
+
+        return {
+            &#34;data&#34;: fields
+        }
+    
+    def update_task(self, id, fields):
+        &#34;&#34;&#34;Updates a task in Asana with the fields given.
+        The fields are in dict format, with a &#34;.&#34; prefix
+        for custom fields, and normal for other fields, eg.
+        {
+            &#34;name&#34;: &#34;Test Task&#34;
+            &#34;.Area&#34;: &#34;LEX BART TOOL\\ASANA ZAP ADO BART TEST&#34;,
+        }
+
+        Args:
+            id (str): The task GID.
+            fields (dict): A dict of fields to pass to the Task.
+        &#34;&#34;&#34;
+
+        return self._req(&#34;PUT&#34;, f&#34;tasks/{id}&#34;, json=self.get_update_payload(fields))
+
+    def download_attachment(self, gid, return_content_only=False):
+        attachment = self.get_attachment(gid)
+
+        file_url = attachment.get(&#34;download_url&#34;)
+        file_name = attachment.get(&#34;name&#34;)
+
+        if not file_url: return None
+
+        tempfile = f&#34;temp_{file_name}&#34;
+
+        filedata = requests.get(file_url, allow_redirects=True)
+
+        if return_content_only:
+            return filedata.content
+
+        with open(tempfile, &#34;wb&#34;) as f:
+            f.write(filedata.content)
+
+        return tempfile</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="boilerplate.LoggingClient" href="#boilerplate.LoggingClient">LoggingClient</a></li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="boilerplate.AsanaClient.is_error"><code class="name flex">
+<span>def <span class="ident">is_error</span></span>(<span>d)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def is_error(cls, d):
+    return &#39;errors&#39; in d or (not isinstance(d, dict) and not isinstance(d, AsanaTask) and not isinstance(d, AsanaTaskField))</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="boilerplate.AsanaClient.add_tag"><code class="name flex">
+<span>def <span class="ident">add_tag</span></span>(<span>self, task_gid, tag_name, tag_list)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_tag(self, task_gid, tag_name, tag_list):
+    matching_tag = [x for x in tag_list if x[&#39;name&#39;] == tag_name]
+
+    if not matching_tag:
+        matching_tag = [self.create_tag( tag_name, &#39;light-green&#39; )]
+
+    pprint(matching_tag)
+    try:
+        return self._req(&#39;POST&#39;, f&#39;tasks/{task_gid}/addTag&#39;, json={
+            &#34;data&#34;: {
+                &#34;tag&#34;: matching_tag[0][&#39;gid&#39;]
+            }
+        })
+    except Exception as e:
+        return { &#34;error&#34;: &#34;An error occurred when adding the tag.&#34;, &#34;message&#34;: str(e) }</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.add_task_comment"><code class="name flex">
+<span>def <span class="ident">add_task_comment</span></span>(<span>self, gid, comment)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_task_comment(self, gid, comment):
+    return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/stories&#34;, json={
+            &#34;data&#34;: {
+                &#34;text&#34;: comment
+            }
+    })</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.add_task_tag"><code class="name flex">
+<span>def <span class="ident">add_task_tag</span></span>(<span>self, gid, tag_id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_task_tag(self, gid, tag_id):
+    return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/addTag&#34;, json={
+        &#34;data&#34;: {
+            &#34;tag&#34;: str(tag_id)
+        }
+    })</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.create_tag"><code class="name flex">
+<span>def <span class="ident">create_tag</span></span>(<span>self, name, color, notes='Added by System.')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_tag(self, name, color, notes=&#34;Added by System.&#34;):
+    return self._req(&#39;POST&#39;, f&#39;tags&#39;, json={
+        &#34;data&#34;: {
+            &#34;name&#34;: name,
+            &#34;color&#34;: color,
+            &#34;notes&#34;: notes,
+        }
+    })</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.create_task"><code class="name flex">
+<span>def <span class="ident">create_task</span></span>(<span>self, fields)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a task in Asana with the fields given.
+The fields are in dict format, with a "." prefix
+for custom fields, and normal for other fields, eg.
+{
+"name": "Test Task"
+".Area": "LEX BART TOOL\ASANA ZAP ADO BART TEST",
+}</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>fields</code></strong> :&ensp;<code>dict</code></dt>
+<dd>A dict of fields to pass to the Task.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_task(self, fields):
+    &#34;&#34;&#34;Creates a task in Asana with the fields given.
+    The fields are in dict format, with a &#34;.&#34; prefix
+    for custom fields, and normal for other fields, eg.
+    {
+        &#34;name&#34;: &#34;Test Task&#34;
+        &#34;.Area&#34;: &#34;LEX BART TOOL\\ASANA ZAP ADO BART TEST&#34;,
+    }
+
+    Args:
+        fields (dict): A dict of fields to pass to the Task.
+    &#34;&#34;&#34;
+
+    return self._req(&#34;POST&#34;, f&#34;tasks&#34;, json=self.get_update_payload(fields))</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.download_attachment"><code class="name flex">
+<span>def <span class="ident">download_attachment</span></span>(<span>self, gid, return_content_only=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def download_attachment(self, gid, return_content_only=False):
+    attachment = self.get_attachment(gid)
+
+    file_url = attachment.get(&#34;download_url&#34;)
+    file_name = attachment.get(&#34;name&#34;)
+
+    if not file_url: return None
+
+    tempfile = f&#34;temp_{file_name}&#34;
+
+    filedata = requests.get(file_url, allow_redirects=True)
+
+    if return_content_only:
+        return filedata.content
+
+    with open(tempfile, &#34;wb&#34;) as f:
+        f.write(filedata.content)
+
+    return tempfile</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.get_attachment"><code class="name flex">
+<span>def <span class="ident">get_attachment</span></span>(<span>self, gid)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_attachment(self, gid):
+    return self._req(&#34;GET&#34;, f&#34;attachments/{gid}&#34;).get(&#34;data&#34;,{})</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.get_main_workspace"><code class="name flex">
+<span>def <span class="ident">get_main_workspace</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_main_workspace( self ):
+    return self.list_workspaces().get(&#34;data&#34;, [])[0]</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.get_project"><code class="name flex">
+<span>def <span class="ident">get_project</span></span>(<span>self, gid)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_project( self, gid ):
+    return self._req(&#39;GET&#39;, f&#39;projects/{gid}&#39;)</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.get_tags"><code class="name flex">
+<span>def <span class="ident">get_tags</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_tags(self):
+    return self._req(&#39;GET&#39;, f&#39;workspaces/{self.workspace}/tags&#39;)</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.get_task"><code class="name flex">
+<span>def <span class="ident">get_task</span></span>(<span>self, id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_task( self, id ):
+    return self._req( &#34;GET&#34;, f&#39;tasks/{id}&#39; )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.get_task_attachments"><code class="name flex">
+<span>def <span class="ident">get_task_attachments</span></span>(<span>self, id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_task_attachments(self, id):
+    attachments = self._req(&#34;GET&#34;, &#39;attachments&#39;, params={
+        &#34;parent&#34;: id
+    })
+    return attachments</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.get_task_comments"><code class="name flex">
+<span>def <span class="ident">get_task_comments</span></span>(<span>self, id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_task_comments(self, id):
+    stories = self.get_task_stories(id)
+    return [x for x in stories if x[&#34;resource_subtype&#34;] == &#34;comment_added&#34;]</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.get_task_stories"><code class="name flex">
+<span>def <span class="ident">get_task_stories</span></span>(<span>self, id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_task_stories(self, id):
+    return self._req( &#34;GET&#34;, f&#39;tasks/{id}/stories&#39; ).get(&#34;data&#34;, {})</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.get_update_payload"><code class="name flex">
+<span>def <span class="ident">get_update_payload</span></span>(<span>self, fields)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_update_payload(self, fields):
+
+    fields = self._taskfields( fields )
+
+    return {
+        &#34;data&#34;: fields
+    }</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.list_custom_fields"><code class="name flex">
+<span>def <span class="ident">list_custom_fields</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_custom_fields(self):
+    return self._req(&#34;GET&#34;, f&#34;workspaces/{self.workspace}/custom_fields&#34;)</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.list_project_sections"><code class="name flex">
+<span>def <span class="ident">list_project_sections</span></span>(<span>self, project)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_project_sections( self, project ):
+    return self._req(&#34;GET&#34;, f&#34;projects/{project}/sections&#34;)</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.list_tagged_tasks"><code class="name flex">
+<span>def <span class="ident">list_tagged_tasks</span></span>(<span>self, tag_id, modified_since=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_tagged_tasks(self, tag_id, modified_since=None ):
+    params = {}
+
+    if modified_since:
+        params[&#34;modified_since&#34;] = modified_since
+        
+    return self._req( &#34;GET&#34;, f&#34;tags/{tag_id}/tasks&#34;, params=params )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.list_tags"><code class="name flex">
+<span>def <span class="ident">list_tags</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_tags( self ):
+    return self._req(&#34;GET&#34;, &#34;tags&#34;)</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.list_tasks"><code class="name flex">
+<span>def <span class="ident">list_tasks</span></span>(<span>self, modified_since=None, tag=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_tasks( self, modified_since=None, tag=None ):
+    params = {}
+
+    if modified_since:
+        params[&#34;modified_since&#34;] = modified_since
+    if tag:
+        params[&#34;tag&#34;] = tag
+
+    return self._req( &#34;GET&#34;, &#34;tasks&#34;, params=params )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.list_workspaces"><code class="name flex">
+<span>def <span class="ident">list_workspaces</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_workspaces( self ):
+    return self._req( &#34;GET&#34;, &#34;workspaces&#34; )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.move_to_section"><code class="name flex">
+<span>def <span class="ident">move_to_section</span></span>(<span>self, task_gid, section_gid)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def move_to_section(self, task_gid, section_gid):
+    return self._req(&#34;POST&#34;, f&#34;sections/{section_gid}/addTask&#34;, json={
+        &#34;data&#34;: {
+            &#34;task&#34;: str( task_gid )
+        }
+    })</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.remove_tag"><code class="name flex">
+<span>def <span class="ident">remove_tag</span></span>(<span>self, task_gid, tag_name, tag_list)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_tag(self, task_gid, tag_name, tag_list):
+    matching_tag = [x for x in tag_list if x[&#39;name&#39;] == tag_name][0]
+
+    if not matching_tag:
+        return None
+
+    return self._req(&#39;POST&#39;, f&#39;tasks/{task_gid}/removeTag&#39;, json={
+        &#34;data&#34;: {&#34;tag&#34;: matching_tag[&#39;gid&#39;]}
+    })</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.remove_task_tag"><code class="name flex">
+<span>def <span class="ident">remove_task_tag</span></span>(<span>self, gid, tag_id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_task_tag(self, gid, tag_id):
+    return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/removeTag&#34;, json={
+        &#34;data&#34;: {
+            &#34;tag&#34;: str(tag_id)
+        }
+    })</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.search_tasks"><code class="name flex">
+<span>def <span class="ident">search_tasks</span></span>(<span>self, search_dict)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def search_tasks(self, search_dict):
+    return self._req(&#34;GET&#34;, f&#39;workspaces/{self.workspace}/tasks/search&#39;, params=search_dict)</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.set_project"><code class="name flex">
+<span>def <span class="ident">set_project</span></span>(<span>self, proj_id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_project(self, proj_id):
+    self.project = proj_id
+    return self</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.set_workspace"><code class="name flex">
+<span>def <span class="ident">set_workspace</span></span>(<span>self, workspace_id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_workspace(self, workspace_id):
+    self.workspace = workspace_id
+    return self</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.sync_all_tags"><code class="name flex">
+<span>def <span class="ident">sync_all_tags</span></span>(<span>self, task, tag_names, tag_list)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sync_all_tags( self, task, tag_names, tag_list ):
+    tags = [x.strip() for x in tag_names.split(&#39;;&#39;)]
+
+    task = task.get(&#39;data&#39;, task)
+
+    pprint(task)
+
+    task_tags = task.get(&#39;tags&#39;, [])
+
+    task_gid = task.get(&#39;gid&#39;)
+
+    if not task_gid: return None
+
+    # pprint(task)
+
+
+    # Task: A, B, C
+    # Request: B, C, N
+
+    
+
+    delete_tags = [x for x in task_tags if x[&#39;name&#39;].strip() not in [y for y in tags]]
+    add_tags = [x for x in tags if x not in [y[&#39;name&#39;].strip() for y in task_tags]]
+
+    results = {
+        &#39;deleted&#39;: [],
+        &#39;created&#39;: []
+    }
+    
+    for t in delete_tags:
+        res = self.remove_tag(task_gid, t[&#39;name&#39;], tag_list)
+        results[&#39;deleted&#39;].append( res )
+
+    for t in add_tags:
+        res = self.add_tag(task_gid, t, tag_list)
+        results[&#39;created&#39;].append( res )
+
+    return results</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.task"><code class="name flex">
+<span>def <span class="ident">task</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def task( self ):
+    return AsanaTask.get( self,  )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.update_task"><code class="name flex">
+<span>def <span class="ident">update_task</span></span>(<span>self, id, fields)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Updates a task in Asana with the fields given.
+The fields are in dict format, with a "." prefix
+for custom fields, and normal for other fields, eg.
+{
+"name": "Test Task"
+".Area": "LEX BART TOOL\ASANA ZAP ADO BART TEST",
+}</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>id</code></strong> :&ensp;<code>str</code></dt>
+<dd>The task GID.</dd>
+<dt><strong><code>fields</code></strong> :&ensp;<code>dict</code></dt>
+<dd>A dict of fields to pass to the Task.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_task(self, id, fields):
+    &#34;&#34;&#34;Updates a task in Asana with the fields given.
+    The fields are in dict format, with a &#34;.&#34; prefix
+    for custom fields, and normal for other fields, eg.
+    {
+        &#34;name&#34;: &#34;Test Task&#34;
+        &#34;.Area&#34;: &#34;LEX BART TOOL\\ASANA ZAP ADO BART TEST&#34;,
+    }
+
+    Args:
+        id (str): The task GID.
+        fields (dict): A dict of fields to pass to the Task.
+    &#34;&#34;&#34;
+
+    return self._req(&#34;PUT&#34;, f&#34;tasks/{id}&#34;, json=self.get_update_payload(fields))</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaClient.upload_task_attachment"><code class="name flex">
+<span>def <span class="ident">upload_task_attachment</span></span>(<span>self, gid, file_name, file_content, file_content_type=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def upload_task_attachment(self, gid, file_name, file_content, file_content_type=None):
+
+    return self._req( &#34;POST&#34;, f&#34;tasks/{gid}/attachments&#34;, files=[(&#39;file&#39;, (file_name, file_content, file_content_type))] )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="boilerplate.AsanaTask"><code class="flex name class">
+<span>class <span class="ident">AsanaTask</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AsanaTask():
+    def __init__(self):
+        pass
+
+    @classmethod
+    def get(cls, api, task_id):
+        return cls.from_dict( api.get_task(task_id) )
+
+    @classmethod
+    def from_dict(cls, task):
+        c = cls()
+        c.errored = False
+        c.taskdata = task
+
+        if &#34;data&#34; not in task:
+            task = {
+                &#34;data&#34;: task
+            }
+
+        task = task[&#34;data&#34;]
+        try:
+            c.id = task[&#34;gid&#34;]
+            c.workspace_id = task.get(&#34;workspace&#34;,{}).get(&#34;gid&#34;)
+            c.project_id = task.get(&#39;projects&#39;,[{&#39;gid&#39;: None}])[0][&#39;gid&#39;]
+            c.tags = task.get(&#34;tags&#34;)
+            c.due = task.get(&#34;due_on&#34;)
+            c.name = task[&#34;name&#34;]
+            c.notes = task.get(&#34;notes&#34;)
+            c.fields = c._instance_fields(task.get(&#34;custom_fields&#34;,[]))
+        except KeyError:
+            c.errored = True
+
+        return c
+
+    def __getitem__(self, name):
+        return self.get_field_by_name( name )
+
+    def __iter__(self):
+        return iter(self.fields)
+
+    def __bool__(self):
+        return not self.errored
+
+    def get_field_by_name(self, name):
+        try:
+            return [x for x in self.fields if x.name == name][0]
+        except Exception as e:
+            return None
+
+    def _instance_fields(self, fields):
+        return [AsanaTaskField.from_dict(x) for x in fields]
+
+    def names(self):
+        return [x.name for x in self.fields]
+
+    def items(self):
+        l = [(x.name, x.value) for x in self.fields]
+        l = [[x[0], x[1]] for x in l if x[1] != &#39;&#39; and x[1] != None]
+        return l</code></pre>
+</details>
+<h3>Static methods</h3>
+<dl>
+<dt id="boilerplate.AsanaTask.from_dict"><code class="name flex">
+<span>def <span class="ident">from_dict</span></span>(<span>task)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def from_dict(cls, task):
+    c = cls()
+    c.errored = False
+    c.taskdata = task
+
+    if &#34;data&#34; not in task:
+        task = {
+            &#34;data&#34;: task
+        }
+
+    task = task[&#34;data&#34;]
+    try:
+        c.id = task[&#34;gid&#34;]
+        c.workspace_id = task.get(&#34;workspace&#34;,{}).get(&#34;gid&#34;)
+        c.project_id = task.get(&#39;projects&#39;,[{&#39;gid&#39;: None}])[0][&#39;gid&#39;]
+        c.tags = task.get(&#34;tags&#34;)
+        c.due = task.get(&#34;due_on&#34;)
+        c.name = task[&#34;name&#34;]
+        c.notes = task.get(&#34;notes&#34;)
+        c.fields = c._instance_fields(task.get(&#34;custom_fields&#34;,[]))
+    except KeyError:
+        c.errored = True
+
+    return c</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaTask.get"><code class="name flex">
+<span>def <span class="ident">get</span></span>(<span>api, task_id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def get(cls, api, task_id):
+    return cls.from_dict( api.get_task(task_id) )</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="boilerplate.AsanaTask.get_field_by_name"><code class="name flex">
+<span>def <span class="ident">get_field_by_name</span></span>(<span>self, name)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_field_by_name(self, name):
+    try:
+        return [x for x in self.fields if x.name == name][0]
+    except Exception as e:
+        return None</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaTask.items"><code class="name flex">
+<span>def <span class="ident">items</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def items(self):
+    l = [(x.name, x.value) for x in self.fields]
+    l = [[x[0], x[1]] for x in l if x[1] != &#39;&#39; and x[1] != None]
+    return l</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.AsanaTask.names"><code class="name flex">
+<span>def <span class="ident">names</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def names(self):
+    return [x.name for x in self.fields]</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="boilerplate.AsanaTaskField"><code class="flex name class">
+<span>class <span class="ident">AsanaTaskField</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>AsanaTaskField()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class AsanaTaskField():
+    id: str
+    value: str
+    description: str
+    enabled: bool
+    type: str
+    name: str
+    options: list
+
+    def __init__(self):
+        pass
+
+    @classmethod
+    def from_dict(cls, field):
+        c = cls()
+    
+        field = field.get(&#39;custom_field&#39;, field)
+
+        c.fielddata = field
+        c.id = field[&#34;gid&#34;]
+        c.value = field.get(&#34;display_value&#34;,&#34;&#34;)
+        c.options = field.get(&#34;enum_options&#34;)
+        c.description = field.get(&#34;description&#34;,&#39;&#39;)
+        c.enabled = field.get(&#34;enabled&#34;,&#39;&#39;)
+        c.type = field.get(&#34;type&#34;,&#39;&#39;)
+        c.name = field.get(&#34;name&#34;,&#39;&#39;)
+        return c</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="boilerplate.AsanaTaskField.description"><code class="name">var <span class="ident">description</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="boilerplate.AsanaTaskField.enabled"><code class="name">var <span class="ident">enabled</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="boilerplate.AsanaTaskField.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="boilerplate.AsanaTaskField.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="boilerplate.AsanaTaskField.options"><code class="name">var <span class="ident">options</span> : list</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="boilerplate.AsanaTaskField.type"><code class="name">var <span class="ident">type</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="boilerplate.AsanaTaskField.value"><code class="name">var <span class="ident">value</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="boilerplate.AsanaTaskField.from_dict"><code class="name flex">
+<span>def <span class="ident">from_dict</span></span>(<span>field)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def from_dict(cls, field):
+    c = cls()
+
+    field = field.get(&#39;custom_field&#39;, field)
+
+    c.fielddata = field
+    c.id = field[&#34;gid&#34;]
+    c.value = field.get(&#34;display_value&#34;,&#34;&#34;)
+    c.options = field.get(&#34;enum_options&#34;)
+    c.description = field.get(&#34;description&#34;,&#39;&#39;)
+    c.enabled = field.get(&#34;enabled&#34;,&#39;&#39;)
+    c.type = field.get(&#34;type&#34;,&#39;&#39;)
+    c.name = field.get(&#34;name&#34;,&#39;&#39;)
+    return c</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="boilerplate.ClientResponse"><code class="flex name class">
+<span>class <span class="ident">ClientResponse</span></span>
+<span>(</span><span>body, error=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ClientResponse():
+    def __init__(self, body, error=None):
+        self.body = body if body and not error else error
+        self.error = error
+
+    def __str__(self):
+        return str(self.body)
+    
+    def __get__(self):
+        return self.body</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.HaltException"><code class="flex name class">
+<span>class <span class="ident">HaltException</span></span>
+<span>(</span><span>msg, data=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Common base class for all non-exit exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HaltException(Exception):
+    def __init__(self, msg, data=None):
+        self.message = msg
+        self.data = data</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="boilerplate.LoggingClient"><code class="flex name class">
+<span>class <span class="ident">LoggingClient</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LoggingClient():
+    def __init__(self):
+        self.logs = []
+
+    def _log_req(self, method, url, response, **kwargs):
+        try:
+            response_serialised = response.json()
+        except Exception:
+            response_serialised = response.text
+            if len(response_serialised) &gt; 1000:
+                response_serialised = response_serialised[:1000] + &#39;... (truncated data)&#39;
+
+        self.logs.append(dict(method=method, url=url, response=response, response_serialised=response_serialised, response_headers=response.headers, **kwargs))</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="boilerplate.AdoClient" href="#boilerplate.AdoClient">AdoClient</a></li>
+<li><a title="boilerplate.AsanaClient" href="#boilerplate.AsanaClient">AsanaClient</a></li>
+</ul>
+</dd>
+<dt id="boilerplate.LookupFunction"><code class="flex name class">
+<span>class <span class="ident">LookupFunction</span></span>
+<span>(</span><span>function, key)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LookupFunction():
+    def __init__(self, function, key):
+        self.function = function
+        self.key = key
+
+    def __call__(self, *args, **kwargs):
+        return self.function(*args, **kwargs)</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.LookupTable"><code class="flex name class">
+<span>class <span class="ident">LookupTable</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LookupTable():
+    def __init__(self):
+        self.steps = []
+
+    def _dictvalues(self, d, use_dot_notation=True):
+        newdict = {}
+        for k,v in d.items():
+            k,v = self._parse(k,v)
+            newdict[k] = v
+        
+        return newdict
+
+    def _parse(self, k, v):
+        parsing_rules = {
+            &#34;$K&#34;: k, # Replace with the key
+            &#34;$S&#34;: &#34;System.{k}&#34;.format(k=k.replace(&#34; &#34;, &#34;&#34;)), # Replace with System.{key}
+        }
+
+        for kk,vv in parsing_rules.items():
+            v = v.replace(kk, vv)
+
+        return k, v
+
+    def __getitem__(self, key):
+        return self.data.get(key,None)
+    
+    def __setitem__(self, key, val):
+        self._setvalue( key, val )
+
+    def add_func(self, func):
+        self.steps.append({
+            &#34;function&#34;: func
+        })
+
+        return self
+
+    def add_step(self, lookup_dict, remove_unconverted=False, use_dot_notation=True, **kwargs):
+        fallbacks = kwargs.get(&#34;fallbacks&#34;, {})
+        self.steps.append({
+            &#34;dict&#34;: self._dictvalues(lookup_dict, use_dot_notation=use_dot_notation),
+            &#34;remove_unconverted&#34;: remove_unconverted,
+            &#34;fallbacks&#34;: fallbacks
+        })
+        
+        return self
+
+    def reverse_steps(self):
+        &#34;&#34;&#34;Swaps the keys and values of the steps,
+        and reverses the order.
+        &#34;&#34;&#34;
+
+        newsteps = []
+
+        for step in self.steps:
+            if not &#39;dict&#39; in step: continue
+            d = step[&#39;dict&#39;]
+            r = step[&#39;remove_unconverted&#39;]
+            newd = dict( zip( d.values(), d.keys() ) )
+            newstep = {
+                &#39;dict&#39;: newd,
+                &#39;remove_unconverted&#39;: r
+            }
+            newsteps.append(newstep)
+
+        newsteps.reverse()
+
+        self.steps = newsteps
+
+        return self
+
+    def convert(self, input_dict, case_sensitive=True):
+        output_dicts = []
+
+        # initial_dict = input_dict
+
+        # foo: bar
+        # bar: baz
+
+        # foo -&gt; bar -&gt; bar
+
+        for step in self.steps:
+
+            lookup_dict = step[&#34;dict&#34;]
+
+            if not case_sensitive:
+                lookup_dict = {k.upper():v for k,v in lookup_dict.items()}
+                input_dict  = {k.upper():v for k,v in input_dict.items()}
+
+            remove_unconverted = step[&#34;remove_unconverted&#34;]
+            
+            step_dict = {}
+
+            for k,v in input_dict.items():
+                
+                converted_key = lookup_dict.get(k)
+
+                # if callable(converted_key):
+                #     converted_key = converted_key(v)
+                
+                if converted_key:
+                    step_dict[converted_key] = v
+                    continue
+                # else:
+                #     fallback = fallbacks.get(converted_key)
+                if not remove_unconverted: step_dict[k] = v
+
+            input_dict = dict(step_dict) # Set the input to the latest step output
+            output_dicts.append( step_dict )
+
+        return output_dicts[-1]</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="boilerplate.LookupTable.add_func"><code class="name flex">
+<span>def <span class="ident">add_func</span></span>(<span>self, func)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_func(self, func):
+    self.steps.append({
+        &#34;function&#34;: func
+    })
+
+    return self</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.LookupTable.add_step"><code class="name flex">
+<span>def <span class="ident">add_step</span></span>(<span>self, lookup_dict, remove_unconverted=False, use_dot_notation=True, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_step(self, lookup_dict, remove_unconverted=False, use_dot_notation=True, **kwargs):
+    fallbacks = kwargs.get(&#34;fallbacks&#34;, {})
+    self.steps.append({
+        &#34;dict&#34;: self._dictvalues(lookup_dict, use_dot_notation=use_dot_notation),
+        &#34;remove_unconverted&#34;: remove_unconverted,
+        &#34;fallbacks&#34;: fallbacks
+    })
+    
+    return self</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.LookupTable.convert"><code class="name flex">
+<span>def <span class="ident">convert</span></span>(<span>self, input_dict, case_sensitive=True)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def convert(self, input_dict, case_sensitive=True):
+    output_dicts = []
+
+    # initial_dict = input_dict
+
+    # foo: bar
+    # bar: baz
+
+    # foo -&gt; bar -&gt; bar
+
+    for step in self.steps:
+
+        lookup_dict = step[&#34;dict&#34;]
+
+        if not case_sensitive:
+            lookup_dict = {k.upper():v for k,v in lookup_dict.items()}
+            input_dict  = {k.upper():v for k,v in input_dict.items()}
+
+        remove_unconverted = step[&#34;remove_unconverted&#34;]
+        
+        step_dict = {}
+
+        for k,v in input_dict.items():
+            
+            converted_key = lookup_dict.get(k)
+
+            # if callable(converted_key):
+            #     converted_key = converted_key(v)
+            
+            if converted_key:
+                step_dict[converted_key] = v
+                continue
+            # else:
+            #     fallback = fallbacks.get(converted_key)
+            if not remove_unconverted: step_dict[k] = v
+
+        input_dict = dict(step_dict) # Set the input to the latest step output
+        output_dicts.append( step_dict )
+
+    return output_dicts[-1]</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.LookupTable.reverse_steps"><code class="name flex">
+<span>def <span class="ident">reverse_steps</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Swaps the keys and values of the steps,
+and reverses the order.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reverse_steps(self):
+    &#34;&#34;&#34;Swaps the keys and values of the steps,
+    and reverses the order.
+    &#34;&#34;&#34;
+
+    newsteps = []
+
+    for step in self.steps:
+        if not &#39;dict&#39; in step: continue
+        d = step[&#39;dict&#39;]
+        r = step[&#39;remove_unconverted&#39;]
+        newd = dict( zip( d.values(), d.keys() ) )
+        newstep = {
+            &#39;dict&#39;: newd,
+            &#39;remove_unconverted&#39;: r
+        }
+        newsteps.append(newstep)
+
+    newsteps.reverse()
+
+    self.steps = newsteps
+
+    return self</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="boilerplate.ProjectNotFoundError"><code class="flex name class">
+<span>class <span class="ident">ProjectNotFoundError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Common base class for all non-exit exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ProjectNotFoundError(Exception):
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="boilerplate.StoreAccessor"><code class="flex name class">
+<span>class <span class="ident">StoreAccessor</span></span>
+<span>(</span><span>parent, name)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class StoreAccessor():
+    def __init__(self, parent, name):
+        self.parent = parent
+        self.name = name
+
+    def get_pat(self):
+        return unobscure( self.parent.get(f&#39;{self.name}_pat&#39;) )
+    
+    def set_pat(self, value):
+        return self.parent.set(f&#39;{self.name}_pat&#39;, obscure(value))
+    
+    def get_user(self):
+        return unobscure( self.parent.get(f&#39;{self.name}_user&#39;) )
+    
+    def set_user(self, value):
+        return self.parent.set(f&#39;{self.name}_user&#39;, obscure(value))</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="boilerplate.StoreAccessor.get_pat"><code class="name flex">
+<span>def <span class="ident">get_pat</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_pat(self):
+    return unobscure( self.parent.get(f&#39;{self.name}_pat&#39;) )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.StoreAccessor.get_user"><code class="name flex">
+<span>def <span class="ident">get_user</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_user(self):
+    return unobscure( self.parent.get(f&#39;{self.name}_user&#39;) )</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.StoreAccessor.set_pat"><code class="name flex">
+<span>def <span class="ident">set_pat</span></span>(<span>self, value)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_pat(self, value):
+    return self.parent.set(f&#39;{self.name}_pat&#39;, obscure(value))</code></pre>
+</details>
+</dd>
+<dt id="boilerplate.StoreAccessor.set_user"><code class="name flex">
+<span>def <span class="ident">set_user</span></span>(<span>self, value)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_user(self, value):
+    return self.parent.set(f&#39;{self.name}_user&#39;, obscure(value))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="boilerplate.TeamNotFoundError"><code class="flex name class">
+<span>class <span class="ident">TeamNotFoundError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Common base class for all non-exit exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TeamNotFoundError(Exception):
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="boilerplate.ZapierBoolean"><code class="flex name class">
+<span>class <span class="ident">ZapierBoolean</span></span>
+<span>(</span><span>some_bool)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Because Zapier hates me as I hate it.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ZapierBoolean():
+    &#34;&#34;&#34;Because Zapier hates me as I hate it.
+    &#34;&#34;&#34;
+
+    def __init__(self, some_bool):
+        self.value = some_bool
+
+    def __str__(self):
+        return str(self.value)
+
+    def __eq__(self, other):
+        return bool(self) == bool(other)
+
+    def __bool__(self):
+        return (
+            self.value == True
+            or
+            (
+                isinstance(self.value, str)
+                and
+                (
+                    self.value.lower() == &#34;true&#34;
+                    or self.value.lower() == &#34;yes&#34;
+                    or self.value.lower() == &#34;y&#34;
+                )
+
+            )
+
+        )</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="boilerplate.clear_list" href="#boilerplate.clear_list">clear_list</a></code></li>
+<li><code><a title="boilerplate.consume_store_list" href="#boilerplate.consume_store_list">consume_store_list</a></code></li>
+<li><code><a title="boilerplate.convert_custom_fields" href="#boilerplate.convert_custom_fields">convert_custom_fields</a></code></li>
+<li><code><a title="boilerplate.date_to_json" href="#boilerplate.date_to_json">date_to_json</a></code></li>
+<li><code><a title="boilerplate.dictpath" href="#boilerplate.dictpath">dictpath</a></code></li>
+<li><code><a title="boilerplate.dictpath_set" href="#boilerplate.dictpath_set">dictpath_set</a></code></li>
+<li><code><a title="boilerplate.dump_input_data" href="#boilerplate.dump_input_data">dump_input_data</a></code></li>
+<li><code><a title="boilerplate.errorDict" href="#boilerplate.errorDict">errorDict</a></code></li>
+<li><code><a title="boilerplate.get_list" href="#boilerplate.get_list">get_list</a></code></li>
+<li><code><a title="boilerplate.get_output" href="#boilerplate.get_output">get_output</a></code></li>
+<li><code><a title="boilerplate.load_input_data" href="#boilerplate.load_input_data">load_input_data</a></code></li>
+<li><code><a title="boilerplate.log" href="#boilerplate.log">log</a></code></li>
+<li><code><a title="boilerplate.obscure" href="#boilerplate.obscure">obscure</a></code></li>
+<li><code><a title="boilerplate.output" href="#boilerplate.output">output</a></code></li>
+<li><code><a title="boilerplate.push_to_list" href="#boilerplate.push_to_list">push_to_list</a></code></li>
+<li><code><a title="boilerplate.remove_html_tags" href="#boilerplate.remove_html_tags">remove_html_tags</a></code></li>
+<li><code><a title="boilerplate.retry" href="#boilerplate.retry">retry</a></code></li>
+<li><code><a title="boilerplate.text_to_html" href="#boilerplate.text_to_html">text_to_html</a></code></li>
+<li><code><a title="boilerplate.unobscure" href="#boilerplate.unobscure">unobscure</a></code></li>
+<li><code><a title="boilerplate.unzip_kv" href="#boilerplate.unzip_kv">unzip_kv</a></code></li>
+<li><code><a title="boilerplate.warn" href="#boilerplate.warn">warn</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="boilerplate.AdoClient" href="#boilerplate.AdoClient">AdoClient</a></code></h4>
+<ul class="">
+<li><code><a title="boilerplate.AdoClient.add_attachment_relation_to_work_item" href="#boilerplate.AdoClient.add_attachment_relation_to_work_item">add_attachment_relation_to_work_item</a></code></li>
+<li><code><a title="boilerplate.AdoClient.add_comment_to_work_item" href="#boilerplate.AdoClient.add_comment_to_work_item">add_comment_to_work_item</a></code></li>
+<li><code><a title="boilerplate.AdoClient.add_hyperlink_to_work_item" href="#boilerplate.AdoClient.add_hyperlink_to_work_item">add_hyperlink_to_work_item</a></code></li>
+<li><code><a title="boilerplate.AdoClient.create_field" href="#boilerplate.AdoClient.create_field">create_field</a></code></li>
+<li><code><a title="boilerplate.AdoClient.create_work_item" href="#boilerplate.AdoClient.create_work_item">create_work_item</a></code></li>
+<li><code><a title="boilerplate.AdoClient.find_project" href="#boilerplate.AdoClient.find_project">find_project</a></code></li>
+<li><code><a title="boilerplate.AdoClient.get_attachment_content" href="#boilerplate.AdoClient.get_attachment_content">get_attachment_content</a></code></li>
+<li><code><a title="boilerplate.AdoClient.get_core_url" href="#boilerplate.AdoClient.get_core_url">get_core_url</a></code></li>
+<li><code><a title="boilerplate.AdoClient.get_main_url" href="#boilerplate.AdoClient.get_main_url">get_main_url</a></code></li>
+<li><code><a title="boilerplate.AdoClient.get_project_url" href="#boilerplate.AdoClient.get_project_url">get_project_url</a></code></li>
+<li><code><a title="boilerplate.AdoClient.get_search_url" href="#boilerplate.AdoClient.get_search_url">get_search_url</a></code></li>
+<li><code><a title="boilerplate.AdoClient.get_work_item" href="#boilerplate.AdoClient.get_work_item">get_work_item</a></code></li>
+<li><code><a title="boilerplate.AdoClient.get_work_items" href="#boilerplate.AdoClient.get_work_items">get_work_items</a></code></li>
+<li><code><a title="boilerplate.AdoClient.is_error" href="#boilerplate.AdoClient.is_error">is_error</a></code></li>
+<li><code><a title="boilerplate.AdoClient.kv_to_azure_ops" href="#boilerplate.AdoClient.kv_to_azure_ops">kv_to_azure_ops</a></code></li>
+<li><code><a title="boilerplate.AdoClient.list_board_columns" href="#boilerplate.AdoClient.list_board_columns">list_board_columns</a></code></li>
+<li><code><a title="boilerplate.AdoClient.list_board_rows" href="#boilerplate.AdoClient.list_board_rows">list_board_rows</a></code></li>
+<li><code><a title="boilerplate.AdoClient.list_boards" href="#boilerplate.AdoClient.list_boards">list_boards</a></code></li>
+<li><code><a title="boilerplate.AdoClient.list_extension_documents" href="#boilerplate.AdoClient.list_extension_documents">list_extension_documents</a></code></li>
+<li><code><a title="boilerplate.AdoClient.list_fields" href="#boilerplate.AdoClient.list_fields">list_fields</a></code></li>
+<li><code><a title="boilerplate.AdoClient.list_iterations" href="#boilerplate.AdoClient.list_iterations">list_iterations</a></code></li>
+<li><code><a title="boilerplate.AdoClient.list_project_board_columns" href="#boilerplate.AdoClient.list_project_board_columns">list_project_board_columns</a></code></li>
+<li><code><a title="boilerplate.AdoClient.list_project_board_rows" href="#boilerplate.AdoClient.list_project_board_rows">list_project_board_rows</a></code></li>
+<li><code><a title="boilerplate.AdoClient.list_projects" href="#boilerplate.AdoClient.list_projects">list_projects</a></code></li>
+<li><code><a title="boilerplate.AdoClient.list_teams" href="#boilerplate.AdoClient.list_teams">list_teams</a></code></li>
+<li><code><a title="boilerplate.AdoClient.list_work_item_attachments" href="#boilerplate.AdoClient.list_work_item_attachments">list_work_item_attachments</a></code></li>
+<li><code><a title="boilerplate.AdoClient.list_work_item_comments" href="#boilerplate.AdoClient.list_work_item_comments">list_work_item_comments</a></code></li>
+<li><code><a title="boilerplate.AdoClient.list_work_item_types" href="#boilerplate.AdoClient.list_work_item_types">list_work_item_types</a></code></li>
+<li><code><a title="boilerplate.AdoClient.query_work_items" href="#boilerplate.AdoClient.query_work_items">query_work_items</a></code></li>
+<li><code><a title="boilerplate.AdoClient.reset_project" href="#boilerplate.AdoClient.reset_project">reset_project</a></code></li>
+<li><code><a title="boilerplate.AdoClient.search_work_items" href="#boilerplate.AdoClient.search_work_items">search_work_items</a></code></li>
+<li><code><a title="boilerplate.AdoClient.set_board" href="#boilerplate.AdoClient.set_board">set_board</a></code></li>
+<li><code><a title="boilerplate.AdoClient.set_org" href="#boilerplate.AdoClient.set_org">set_org</a></code></li>
+<li><code><a title="boilerplate.AdoClient.set_project" href="#boilerplate.AdoClient.set_project">set_project</a></code></li>
+<li><code><a title="boilerplate.AdoClient.set_team" href="#boilerplate.AdoClient.set_team">set_team</a></code></li>
+<li><code><a title="boilerplate.AdoClient.set_version" href="#boilerplate.AdoClient.set_version">set_version</a></code></li>
+<li><code><a title="boilerplate.AdoClient.update_work_item" href="#boilerplate.AdoClient.update_work_item">update_work_item</a></code></li>
+<li><code><a title="boilerplate.AdoClient.upload_attachment_to_work_item" href="#boilerplate.AdoClient.upload_attachment_to_work_item">upload_attachment_to_work_item</a></code></li>
+<li><code><a title="boilerplate.AdoClient.work_item_has_attachment" href="#boilerplate.AdoClient.work_item_has_attachment">work_item_has_attachment</a></code></li>
+<li><code><a title="boilerplate.AdoClient.work_item_project" href="#boilerplate.AdoClient.work_item_project">work_item_project</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="boilerplate.AreaNotGivenError" href="#boilerplate.AreaNotGivenError">AreaNotGivenError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="boilerplate.AsanaClient" href="#boilerplate.AsanaClient">AsanaClient</a></code></h4>
+<ul class="">
+<li><code><a title="boilerplate.AsanaClient.add_tag" href="#boilerplate.AsanaClient.add_tag">add_tag</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.add_task_comment" href="#boilerplate.AsanaClient.add_task_comment">add_task_comment</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.add_task_tag" href="#boilerplate.AsanaClient.add_task_tag">add_task_tag</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.create_tag" href="#boilerplate.AsanaClient.create_tag">create_tag</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.create_task" href="#boilerplate.AsanaClient.create_task">create_task</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.download_attachment" href="#boilerplate.AsanaClient.download_attachment">download_attachment</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.get_attachment" href="#boilerplate.AsanaClient.get_attachment">get_attachment</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.get_main_workspace" href="#boilerplate.AsanaClient.get_main_workspace">get_main_workspace</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.get_project" href="#boilerplate.AsanaClient.get_project">get_project</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.get_tags" href="#boilerplate.AsanaClient.get_tags">get_tags</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.get_task" href="#boilerplate.AsanaClient.get_task">get_task</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.get_task_attachments" href="#boilerplate.AsanaClient.get_task_attachments">get_task_attachments</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.get_task_comments" href="#boilerplate.AsanaClient.get_task_comments">get_task_comments</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.get_task_stories" href="#boilerplate.AsanaClient.get_task_stories">get_task_stories</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.get_update_payload" href="#boilerplate.AsanaClient.get_update_payload">get_update_payload</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.is_error" href="#boilerplate.AsanaClient.is_error">is_error</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.list_custom_fields" href="#boilerplate.AsanaClient.list_custom_fields">list_custom_fields</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.list_project_sections" href="#boilerplate.AsanaClient.list_project_sections">list_project_sections</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.list_tagged_tasks" href="#boilerplate.AsanaClient.list_tagged_tasks">list_tagged_tasks</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.list_tags" href="#boilerplate.AsanaClient.list_tags">list_tags</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.list_tasks" href="#boilerplate.AsanaClient.list_tasks">list_tasks</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.list_workspaces" href="#boilerplate.AsanaClient.list_workspaces">list_workspaces</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.move_to_section" href="#boilerplate.AsanaClient.move_to_section">move_to_section</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.remove_tag" href="#boilerplate.AsanaClient.remove_tag">remove_tag</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.remove_task_tag" href="#boilerplate.AsanaClient.remove_task_tag">remove_task_tag</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.search_tasks" href="#boilerplate.AsanaClient.search_tasks">search_tasks</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.set_project" href="#boilerplate.AsanaClient.set_project">set_project</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.set_workspace" href="#boilerplate.AsanaClient.set_workspace">set_workspace</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.sync_all_tags" href="#boilerplate.AsanaClient.sync_all_tags">sync_all_tags</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.task" href="#boilerplate.AsanaClient.task">task</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.update_task" href="#boilerplate.AsanaClient.update_task">update_task</a></code></li>
+<li><code><a title="boilerplate.AsanaClient.upload_task_attachment" href="#boilerplate.AsanaClient.upload_task_attachment">upload_task_attachment</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="boilerplate.AsanaTask" href="#boilerplate.AsanaTask">AsanaTask</a></code></h4>
+<ul class="">
+<li><code><a title="boilerplate.AsanaTask.from_dict" href="#boilerplate.AsanaTask.from_dict">from_dict</a></code></li>
+<li><code><a title="boilerplate.AsanaTask.get" href="#boilerplate.AsanaTask.get">get</a></code></li>
+<li><code><a title="boilerplate.AsanaTask.get_field_by_name" href="#boilerplate.AsanaTask.get_field_by_name">get_field_by_name</a></code></li>
+<li><code><a title="boilerplate.AsanaTask.items" href="#boilerplate.AsanaTask.items">items</a></code></li>
+<li><code><a title="boilerplate.AsanaTask.names" href="#boilerplate.AsanaTask.names">names</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="boilerplate.AsanaTaskField" href="#boilerplate.AsanaTaskField">AsanaTaskField</a></code></h4>
+<ul class="two-column">
+<li><code><a title="boilerplate.AsanaTaskField.description" href="#boilerplate.AsanaTaskField.description">description</a></code></li>
+<li><code><a title="boilerplate.AsanaTaskField.enabled" href="#boilerplate.AsanaTaskField.enabled">enabled</a></code></li>
+<li><code><a title="boilerplate.AsanaTaskField.from_dict" href="#boilerplate.AsanaTaskField.from_dict">from_dict</a></code></li>
+<li><code><a title="boilerplate.AsanaTaskField.id" href="#boilerplate.AsanaTaskField.id">id</a></code></li>
+<li><code><a title="boilerplate.AsanaTaskField.name" href="#boilerplate.AsanaTaskField.name">name</a></code></li>
+<li><code><a title="boilerplate.AsanaTaskField.options" href="#boilerplate.AsanaTaskField.options">options</a></code></li>
+<li><code><a title="boilerplate.AsanaTaskField.type" href="#boilerplate.AsanaTaskField.type">type</a></code></li>
+<li><code><a title="boilerplate.AsanaTaskField.value" href="#boilerplate.AsanaTaskField.value">value</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="boilerplate.ClientResponse" href="#boilerplate.ClientResponse">ClientResponse</a></code></h4>
+</li>
+<li>
+<h4><code><a title="boilerplate.HaltException" href="#boilerplate.HaltException">HaltException</a></code></h4>
+</li>
+<li>
+<h4><code><a title="boilerplate.LoggingClient" href="#boilerplate.LoggingClient">LoggingClient</a></code></h4>
+</li>
+<li>
+<h4><code><a title="boilerplate.LookupFunction" href="#boilerplate.LookupFunction">LookupFunction</a></code></h4>
+</li>
+<li>
+<h4><code><a title="boilerplate.LookupTable" href="#boilerplate.LookupTable">LookupTable</a></code></h4>
+<ul class="">
+<li><code><a title="boilerplate.LookupTable.add_func" href="#boilerplate.LookupTable.add_func">add_func</a></code></li>
+<li><code><a title="boilerplate.LookupTable.add_step" href="#boilerplate.LookupTable.add_step">add_step</a></code></li>
+<li><code><a title="boilerplate.LookupTable.convert" href="#boilerplate.LookupTable.convert">convert</a></code></li>
+<li><code><a title="boilerplate.LookupTable.reverse_steps" href="#boilerplate.LookupTable.reverse_steps">reverse_steps</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="boilerplate.ProjectNotFoundError" href="#boilerplate.ProjectNotFoundError">ProjectNotFoundError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="boilerplate.StoreAccessor" href="#boilerplate.StoreAccessor">StoreAccessor</a></code></h4>
+<ul class="">
+<li><code><a title="boilerplate.StoreAccessor.get_pat" href="#boilerplate.StoreAccessor.get_pat">get_pat</a></code></li>
+<li><code><a title="boilerplate.StoreAccessor.get_user" href="#boilerplate.StoreAccessor.get_user">get_user</a></code></li>
+<li><code><a title="boilerplate.StoreAccessor.set_pat" href="#boilerplate.StoreAccessor.set_pat">set_pat</a></code></li>
+<li><code><a title="boilerplate.StoreAccessor.set_user" href="#boilerplate.StoreAccessor.set_user">set_user</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="boilerplate.TeamNotFoundError" href="#boilerplate.TeamNotFoundError">TeamNotFoundError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="boilerplate.ZapierBoolean" href="#boilerplate.ZapierBoolean">ZapierBoolean</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
