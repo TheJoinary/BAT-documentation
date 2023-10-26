@@ -508,6 +508,15 @@ class AdoClient(LoggingClient):
         return ops
 
     def create_field(self, name, desc=None, ftype=&#34;string&#34;, usage=&#34;workItem&#34;, readOnly=False, canSortBy=False, isQueryable=True ):
+        &#34;&#34;&#34;[API] Create a field in the ADO board.
+        Args:
+            name: The field name
+            desc: An optional description.
+            ftype: The field type.
+            usage: The usage type, determines what this field works with.
+            readOnly: Is this field read only?
+            canSortBy: Is this field sortable?
+            isQueryable: Is this field queryable?&#34;&#34;&#34;
         d = {
             &#34;name&#34;: name,
             &#34;referenceName&#34;: &#34;SupportedOperations.GreaterThanEquals&#34;,
@@ -527,7 +536,7 @@ class AdoClient(LoggingClient):
         return self._req( &#39;POST&#39;, &#39;fields&#39;, self.get_project_url, [&#39;wit&#39;], params={ &#34;api-version&#34;:&#34;6.0&#34; }, json=d )
         
     def _req( self, method, endpoint, url_function=None, url_function_args=(), get_content=False, **kwargs ):
-        &#34;&#34;&#34;Private function to call requests.request() safely.
+        &#34;&#34;&#34;Private helper function to call requests.request() safely.
         
         :param method: The method to use eg. &#39;GET&#39;, &#39;POST&#39;, &#39;DELETE&#39;, &#39;PATCH&#39;, &#39;PUT&#39;.
         :param endpoint: The final element of the URL eg. https://api.com/api/path/to/my/endpoint
@@ -586,7 +595,7 @@ class AdoClient(LoggingClient):
             return res
 
     def list_teams( self ):
-        &#34;&#34;&#34;Retrieve a list of teams.
+        &#34;&#34;&#34;[API] Retrieve a list of teams.
 
         :return: A list of teams.
         :rtype: list
@@ -594,6 +603,7 @@ class AdoClient(LoggingClient):
         return self._list(self._req( &#39;GET&#39;, &#39;teams&#39; ))
 
     def list_extension_documents( self, publisher, extension_name, collection_name ):
+        &#34;&#34;&#34;[API] List all extension documents.&#34;&#34;&#34;
         # _apis/ExtensionManagement/InstalledExtensions/agile-extensions/dod/Data/Scopes/Default/Current/Collections/definitionOfDone/Documents
         return self._req( &#34;GET&#34;, f&#39;ExtensionManagement/InstalledExtensions/{publisher}/{extension_name}/Data/Scopes/Default/Current/Collections/{collection_name}/Documents&#39;, lambda *_:f&#34;https://{self.org}.extmgmt.visualstudio.com/_apis/&#34;, [], False, params={&#39;api-version&#39;: &#39;6.1-preview&#39;} )
 
@@ -605,7 +615,7 @@ class AdoClient(LoggingClient):
             return None
 
     def list_projects( self ):
-        &#34;&#34;&#34;Retrieve a list of projects.
+        &#34;&#34;&#34;[API] Retrieve a list of projects.
 
         :return: A list of projects.
         :rtype: list
@@ -613,7 +623,7 @@ class AdoClient(LoggingClient):
         return self._list(self._req( &#39;GET&#39;, &#39;projects&#39; ))
 
     def list_iterations( self ):
-        &#34;&#34;&#34;Retrieve a list of iterations for a team.
+        &#34;&#34;&#34;[API] Retrieve a list of iterations for a team.
 
         Returns:
             list: A list of iteration objects.
@@ -621,7 +631,7 @@ class AdoClient(LoggingClient):
         return self._req( &#34;GET&#34;, &#34;iterations&#34;, self.get_main_url, [&#34;work&#34;, &#34;teamsettings&#34;], params={&#34;api-version&#34;: 6.0} )
 
     def list_boards( self ):
-        &#34;&#34;&#34;Retrieve a list of boards.
+        &#34;&#34;&#34;[API] Retrieve a list of boards.
 
         :return: A list of boards.
         :rtype: list
@@ -629,25 +639,31 @@ class AdoClient(LoggingClient):
         return self._list(self._req( &#39;GET&#39;, &#39;boards&#39;, self.get_main_url, [&#39;work&#39;] ))
 
     def list_project_board_columns( self ):
+        &#34;&#34;&#34;[API] Retrieve a list of PROJECT board columns.&#34;&#34;&#34;
         return self._list(self._req( &#39;GET&#39;, &#39;boardcolumns&#39;, self.get_project_url, [&#39;work&#39;] ))
 
     def list_project_board_rows( self ):
+        &#34;&#34;&#34;[API] Retrieve a list of PROJECT board rows.&#34;&#34;&#34;
         return self._list(self._req( &#39;GET&#39;, &#39;boardrows&#39;, self.get_project_url, [&#39;work&#39;] ))
 
     def list_board_columns( self, board_id ):
+        &#34;&#34;&#34;[API] Retrieve a list of board columns.&#34;&#34;&#34;
         return self._list(self._req( &#39;GET&#39;, &#39;columns&#39;, self.get_main_url, [&#39;work&#39;, &#39;boards&#39;, str(board_id)] ))
 
     def list_board_rows( self, board_id ):
+        &#34;&#34;&#34;[API] Retrieve a list of board columns.&#34;&#34;&#34;
         return self._list(self._req( &#39;GET&#39;, &#39;rows&#39;, self.get_main_url, [&#39;work&#39;, &#39;boards&#39;, str(board_id)] ))
 
     def list_work_item_types( self ):
+        &#34;&#34;&#34;[API] Retrieve a list of all available work item types.&#34;&#34;&#34;
         return [x[&#34;name&#34;] for x in self._list(self._req(&#39;GET&#39;, &#39;workitemtypes&#39;, self.get_project_url, [&#39;wit&#39;], params={&#34;api-version&#34;: &#34;6.0&#34;}))]
 
     def list_fields( self ):
+        &#34;&#34;&#34;[API] Retrieve a list of all possible fields for work items or projects.&#34;&#34;&#34;
         return [{&#34;name&#34;: x[&#34;name&#34;], &#34;ref&#34;: x[&#34;referenceName&#34;]} for x in self._list(self._req(&#39;GET&#39;, &#39;fields&#39;, self.get_project_url, [&#39;wit&#39;], params={&#34;api-version&#34;: &#34;6.0&#34;, &#34;$expand&#34;: &#34;extensionFields&#34;}))]
 
     def get_work_item( self, id ):
-        &#34;&#34;&#34;Retrieve a specific work item via its ID.
+        &#34;&#34;&#34;[API] Retrieve a specific work item via its ID.
 
         :return: A single work item.
         :rtype: dict
@@ -655,7 +671,7 @@ class AdoClient(LoggingClient):
         return self._req( &#39;GET&#39;, str(id), self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;], params={ &#34;$expand&#34;: &#34;All&#34; } )
 
     def get_work_items( self, ids ):
-        &#34;&#34;&#34;Retrieve multiple work items via its ID.
+        &#34;&#34;&#34;[API] Retrieve multiple work items via its ID.
 
         :return: A number of work items.
         :rtype: dict
@@ -670,6 +686,7 @@ class AdoClient(LoggingClient):
         return self._req( &#39;POST&#39;, &#39;workitemsbatch&#39;, self.get_project_url, [&#39;wit&#39;,], params={ &#34;api-version&#34;:&#34;6.0&#34;, &#34;$expand&#34;: &#34;All&#34; }, json=d )
         
     def query_work_items(self, query):
+        &#34;&#34;&#34;[API] Query all work items with a WIQL query.&#34;&#34;&#34;
         return self._req(&#39;POST&#39;, &#39;wiql&#39;, self.get_core_url, [&#39;wit&#39;], json={
             &#34;query&#34;: query
         },
@@ -679,12 +696,15 @@ class AdoClient(LoggingClient):
         })
 
     def list_work_item_comments(self, id):
+        &#34;&#34;&#34;[API] Get a work item&#39;s comments.&#34;&#34;&#34;
         return self._req( &#39;GET&#39;, &#34;comments&#34;, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;, str(id)] )
 
     def add_comment_to_work_item(self, text, id):
+        &#34;&#34;&#34;[API] Add a comment to a work item.&#34;&#34;&#34;
         return self._req( &#39;POST&#39;, &#34;comments&#34;, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;, str(id)], json={&#34;text&#34;: text}, params={&#34;api-version&#34;:&#34;6.0-preview.3&#34;} )
 
     def add_hyperlink_to_work_item(self, name, link):
+        &#34;&#34;&#34;DEPRECATED - Helper function - add a hyperlink to a work item.&#34;&#34;&#34;
         res = self.update_work_item(id, {
             &#34;-&#34;: {
                 &#34;rel&#34;: &#34;Hyperlink&#34;,
@@ -722,6 +742,7 @@ class AdoClient(LoggingClient):
         return res
 
     def upload_attachment_to_work_item(self, file_path, id, name=&#34;&#34; ):
+        &#34;&#34;&#34;[API] Upload an attachment to a work item.&#34;&#34;&#34;
         if isinstance(file_path, str):
             with open(file_path, &#39;rb&#39;) as f:
                 data = f.read()
@@ -736,6 +757,7 @@ class AdoClient(LoggingClient):
     
 
     def list_work_item_attachments(self, id):
+        &#34;&#34;&#34;[API] List all attachments on a work item.&#34;&#34;&#34;
         wi = self.get_work_item(id)
 
         rels = wi.get(&#34;relations&#34;,[])
@@ -747,9 +769,7 @@ class AdoClient(LoggingClient):
         } for a in rels if a.get(&#34;rel&#34;,&#34;&#34;) == &#34;AttachedFile&#34;]
 
     def get_attachment_content(self, aid):
-        &#34;&#34;&#34;Retrieve the content data of an attachment in our ADO database.
-
-        &#34;&#34;&#34;
+        &#34;&#34;&#34;[API] Retrieve the content data of an attachment in our ADO database.&#34;&#34;&#34;
         return self._req(&#39;GET&#39;, f&#39;attachments/{aid}&#39;, self.get_core_url, [&#39;wit&#39;], params={&#39;api-version&#39;: &#39;6.0&#39;}, get_content=True)
 
     def work_item_has_attachment(self, id, filename):
@@ -765,7 +785,7 @@ class AdoClient(LoggingClient):
         return [ x[&#34;fields&#34;] for x in results ]
 
     def search_work_items( self, text, area, skip=0, top=100, order_by_fields=[[&#34;system.id&#34;, &#34;ASC&#34;]]):
-        &#34;&#34;&#34;Retrieve a list of search results for work items in the current project.
+        &#34;&#34;&#34;[API] Retrieve a list of search results for work items in the current project.
 
         Args:
             text (str): The text to search for.
@@ -795,7 +815,7 @@ class AdoClient(LoggingClient):
         return self._search_results( self._req(&#39;POST&#39;, &#39;workitemsearchresults&#39;, self.get_search_url, [&#39;search&#39;], json=data, params={&#34;api-version&#34;: &#34;6.0-preview.1&#34;}) )
 
     def update_work_item(self, workitem_id, fields={}, fieldpath_prefix=&#34;/fields/&#34;):
-        &#34;&#34;&#34;Updates the given workitem by its ID, with a set of fields.
+        &#34;&#34;&#34;[API] Updates the given workitem by its ID, with a set of fields.
 
         Args:
             workitem_id (str): The workitem&#39;s ID, as a six digit string.
@@ -816,7 +836,7 @@ class AdoClient(LoggingClient):
         return self._req(&#39;PATCH&#39;, workitem_id, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;], headers=headers, json=azureOps)
 
     def create_work_item(self, fields={}, workitem_type=&#34;task&#34;):
-        &#34;&#34;&#34;Creates a work item with the relevant fields given.
+        &#34;&#34;&#34;[API] Creates a work item with the relevant fields given.
 
         Args:
             fields (dict): A dict of fields with the format {&#34;key&#34;: &#34;value&#34;, ...}. Remember to supply &#34;System.&lt;key&gt;&#34; for system fields! Defaults to {}.
@@ -1003,6 +1023,12 @@ class AsanaClient(LoggingClient):
         return body
 
     def list_tasks( self, modified_since=None, tag=None ):
+        &#34;&#34;&#34;DEPRECATED - List all Tasks. Optionally, list those modified since a date or with a tag.
+
+        Args:
+            modified_since (str): An isoformat timestamp. When provided, retrieves Tasks modified after that time.
+            tag (str): A tag to limit Tasks to. When provided, only retrieves Tasks with that tag.
+        &#34;&#34;&#34;
         params = {}
 
         if modified_since:
@@ -1013,9 +1039,11 @@ class AsanaClient(LoggingClient):
         return self._req( &#34;GET&#34;, &#34;tasks&#34;, params=params )
 
     def list_tags( self ):
+        &#34;&#34;&#34;[API] Retrieve all tags in the account.&#34;&#34;&#34;
         return self._req(&#34;GET&#34;, &#34;tags&#34;)
 
     def list_tagged_tasks(self, tag_id, modified_since=None ):
+        &#34;&#34;&#34;[API] Retrieve all tasks tagged with a specific tag ID.&#34;&#34;&#34;
         params = {}
 
         if modified_since:
@@ -1024,21 +1052,26 @@ class AsanaClient(LoggingClient):
         return self._req( &#34;GET&#34;, f&#34;tags/{tag_id}/tasks&#34;, params=params )
 
     def list_workspaces( self ):
+        &#34;&#34;&#34;[API] Retrieve all workspaces.&#34;&#34;&#34;
         return self._req( &#34;GET&#34;, &#34;workspaces&#34; )
 
     def list_project_sections( self, project ):
+        &#34;&#34;&#34;[API] Retrieve all project sections.&#34;&#34;&#34;
         return self._req(&#34;GET&#34;, f&#34;projects/{project}/sections&#34;)
 
     def get_main_workspace( self ):
         return self.list_workspaces().get(&#34;data&#34;, [])[0]
 
     def get_project( self, gid ):
+        &#34;&#34;&#34;[API] Get a project by GID.&#34;&#34;&#34;
         return self._req(&#39;GET&#39;, f&#39;projects/{gid}&#39;)
 
     def get_tags(self):
+        &#34;&#34;&#34;[API] Retrieve all tags for the current workspace.&#34;&#34;&#34;
         return self._req(&#39;GET&#39;, f&#39;workspaces/{self.workspace}/tags&#39;)
 
     def create_tag(self, name, color, notes=&#34;Added by System.&#34;):
+        &#34;&#34;&#34;[API] Create a tag.&#34;&#34;&#34;
         return self._req(&#39;POST&#39;, f&#39;tags&#39;, json={
             &#34;data&#34;: {
                 &#34;name&#34;: name,
@@ -1048,6 +1081,12 @@ class AsanaClient(LoggingClient):
         })
 
     def add_tag(self, task_gid, tag_name, tag_list):
+        &#34;&#34;&#34;[API] Add a tag to a given task.
+        
+        Args:
+            task_gid (int): The ID of the Task.
+            tag_name (str): The name of the tag.
+            tag_list (list): A list of tags that already exist.&#34;&#34;&#34;
         matching_tag = [x for x in tag_list if x[&#39;name&#39;] == tag_name]
 
         if not matching_tag:
@@ -1064,6 +1103,7 @@ class AsanaClient(LoggingClient):
             return { &#34;error&#34;: &#34;An error occurred when adding the tag.&#34;, &#34;message&#34;: str(e) }
 
     def remove_tag(self, task_gid, tag_name, tag_list):
+        &#34;&#34;&#34;[API] Remove a tag from a task.&#34;&#34;&#34;
         matching_tag = [x for x in tag_list if x[&#39;name&#39;] == tag_name][0]
 
         if not matching_tag:
@@ -1074,6 +1114,7 @@ class AsanaClient(LoggingClient):
         })
 
     def sync_all_tags( self, task, tag_names, tag_list ):
+        &#34;&#34;&#34;Given a list of names and existing tags, figure out which tags to add/delete from the Task to synchronise it.&#34;&#34;&#34;
         tags = [x.strip() for x in tag_names.split(&#39;;&#39;)]
 
         task = task.get(&#39;data&#39;, task)
@@ -1113,6 +1154,7 @@ class AsanaClient(LoggingClient):
         return results
 
     def move_to_section(self, task_gid, section_gid):
+        &#34;&#34;&#34;[API] Add a task to a given project section.&#34;&#34;&#34;
         return self._req(&#34;POST&#34;, f&#34;sections/{section_gid}/addTask&#34;, json={
             &#34;data&#34;: {
                 &#34;task&#34;: str( task_gid )
@@ -1120,32 +1162,46 @@ class AsanaClient(LoggingClient):
         })
 
     def search_tasks(self, search_dict):
+        &#34;&#34;&#34;[API] Search all Tasks in a workspace with a JSON Query.&#34;&#34;&#34;
         return self._req(&#34;GET&#34;, f&#39;workspaces/{self.workspace}/tasks/search&#39;, params=search_dict)
 
     def get_task( self, id ):
+        &#34;&#34;&#34;[API] Retrieve a single Task by its GID.&#34;&#34;&#34;
         return self._req( &#34;GET&#34;, f&#39;tasks/{id}&#39; )
 
     def get_task_stories(self, id):
+        &#34;&#34;&#34;[API] Get Task history and comments.&#34;&#34;&#34;
         return self._req( &#34;GET&#34;, f&#39;tasks/{id}/stories&#39; ).get(&#34;data&#34;, {})
     
     def get_task_comments(self, id):
+        &#34;&#34;&#34;Helper to retrieve Task comments.&#34;&#34;&#34;
         stories = self.get_task_stories(id)
         return [x for x in stories if x[&#34;resource_subtype&#34;] == &#34;comment_added&#34;]
 
     def get_task_attachments(self, id):
+        &#34;&#34;&#34;[API] Retrieve all attachments on a Task.&#34;&#34;&#34;
         attachments = self._req(&#34;GET&#34;, &#39;attachments&#39;, params={
             &#34;parent&#34;: id
         })
         return attachments
     
     def get_attachment(self, gid):
+        &#34;&#34;&#34;[API] Retrieve an attachment by its GID.&#34;&#34;&#34;
         return self._req(&#34;GET&#34;, f&#34;attachments/{gid}&#34;).get(&#34;data&#34;,{})
 
     def list_custom_fields(self):
+        &#34;&#34;&#34;[API] Get all possible custom fields in a workspace.
+        
+        IMPORTANT: This is NOT the same as retrieving Project specific custom fields.&#34;&#34;&#34;
         return self._req(&#34;GET&#34;, f&#34;workspaces/{self.workspace}/custom_fields&#34;)
 
     def upload_task_attachment(self, gid, file_name, file_content, file_content_type=None):
-
+        &#34;&#34;&#34;[API] Upload an attachment to a task.
+        Args:
+            gid: The Task GID.
+            file_name
+            file_content: A bytes-like representation of the file content.
+            file_content_type: The MIME type of the file.&#34;&#34;&#34;
         return self._req( &#34;POST&#34;, f&#34;tasks/{gid}/attachments&#34;, files=[(&#39;file&#39;, (file_name, file_content, file_content_type))] )
 
     def _taskfields(self, d):
@@ -1157,6 +1213,7 @@ class AsanaClient(LoggingClient):
         return newdict
 
     def add_task_tag(self, gid, tag_id):
+        &#34;&#34;&#34;[API] Add a tag to a Task.&#34;&#34;&#34;
         return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/addTag&#34;, json={
             &#34;data&#34;: {
                 &#34;tag&#34;: str(tag_id)
@@ -1164,6 +1221,7 @@ class AsanaClient(LoggingClient):
         })
     
     def remove_task_tag(self, gid, tag_id):
+        &#34;&#34;&#34;[API] Remove a tag from a Task.&#34;&#34;&#34;
         return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/removeTag&#34;, json={
             &#34;data&#34;: {
                 &#34;tag&#34;: str(tag_id)
@@ -1171,6 +1229,7 @@ class AsanaClient(LoggingClient):
         })
 
     def add_task_comment(self, gid, comment):
+        &#34;&#34;&#34;[API] Add a comment to a Task.&#34;&#34;&#34;
         return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/stories&#34;, json={
                 &#34;data&#34;: {
                     &#34;text&#34;: comment
@@ -1178,7 +1237,7 @@ class AsanaClient(LoggingClient):
         })
 
     def create_task(self, fields):
-        &#34;&#34;&#34;Creates a task in Asana with the fields given.
+        &#34;&#34;&#34;[API] Creates a task in Asana with the fields given.
         The fields are in dict format, with a &#34;.&#34; prefix
         for custom fields, and normal for other fields, eg.
         {
@@ -1201,7 +1260,7 @@ class AsanaClient(LoggingClient):
         }
     
     def update_task(self, id, fields):
-        &#34;&#34;&#34;Updates a task in Asana with the fields given.
+        &#34;&#34;&#34;[API] Updates a task in Asana with the fields given.
         The fields are in dict format, with a &#34;.&#34; prefix
         for custom fields, and normal for other fields, eg.
         {
@@ -1217,6 +1276,7 @@ class AsanaClient(LoggingClient):
         return self._req(&#34;PUT&#34;, f&#34;tasks/{id}&#34;, json=self.get_update_payload(fields))
 
     def download_attachment(self, gid, return_content_only=False):
+        &#34;&#34;&#34;Downloads an attachment as a temporary bytes-like file in memory.&#34;&#34;&#34;
         attachment = self.get_attachment(gid)
 
         file_url = attachment.get(&#34;download_url&#34;)
@@ -1963,6 +2023,15 @@ class LookupTable():
         return ops
 
     def create_field(self, name, desc=None, ftype=&#34;string&#34;, usage=&#34;workItem&#34;, readOnly=False, canSortBy=False, isQueryable=True ):
+        &#34;&#34;&#34;[API] Create a field in the ADO board.
+        Args:
+            name: The field name
+            desc: An optional description.
+            ftype: The field type.
+            usage: The usage type, determines what this field works with.
+            readOnly: Is this field read only?
+            canSortBy: Is this field sortable?
+            isQueryable: Is this field queryable?&#34;&#34;&#34;
         d = {
             &#34;name&#34;: name,
             &#34;referenceName&#34;: &#34;SupportedOperations.GreaterThanEquals&#34;,
@@ -1982,7 +2051,7 @@ class LookupTable():
         return self._req( &#39;POST&#39;, &#39;fields&#39;, self.get_project_url, [&#39;wit&#39;], params={ &#34;api-version&#34;:&#34;6.0&#34; }, json=d )
         
     def _req( self, method, endpoint, url_function=None, url_function_args=(), get_content=False, **kwargs ):
-        &#34;&#34;&#34;Private function to call requests.request() safely.
+        &#34;&#34;&#34;Private helper function to call requests.request() safely.
         
         :param method: The method to use eg. &#39;GET&#39;, &#39;POST&#39;, &#39;DELETE&#39;, &#39;PATCH&#39;, &#39;PUT&#39;.
         :param endpoint: The final element of the URL eg. https://api.com/api/path/to/my/endpoint
@@ -2041,7 +2110,7 @@ class LookupTable():
             return res
 
     def list_teams( self ):
-        &#34;&#34;&#34;Retrieve a list of teams.
+        &#34;&#34;&#34;[API] Retrieve a list of teams.
 
         :return: A list of teams.
         :rtype: list
@@ -2049,6 +2118,7 @@ class LookupTable():
         return self._list(self._req( &#39;GET&#39;, &#39;teams&#39; ))
 
     def list_extension_documents( self, publisher, extension_name, collection_name ):
+        &#34;&#34;&#34;[API] List all extension documents.&#34;&#34;&#34;
         # _apis/ExtensionManagement/InstalledExtensions/agile-extensions/dod/Data/Scopes/Default/Current/Collections/definitionOfDone/Documents
         return self._req( &#34;GET&#34;, f&#39;ExtensionManagement/InstalledExtensions/{publisher}/{extension_name}/Data/Scopes/Default/Current/Collections/{collection_name}/Documents&#39;, lambda *_:f&#34;https://{self.org}.extmgmt.visualstudio.com/_apis/&#34;, [], False, params={&#39;api-version&#39;: &#39;6.1-preview&#39;} )
 
@@ -2060,7 +2130,7 @@ class LookupTable():
             return None
 
     def list_projects( self ):
-        &#34;&#34;&#34;Retrieve a list of projects.
+        &#34;&#34;&#34;[API] Retrieve a list of projects.
 
         :return: A list of projects.
         :rtype: list
@@ -2068,7 +2138,7 @@ class LookupTable():
         return self._list(self._req( &#39;GET&#39;, &#39;projects&#39; ))
 
     def list_iterations( self ):
-        &#34;&#34;&#34;Retrieve a list of iterations for a team.
+        &#34;&#34;&#34;[API] Retrieve a list of iterations for a team.
 
         Returns:
             list: A list of iteration objects.
@@ -2076,7 +2146,7 @@ class LookupTable():
         return self._req( &#34;GET&#34;, &#34;iterations&#34;, self.get_main_url, [&#34;work&#34;, &#34;teamsettings&#34;], params={&#34;api-version&#34;: 6.0} )
 
     def list_boards( self ):
-        &#34;&#34;&#34;Retrieve a list of boards.
+        &#34;&#34;&#34;[API] Retrieve a list of boards.
 
         :return: A list of boards.
         :rtype: list
@@ -2084,25 +2154,31 @@ class LookupTable():
         return self._list(self._req( &#39;GET&#39;, &#39;boards&#39;, self.get_main_url, [&#39;work&#39;] ))
 
     def list_project_board_columns( self ):
+        &#34;&#34;&#34;[API] Retrieve a list of PROJECT board columns.&#34;&#34;&#34;
         return self._list(self._req( &#39;GET&#39;, &#39;boardcolumns&#39;, self.get_project_url, [&#39;work&#39;] ))
 
     def list_project_board_rows( self ):
+        &#34;&#34;&#34;[API] Retrieve a list of PROJECT board rows.&#34;&#34;&#34;
         return self._list(self._req( &#39;GET&#39;, &#39;boardrows&#39;, self.get_project_url, [&#39;work&#39;] ))
 
     def list_board_columns( self, board_id ):
+        &#34;&#34;&#34;[API] Retrieve a list of board columns.&#34;&#34;&#34;
         return self._list(self._req( &#39;GET&#39;, &#39;columns&#39;, self.get_main_url, [&#39;work&#39;, &#39;boards&#39;, str(board_id)] ))
 
     def list_board_rows( self, board_id ):
+        &#34;&#34;&#34;[API] Retrieve a list of board columns.&#34;&#34;&#34;
         return self._list(self._req( &#39;GET&#39;, &#39;rows&#39;, self.get_main_url, [&#39;work&#39;, &#39;boards&#39;, str(board_id)] ))
 
     def list_work_item_types( self ):
+        &#34;&#34;&#34;[API] Retrieve a list of all available work item types.&#34;&#34;&#34;
         return [x[&#34;name&#34;] for x in self._list(self._req(&#39;GET&#39;, &#39;workitemtypes&#39;, self.get_project_url, [&#39;wit&#39;], params={&#34;api-version&#34;: &#34;6.0&#34;}))]
 
     def list_fields( self ):
+        &#34;&#34;&#34;[API] Retrieve a list of all possible fields for work items or projects.&#34;&#34;&#34;
         return [{&#34;name&#34;: x[&#34;name&#34;], &#34;ref&#34;: x[&#34;referenceName&#34;]} for x in self._list(self._req(&#39;GET&#39;, &#39;fields&#39;, self.get_project_url, [&#39;wit&#39;], params={&#34;api-version&#34;: &#34;6.0&#34;, &#34;$expand&#34;: &#34;extensionFields&#34;}))]
 
     def get_work_item( self, id ):
-        &#34;&#34;&#34;Retrieve a specific work item via its ID.
+        &#34;&#34;&#34;[API] Retrieve a specific work item via its ID.
 
         :return: A single work item.
         :rtype: dict
@@ -2110,7 +2186,7 @@ class LookupTable():
         return self._req( &#39;GET&#39;, str(id), self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;], params={ &#34;$expand&#34;: &#34;All&#34; } )
 
     def get_work_items( self, ids ):
-        &#34;&#34;&#34;Retrieve multiple work items via its ID.
+        &#34;&#34;&#34;[API] Retrieve multiple work items via its ID.
 
         :return: A number of work items.
         :rtype: dict
@@ -2125,6 +2201,7 @@ class LookupTable():
         return self._req( &#39;POST&#39;, &#39;workitemsbatch&#39;, self.get_project_url, [&#39;wit&#39;,], params={ &#34;api-version&#34;:&#34;6.0&#34;, &#34;$expand&#34;: &#34;All&#34; }, json=d )
         
     def query_work_items(self, query):
+        &#34;&#34;&#34;[API] Query all work items with a WIQL query.&#34;&#34;&#34;
         return self._req(&#39;POST&#39;, &#39;wiql&#39;, self.get_core_url, [&#39;wit&#39;], json={
             &#34;query&#34;: query
         },
@@ -2134,12 +2211,15 @@ class LookupTable():
         })
 
     def list_work_item_comments(self, id):
+        &#34;&#34;&#34;[API] Get a work item&#39;s comments.&#34;&#34;&#34;
         return self._req( &#39;GET&#39;, &#34;comments&#34;, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;, str(id)] )
 
     def add_comment_to_work_item(self, text, id):
+        &#34;&#34;&#34;[API] Add a comment to a work item.&#34;&#34;&#34;
         return self._req( &#39;POST&#39;, &#34;comments&#34;, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;, str(id)], json={&#34;text&#34;: text}, params={&#34;api-version&#34;:&#34;6.0-preview.3&#34;} )
 
     def add_hyperlink_to_work_item(self, name, link):
+        &#34;&#34;&#34;DEPRECATED - Helper function - add a hyperlink to a work item.&#34;&#34;&#34;
         res = self.update_work_item(id, {
             &#34;-&#34;: {
                 &#34;rel&#34;: &#34;Hyperlink&#34;,
@@ -2177,6 +2257,7 @@ class LookupTable():
         return res
 
     def upload_attachment_to_work_item(self, file_path, id, name=&#34;&#34; ):
+        &#34;&#34;&#34;[API] Upload an attachment to a work item.&#34;&#34;&#34;
         if isinstance(file_path, str):
             with open(file_path, &#39;rb&#39;) as f:
                 data = f.read()
@@ -2191,6 +2272,7 @@ class LookupTable():
     
 
     def list_work_item_attachments(self, id):
+        &#34;&#34;&#34;[API] List all attachments on a work item.&#34;&#34;&#34;
         wi = self.get_work_item(id)
 
         rels = wi.get(&#34;relations&#34;,[])
@@ -2202,9 +2284,7 @@ class LookupTable():
         } for a in rels if a.get(&#34;rel&#34;,&#34;&#34;) == &#34;AttachedFile&#34;]
 
     def get_attachment_content(self, aid):
-        &#34;&#34;&#34;Retrieve the content data of an attachment in our ADO database.
-
-        &#34;&#34;&#34;
+        &#34;&#34;&#34;[API] Retrieve the content data of an attachment in our ADO database.&#34;&#34;&#34;
         return self._req(&#39;GET&#39;, f&#39;attachments/{aid}&#39;, self.get_core_url, [&#39;wit&#39;], params={&#39;api-version&#39;: &#39;6.0&#39;}, get_content=True)
 
     def work_item_has_attachment(self, id, filename):
@@ -2220,7 +2300,7 @@ class LookupTable():
         return [ x[&#34;fields&#34;] for x in results ]
 
     def search_work_items( self, text, area, skip=0, top=100, order_by_fields=[[&#34;system.id&#34;, &#34;ASC&#34;]]):
-        &#34;&#34;&#34;Retrieve a list of search results for work items in the current project.
+        &#34;&#34;&#34;[API] Retrieve a list of search results for work items in the current project.
 
         Args:
             text (str): The text to search for.
@@ -2250,7 +2330,7 @@ class LookupTable():
         return self._search_results( self._req(&#39;POST&#39;, &#39;workitemsearchresults&#39;, self.get_search_url, [&#39;search&#39;], json=data, params={&#34;api-version&#34;: &#34;6.0-preview.1&#34;}) )
 
     def update_work_item(self, workitem_id, fields={}, fieldpath_prefix=&#34;/fields/&#34;):
-        &#34;&#34;&#34;Updates the given workitem by its ID, with a set of fields.
+        &#34;&#34;&#34;[API] Updates the given workitem by its ID, with a set of fields.
 
         Args:
             workitem_id (str): The workitem&#39;s ID, as a six digit string.
@@ -2271,7 +2351,7 @@ class LookupTable():
         return self._req(&#39;PATCH&#39;, workitem_id, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;], headers=headers, json=azureOps)
 
     def create_work_item(self, fields={}, workitem_type=&#34;task&#34;):
-        &#34;&#34;&#34;Creates a work item with the relevant fields given.
+        &#34;&#34;&#34;[API] Creates a work item with the relevant fields given.
 
         Args:
             fields (dict): A dict of fields with the format {&#34;key&#34;: &#34;value&#34;, ...}. Remember to supply &#34;System.&lt;key&gt;&#34; for system fields! Defaults to {}.
@@ -2358,12 +2438,13 @@ def is_error(cls, d):
 <span>def <span class="ident">add_comment_to_work_item</span></span>(<span>self, text, id)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Add a comment to a work item.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def add_comment_to_work_item(self, text, id):
+    &#34;&#34;&#34;[API] Add a comment to a work item.&#34;&#34;&#34;
     return self._req( &#39;POST&#39;, &#34;comments&#34;, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;, str(id)], json={&#34;text&#34;: text}, params={&#34;api-version&#34;:&#34;6.0-preview.3&#34;} )</code></pre>
 </details>
 </dd>
@@ -2371,12 +2452,13 @@ def is_error(cls, d):
 <span>def <span class="ident">add_hyperlink_to_work_item</span></span>(<span>self, name, link)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>DEPRECATED - Helper function - add a hyperlink to a work item.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def add_hyperlink_to_work_item(self, name, link):
+    &#34;&#34;&#34;DEPRECATED - Helper function - add a hyperlink to a work item.&#34;&#34;&#34;
     res = self.update_work_item(id, {
         &#34;-&#34;: {
             &#34;rel&#34;: &#34;Hyperlink&#34;,
@@ -2394,12 +2476,38 @@ def is_error(cls, d):
 <span>def <span class="ident">create_field</span></span>(<span>self, name, desc=None, ftype='string', usage='workItem', readOnly=False, canSortBy=False, isQueryable=True)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Create a field in the ADO board.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>The field name</dd>
+<dt><strong><code>desc</code></strong></dt>
+<dd>An optional description.</dd>
+<dt><strong><code>ftype</code></strong></dt>
+<dd>The field type.</dd>
+<dt><strong><code>usage</code></strong></dt>
+<dd>The usage type, determines what this field works with.</dd>
+<dt><strong><code>readOnly</code></strong></dt>
+<dd>Is this field read only?</dd>
+<dt><strong><code>canSortBy</code></strong></dt>
+<dd>Is this field sortable?</dd>
+<dt><strong><code>isQueryable</code></strong></dt>
+<dd>Is this field queryable?</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def create_field(self, name, desc=None, ftype=&#34;string&#34;, usage=&#34;workItem&#34;, readOnly=False, canSortBy=False, isQueryable=True ):
+    &#34;&#34;&#34;[API] Create a field in the ADO board.
+    Args:
+        name: The field name
+        desc: An optional description.
+        ftype: The field type.
+        usage: The usage type, determines what this field works with.
+        readOnly: Is this field read only?
+        canSortBy: Is this field sortable?
+        isQueryable: Is this field queryable?&#34;&#34;&#34;
     d = {
         &#34;name&#34;: name,
         &#34;referenceName&#34;: &#34;SupportedOperations.GreaterThanEquals&#34;,
@@ -2423,7 +2531,7 @@ def is_error(cls, d):
 <span>def <span class="ident">create_work_item</span></span>(<span>self, fields={}, workitem_type='task')</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Creates a work item with the relevant fields given.</p>
+<div class="desc"><p>[API] Creates a work item with the relevant fields given.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>fields</code></strong> :&ensp;<code>dict</code></dt>
@@ -2434,7 +2542,7 @@ def is_error(cls, d):
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def create_work_item(self, fields={}, workitem_type=&#34;task&#34;):
-    &#34;&#34;&#34;Creates a work item with the relevant fields given.
+    &#34;&#34;&#34;[API] Creates a work item with the relevant fields given.
 
     Args:
         fields (dict): A dict of fields with the format {&#34;key&#34;: &#34;value&#34;, ...}. Remember to supply &#34;System.&lt;key&gt;&#34; for system fields! Defaults to {}.
@@ -2468,15 +2576,13 @@ def is_error(cls, d):
 <span>def <span class="ident">get_attachment_content</span></span>(<span>self, aid)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Retrieve the content data of an attachment in our ADO database.</p></div>
+<div class="desc"><p>[API] Retrieve the content data of an attachment in our ADO database.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_attachment_content(self, aid):
-    &#34;&#34;&#34;Retrieve the content data of an attachment in our ADO database.
-
-    &#34;&#34;&#34;
+    &#34;&#34;&#34;[API] Retrieve the content data of an attachment in our ADO database.&#34;&#34;&#34;
     return self._req(&#39;GET&#39;, f&#39;attachments/{aid}&#39;, self.get_core_url, [&#39;wit&#39;], params={&#39;api-version&#39;: &#39;6.0&#39;}, get_content=True)</code></pre>
 </details>
 </dd>
@@ -2567,7 +2673,7 @@ def is_error(cls, d):
 <span>def <span class="ident">get_work_item</span></span>(<span>self, id)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Retrieve a specific work item via its ID.</p>
+<div class="desc"><p>[API] Retrieve a specific work item via its ID.</p>
 <p>:return: A single work item.
 :rtype: dict</p></div>
 <details class="source">
@@ -2575,7 +2681,7 @@ def is_error(cls, d):
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_work_item( self, id ):
-    &#34;&#34;&#34;Retrieve a specific work item via its ID.
+    &#34;&#34;&#34;[API] Retrieve a specific work item via its ID.
 
     :return: A single work item.
     :rtype: dict
@@ -2587,7 +2693,7 @@ def is_error(cls, d):
 <span>def <span class="ident">get_work_items</span></span>(<span>self, ids)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Retrieve multiple work items via its ID.</p>
+<div class="desc"><p>[API] Retrieve multiple work items via its ID.</p>
 <p>:return: A number of work items.
 :rtype: dict</p></div>
 <details class="source">
@@ -2595,7 +2701,7 @@ def is_error(cls, d):
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_work_items( self, ids ):
-    &#34;&#34;&#34;Retrieve multiple work items via its ID.
+    &#34;&#34;&#34;[API] Retrieve multiple work items via its ID.
 
     :return: A number of work items.
     :rtype: dict
@@ -2649,12 +2755,13 @@ def is_error(cls, d):
 <span>def <span class="ident">list_board_columns</span></span>(<span>self, board_id)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Retrieve a list of board columns.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_board_columns( self, board_id ):
+    &#34;&#34;&#34;[API] Retrieve a list of board columns.&#34;&#34;&#34;
     return self._list(self._req( &#39;GET&#39;, &#39;columns&#39;, self.get_main_url, [&#39;work&#39;, &#39;boards&#39;, str(board_id)] ))</code></pre>
 </details>
 </dd>
@@ -2662,12 +2769,13 @@ def is_error(cls, d):
 <span>def <span class="ident">list_board_rows</span></span>(<span>self, board_id)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Retrieve a list of board columns.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_board_rows( self, board_id ):
+    &#34;&#34;&#34;[API] Retrieve a list of board columns.&#34;&#34;&#34;
     return self._list(self._req( &#39;GET&#39;, &#39;rows&#39;, self.get_main_url, [&#39;work&#39;, &#39;boards&#39;, str(board_id)] ))</code></pre>
 </details>
 </dd>
@@ -2675,7 +2783,7 @@ def is_error(cls, d):
 <span>def <span class="ident">list_boards</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Retrieve a list of boards.</p>
+<div class="desc"><p>[API] Retrieve a list of boards.</p>
 <p>:return: A list of boards.
 :rtype: list</p></div>
 <details class="source">
@@ -2683,7 +2791,7 @@ def is_error(cls, d):
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_boards( self ):
-    &#34;&#34;&#34;Retrieve a list of boards.
+    &#34;&#34;&#34;[API] Retrieve a list of boards.
 
     :return: A list of boards.
     :rtype: list
@@ -2695,12 +2803,13 @@ def is_error(cls, d):
 <span>def <span class="ident">list_extension_documents</span></span>(<span>self, publisher, extension_name, collection_name)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] List all extension documents.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_extension_documents( self, publisher, extension_name, collection_name ):
+    &#34;&#34;&#34;[API] List all extension documents.&#34;&#34;&#34;
     # _apis/ExtensionManagement/InstalledExtensions/agile-extensions/dod/Data/Scopes/Default/Current/Collections/definitionOfDone/Documents
     return self._req( &#34;GET&#34;, f&#39;ExtensionManagement/InstalledExtensions/{publisher}/{extension_name}/Data/Scopes/Default/Current/Collections/{collection_name}/Documents&#39;, lambda *_:f&#34;https://{self.org}.extmgmt.visualstudio.com/_apis/&#34;, [], False, params={&#39;api-version&#39;: &#39;6.1-preview&#39;} )</code></pre>
 </details>
@@ -2709,12 +2818,13 @@ def is_error(cls, d):
 <span>def <span class="ident">list_fields</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Retrieve a list of all possible fields for work items or projects.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_fields( self ):
+    &#34;&#34;&#34;[API] Retrieve a list of all possible fields for work items or projects.&#34;&#34;&#34;
     return [{&#34;name&#34;: x[&#34;name&#34;], &#34;ref&#34;: x[&#34;referenceName&#34;]} for x in self._list(self._req(&#39;GET&#39;, &#39;fields&#39;, self.get_project_url, [&#39;wit&#39;], params={&#34;api-version&#34;: &#34;6.0&#34;, &#34;$expand&#34;: &#34;extensionFields&#34;}))]</code></pre>
 </details>
 </dd>
@@ -2722,7 +2832,7 @@ def is_error(cls, d):
 <span>def <span class="ident">list_iterations</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Retrieve a list of iterations for a team.</p>
+<div class="desc"><p>[API] Retrieve a list of iterations for a team.</p>
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code>list</code></dt>
@@ -2733,7 +2843,7 @@ def is_error(cls, d):
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_iterations( self ):
-    &#34;&#34;&#34;Retrieve a list of iterations for a team.
+    &#34;&#34;&#34;[API] Retrieve a list of iterations for a team.
 
     Returns:
         list: A list of iteration objects.
@@ -2745,12 +2855,13 @@ def is_error(cls, d):
 <span>def <span class="ident">list_project_board_columns</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Retrieve a list of PROJECT board columns.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_project_board_columns( self ):
+    &#34;&#34;&#34;[API] Retrieve a list of PROJECT board columns.&#34;&#34;&#34;
     return self._list(self._req( &#39;GET&#39;, &#39;boardcolumns&#39;, self.get_project_url, [&#39;work&#39;] ))</code></pre>
 </details>
 </dd>
@@ -2758,12 +2869,13 @@ def is_error(cls, d):
 <span>def <span class="ident">list_project_board_rows</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Retrieve a list of PROJECT board rows.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_project_board_rows( self ):
+    &#34;&#34;&#34;[API] Retrieve a list of PROJECT board rows.&#34;&#34;&#34;
     return self._list(self._req( &#39;GET&#39;, &#39;boardrows&#39;, self.get_project_url, [&#39;work&#39;] ))</code></pre>
 </details>
 </dd>
@@ -2771,7 +2883,7 @@ def is_error(cls, d):
 <span>def <span class="ident">list_projects</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Retrieve a list of projects.</p>
+<div class="desc"><p>[API] Retrieve a list of projects.</p>
 <p>:return: A list of projects.
 :rtype: list</p></div>
 <details class="source">
@@ -2779,7 +2891,7 @@ def is_error(cls, d):
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_projects( self ):
-    &#34;&#34;&#34;Retrieve a list of projects.
+    &#34;&#34;&#34;[API] Retrieve a list of projects.
 
     :return: A list of projects.
     :rtype: list
@@ -2791,7 +2903,7 @@ def is_error(cls, d):
 <span>def <span class="ident">list_teams</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Retrieve a list of teams.</p>
+<div class="desc"><p>[API] Retrieve a list of teams.</p>
 <p>:return: A list of teams.
 :rtype: list</p></div>
 <details class="source">
@@ -2799,7 +2911,7 @@ def is_error(cls, d):
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_teams( self ):
-    &#34;&#34;&#34;Retrieve a list of teams.
+    &#34;&#34;&#34;[API] Retrieve a list of teams.
 
     :return: A list of teams.
     :rtype: list
@@ -2811,12 +2923,13 @@ def is_error(cls, d):
 <span>def <span class="ident">list_work_item_attachments</span></span>(<span>self, id)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] List all attachments on a work item.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_work_item_attachments(self, id):
+    &#34;&#34;&#34;[API] List all attachments on a work item.&#34;&#34;&#34;
     wi = self.get_work_item(id)
 
     rels = wi.get(&#34;relations&#34;,[])
@@ -2832,12 +2945,13 @@ def is_error(cls, d):
 <span>def <span class="ident">list_work_item_comments</span></span>(<span>self, id)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Get a work item's comments.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_work_item_comments(self, id):
+    &#34;&#34;&#34;[API] Get a work item&#39;s comments.&#34;&#34;&#34;
     return self._req( &#39;GET&#39;, &#34;comments&#34;, self.get_project_url, [&#39;wit&#39;, &#39;workitems&#39;, str(id)] )</code></pre>
 </details>
 </dd>
@@ -2845,12 +2959,13 @@ def is_error(cls, d):
 <span>def <span class="ident">list_work_item_types</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Retrieve a list of all available work item types.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_work_item_types( self ):
+    &#34;&#34;&#34;[API] Retrieve a list of all available work item types.&#34;&#34;&#34;
     return [x[&#34;name&#34;] for x in self._list(self._req(&#39;GET&#39;, &#39;workitemtypes&#39;, self.get_project_url, [&#39;wit&#39;], params={&#34;api-version&#34;: &#34;6.0&#34;}))]</code></pre>
 </details>
 </dd>
@@ -2858,12 +2973,13 @@ def is_error(cls, d):
 <span>def <span class="ident">query_work_items</span></span>(<span>self, query)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Query all work items with a WIQL query.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def query_work_items(self, query):
+    &#34;&#34;&#34;[API] Query all work items with a WIQL query.&#34;&#34;&#34;
     return self._req(&#39;POST&#39;, &#39;wiql&#39;, self.get_core_url, [&#39;wit&#39;], json={
         &#34;query&#34;: query
     },
@@ -2891,7 +3007,7 @@ def is_error(cls, d):
 <span>def <span class="ident">search_work_items</span></span>(<span>self, text, area, skip=0, top=100, order_by_fields=[['system.id', 'ASC']])</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Retrieve a list of search results for work items in the current project.</p>
+<div class="desc"><p>[API] Retrieve a list of search results for work items in the current project.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>text</code></strong> :&ensp;<code>str</code></dt>
@@ -2915,7 +3031,7 @@ def is_error(cls, d):
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def search_work_items( self, text, area, skip=0, top=100, order_by_fields=[[&#34;system.id&#34;, &#34;ASC&#34;]]):
-    &#34;&#34;&#34;Retrieve a list of search results for work items in the current project.
+    &#34;&#34;&#34;[API] Retrieve a list of search results for work items in the current project.
 
     Args:
         text (str): The text to search for.
@@ -3065,7 +3181,7 @@ def is_error(cls, d):
 <span>def <span class="ident">update_work_item</span></span>(<span>self, workitem_id, fields={}, fieldpath_prefix='/fields/')</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Updates the given workitem by its ID, with a set of fields.</p>
+<div class="desc"><p>[API] Updates the given workitem by its ID, with a set of fields.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>workitem_id</code></strong> :&ensp;<code>str</code></dt>
@@ -3083,7 +3199,7 @@ def is_error(cls, d):
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def update_work_item(self, workitem_id, fields={}, fieldpath_prefix=&#34;/fields/&#34;):
-    &#34;&#34;&#34;Updates the given workitem by its ID, with a set of fields.
+    &#34;&#34;&#34;[API] Updates the given workitem by its ID, with a set of fields.
 
     Args:
         workitem_id (str): The workitem&#39;s ID, as a six digit string.
@@ -3108,12 +3224,13 @@ def is_error(cls, d):
 <span>def <span class="ident">upload_attachment_to_work_item</span></span>(<span>self, file_path, id, name='')</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Upload an attachment to a work item.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def upload_attachment_to_work_item(self, file_path, id, name=&#34;&#34; ):
+    &#34;&#34;&#34;[API] Upload an attachment to a work item.&#34;&#34;&#34;
     if isinstance(file_path, str):
         with open(file_path, &#39;rb&#39;) as f:
             data = f.read()
@@ -3270,6 +3387,12 @@ def is_error(cls, d):
         return body
 
     def list_tasks( self, modified_since=None, tag=None ):
+        &#34;&#34;&#34;DEPRECATED - List all Tasks. Optionally, list those modified since a date or with a tag.
+
+        Args:
+            modified_since (str): An isoformat timestamp. When provided, retrieves Tasks modified after that time.
+            tag (str): A tag to limit Tasks to. When provided, only retrieves Tasks with that tag.
+        &#34;&#34;&#34;
         params = {}
 
         if modified_since:
@@ -3280,9 +3403,11 @@ def is_error(cls, d):
         return self._req( &#34;GET&#34;, &#34;tasks&#34;, params=params )
 
     def list_tags( self ):
+        &#34;&#34;&#34;[API] Retrieve all tags in the account.&#34;&#34;&#34;
         return self._req(&#34;GET&#34;, &#34;tags&#34;)
 
     def list_tagged_tasks(self, tag_id, modified_since=None ):
+        &#34;&#34;&#34;[API] Retrieve all tasks tagged with a specific tag ID.&#34;&#34;&#34;
         params = {}
 
         if modified_since:
@@ -3291,21 +3416,26 @@ def is_error(cls, d):
         return self._req( &#34;GET&#34;, f&#34;tags/{tag_id}/tasks&#34;, params=params )
 
     def list_workspaces( self ):
+        &#34;&#34;&#34;[API] Retrieve all workspaces.&#34;&#34;&#34;
         return self._req( &#34;GET&#34;, &#34;workspaces&#34; )
 
     def list_project_sections( self, project ):
+        &#34;&#34;&#34;[API] Retrieve all project sections.&#34;&#34;&#34;
         return self._req(&#34;GET&#34;, f&#34;projects/{project}/sections&#34;)
 
     def get_main_workspace( self ):
         return self.list_workspaces().get(&#34;data&#34;, [])[0]
 
     def get_project( self, gid ):
+        &#34;&#34;&#34;[API] Get a project by GID.&#34;&#34;&#34;
         return self._req(&#39;GET&#39;, f&#39;projects/{gid}&#39;)
 
     def get_tags(self):
+        &#34;&#34;&#34;[API] Retrieve all tags for the current workspace.&#34;&#34;&#34;
         return self._req(&#39;GET&#39;, f&#39;workspaces/{self.workspace}/tags&#39;)
 
     def create_tag(self, name, color, notes=&#34;Added by System.&#34;):
+        &#34;&#34;&#34;[API] Create a tag.&#34;&#34;&#34;
         return self._req(&#39;POST&#39;, f&#39;tags&#39;, json={
             &#34;data&#34;: {
                 &#34;name&#34;: name,
@@ -3315,6 +3445,12 @@ def is_error(cls, d):
         })
 
     def add_tag(self, task_gid, tag_name, tag_list):
+        &#34;&#34;&#34;[API] Add a tag to a given task.
+        
+        Args:
+            task_gid (int): The ID of the Task.
+            tag_name (str): The name of the tag.
+            tag_list (list): A list of tags that already exist.&#34;&#34;&#34;
         matching_tag = [x for x in tag_list if x[&#39;name&#39;] == tag_name]
 
         if not matching_tag:
@@ -3331,6 +3467,7 @@ def is_error(cls, d):
             return { &#34;error&#34;: &#34;An error occurred when adding the tag.&#34;, &#34;message&#34;: str(e) }
 
     def remove_tag(self, task_gid, tag_name, tag_list):
+        &#34;&#34;&#34;[API] Remove a tag from a task.&#34;&#34;&#34;
         matching_tag = [x for x in tag_list if x[&#39;name&#39;] == tag_name][0]
 
         if not matching_tag:
@@ -3341,6 +3478,7 @@ def is_error(cls, d):
         })
 
     def sync_all_tags( self, task, tag_names, tag_list ):
+        &#34;&#34;&#34;Given a list of names and existing tags, figure out which tags to add/delete from the Task to synchronise it.&#34;&#34;&#34;
         tags = [x.strip() for x in tag_names.split(&#39;;&#39;)]
 
         task = task.get(&#39;data&#39;, task)
@@ -3380,6 +3518,7 @@ def is_error(cls, d):
         return results
 
     def move_to_section(self, task_gid, section_gid):
+        &#34;&#34;&#34;[API] Add a task to a given project section.&#34;&#34;&#34;
         return self._req(&#34;POST&#34;, f&#34;sections/{section_gid}/addTask&#34;, json={
             &#34;data&#34;: {
                 &#34;task&#34;: str( task_gid )
@@ -3387,32 +3526,46 @@ def is_error(cls, d):
         })
 
     def search_tasks(self, search_dict):
+        &#34;&#34;&#34;[API] Search all Tasks in a workspace with a JSON Query.&#34;&#34;&#34;
         return self._req(&#34;GET&#34;, f&#39;workspaces/{self.workspace}/tasks/search&#39;, params=search_dict)
 
     def get_task( self, id ):
+        &#34;&#34;&#34;[API] Retrieve a single Task by its GID.&#34;&#34;&#34;
         return self._req( &#34;GET&#34;, f&#39;tasks/{id}&#39; )
 
     def get_task_stories(self, id):
+        &#34;&#34;&#34;[API] Get Task history and comments.&#34;&#34;&#34;
         return self._req( &#34;GET&#34;, f&#39;tasks/{id}/stories&#39; ).get(&#34;data&#34;, {})
     
     def get_task_comments(self, id):
+        &#34;&#34;&#34;Helper to retrieve Task comments.&#34;&#34;&#34;
         stories = self.get_task_stories(id)
         return [x for x in stories if x[&#34;resource_subtype&#34;] == &#34;comment_added&#34;]
 
     def get_task_attachments(self, id):
+        &#34;&#34;&#34;[API] Retrieve all attachments on a Task.&#34;&#34;&#34;
         attachments = self._req(&#34;GET&#34;, &#39;attachments&#39;, params={
             &#34;parent&#34;: id
         })
         return attachments
     
     def get_attachment(self, gid):
+        &#34;&#34;&#34;[API] Retrieve an attachment by its GID.&#34;&#34;&#34;
         return self._req(&#34;GET&#34;, f&#34;attachments/{gid}&#34;).get(&#34;data&#34;,{})
 
     def list_custom_fields(self):
+        &#34;&#34;&#34;[API] Get all possible custom fields in a workspace.
+        
+        IMPORTANT: This is NOT the same as retrieving Project specific custom fields.&#34;&#34;&#34;
         return self._req(&#34;GET&#34;, f&#34;workspaces/{self.workspace}/custom_fields&#34;)
 
     def upload_task_attachment(self, gid, file_name, file_content, file_content_type=None):
-
+        &#34;&#34;&#34;[API] Upload an attachment to a task.
+        Args:
+            gid: The Task GID.
+            file_name
+            file_content: A bytes-like representation of the file content.
+            file_content_type: The MIME type of the file.&#34;&#34;&#34;
         return self._req( &#34;POST&#34;, f&#34;tasks/{gid}/attachments&#34;, files=[(&#39;file&#39;, (file_name, file_content, file_content_type))] )
 
     def _taskfields(self, d):
@@ -3424,6 +3577,7 @@ def is_error(cls, d):
         return newdict
 
     def add_task_tag(self, gid, tag_id):
+        &#34;&#34;&#34;[API] Add a tag to a Task.&#34;&#34;&#34;
         return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/addTag&#34;, json={
             &#34;data&#34;: {
                 &#34;tag&#34;: str(tag_id)
@@ -3431,6 +3585,7 @@ def is_error(cls, d):
         })
     
     def remove_task_tag(self, gid, tag_id):
+        &#34;&#34;&#34;[API] Remove a tag from a Task.&#34;&#34;&#34;
         return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/removeTag&#34;, json={
             &#34;data&#34;: {
                 &#34;tag&#34;: str(tag_id)
@@ -3438,6 +3593,7 @@ def is_error(cls, d):
         })
 
     def add_task_comment(self, gid, comment):
+        &#34;&#34;&#34;[API] Add a comment to a Task.&#34;&#34;&#34;
         return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/stories&#34;, json={
                 &#34;data&#34;: {
                     &#34;text&#34;: comment
@@ -3445,7 +3601,7 @@ def is_error(cls, d):
         })
 
     def create_task(self, fields):
-        &#34;&#34;&#34;Creates a task in Asana with the fields given.
+        &#34;&#34;&#34;[API] Creates a task in Asana with the fields given.
         The fields are in dict format, with a &#34;.&#34; prefix
         for custom fields, and normal for other fields, eg.
         {
@@ -3468,7 +3624,7 @@ def is_error(cls, d):
         }
     
     def update_task(self, id, fields):
-        &#34;&#34;&#34;Updates a task in Asana with the fields given.
+        &#34;&#34;&#34;[API] Updates a task in Asana with the fields given.
         The fields are in dict format, with a &#34;.&#34; prefix
         for custom fields, and normal for other fields, eg.
         {
@@ -3484,6 +3640,7 @@ def is_error(cls, d):
         return self._req(&#34;PUT&#34;, f&#34;tasks/{id}&#34;, json=self.get_update_payload(fields))
 
     def download_attachment(self, gid, return_content_only=False):
+        &#34;&#34;&#34;Downloads an attachment as a temporary bytes-like file in memory.&#34;&#34;&#34;
         attachment = self.get_attachment(gid)
 
         file_url = attachment.get(&#34;download_url&#34;)
@@ -3530,12 +3687,27 @@ def is_error(cls, d):
 <span>def <span class="ident">add_tag</span></span>(<span>self, task_gid, tag_name, tag_list)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Add a tag to a given task.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>task_gid</code></strong> :&ensp;<code>int</code></dt>
+<dd>The ID of the Task.</dd>
+<dt><strong><code>tag_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the tag.</dd>
+<dt><strong><code>tag_list</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list of tags that already exist.</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def add_tag(self, task_gid, tag_name, tag_list):
+    &#34;&#34;&#34;[API] Add a tag to a given task.
+    
+    Args:
+        task_gid (int): The ID of the Task.
+        tag_name (str): The name of the tag.
+        tag_list (list): A list of tags that already exist.&#34;&#34;&#34;
     matching_tag = [x for x in tag_list if x[&#39;name&#39;] == tag_name]
 
     if not matching_tag:
@@ -3556,12 +3728,13 @@ def is_error(cls, d):
 <span>def <span class="ident">add_task_comment</span></span>(<span>self, gid, comment)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Add a comment to a Task.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def add_task_comment(self, gid, comment):
+    &#34;&#34;&#34;[API] Add a comment to a Task.&#34;&#34;&#34;
     return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/stories&#34;, json={
             &#34;data&#34;: {
                 &#34;text&#34;: comment
@@ -3573,12 +3746,13 @@ def is_error(cls, d):
 <span>def <span class="ident">add_task_tag</span></span>(<span>self, gid, tag_id)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Add a tag to a Task.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def add_task_tag(self, gid, tag_id):
+    &#34;&#34;&#34;[API] Add a tag to a Task.&#34;&#34;&#34;
     return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/addTag&#34;, json={
         &#34;data&#34;: {
             &#34;tag&#34;: str(tag_id)
@@ -3590,12 +3764,13 @@ def is_error(cls, d):
 <span>def <span class="ident">create_tag</span></span>(<span>self, name, color, notes='Added by System.')</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Create a tag.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def create_tag(self, name, color, notes=&#34;Added by System.&#34;):
+    &#34;&#34;&#34;[API] Create a tag.&#34;&#34;&#34;
     return self._req(&#39;POST&#39;, f&#39;tags&#39;, json={
         &#34;data&#34;: {
             &#34;name&#34;: name,
@@ -3609,7 +3784,7 @@ def is_error(cls, d):
 <span>def <span class="ident">create_task</span></span>(<span>self, fields)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Creates a task in Asana with the fields given.
+<div class="desc"><p>[API] Creates a task in Asana with the fields given.
 The fields are in dict format, with a "." prefix
 for custom fields, and normal for other fields, eg.
 {
@@ -3626,7 +3801,7 @@ for custom fields, and normal for other fields, eg.
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def create_task(self, fields):
-    &#34;&#34;&#34;Creates a task in Asana with the fields given.
+    &#34;&#34;&#34;[API] Creates a task in Asana with the fields given.
     The fields are in dict format, with a &#34;.&#34; prefix
     for custom fields, and normal for other fields, eg.
     {
@@ -3645,12 +3820,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">download_attachment</span></span>(<span>self, gid, return_content_only=False)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Downloads an attachment as a temporary bytes-like file in memory.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def download_attachment(self, gid, return_content_only=False):
+    &#34;&#34;&#34;Downloads an attachment as a temporary bytes-like file in memory.&#34;&#34;&#34;
     attachment = self.get_attachment(gid)
 
     file_url = attachment.get(&#34;download_url&#34;)
@@ -3675,12 +3851,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">get_attachment</span></span>(<span>self, gid)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Retrieve an attachment by its GID.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_attachment(self, gid):
+    &#34;&#34;&#34;[API] Retrieve an attachment by its GID.&#34;&#34;&#34;
     return self._req(&#34;GET&#34;, f&#34;attachments/{gid}&#34;).get(&#34;data&#34;,{})</code></pre>
 </details>
 </dd>
@@ -3701,12 +3878,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">get_project</span></span>(<span>self, gid)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Get a project by GID.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_project( self, gid ):
+    &#34;&#34;&#34;[API] Get a project by GID.&#34;&#34;&#34;
     return self._req(&#39;GET&#39;, f&#39;projects/{gid}&#39;)</code></pre>
 </details>
 </dd>
@@ -3714,12 +3892,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">get_tags</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Retrieve all tags for the current workspace.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_tags(self):
+    &#34;&#34;&#34;[API] Retrieve all tags for the current workspace.&#34;&#34;&#34;
     return self._req(&#39;GET&#39;, f&#39;workspaces/{self.workspace}/tags&#39;)</code></pre>
 </details>
 </dd>
@@ -3727,12 +3906,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">get_task</span></span>(<span>self, id)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Retrieve a single Task by its GID.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_task( self, id ):
+    &#34;&#34;&#34;[API] Retrieve a single Task by its GID.&#34;&#34;&#34;
     return self._req( &#34;GET&#34;, f&#39;tasks/{id}&#39; )</code></pre>
 </details>
 </dd>
@@ -3740,12 +3920,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">get_task_attachments</span></span>(<span>self, id)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Retrieve all attachments on a Task.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_task_attachments(self, id):
+    &#34;&#34;&#34;[API] Retrieve all attachments on a Task.&#34;&#34;&#34;
     attachments = self._req(&#34;GET&#34;, &#39;attachments&#39;, params={
         &#34;parent&#34;: id
     })
@@ -3756,12 +3937,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">get_task_comments</span></span>(<span>self, id)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Helper to retrieve Task comments.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_task_comments(self, id):
+    &#34;&#34;&#34;Helper to retrieve Task comments.&#34;&#34;&#34;
     stories = self.get_task_stories(id)
     return [x for x in stories if x[&#34;resource_subtype&#34;] == &#34;comment_added&#34;]</code></pre>
 </details>
@@ -3770,12 +3952,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">get_task_stories</span></span>(<span>self, id)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Get Task history and comments.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_task_stories(self, id):
+    &#34;&#34;&#34;[API] Get Task history and comments.&#34;&#34;&#34;
     return self._req( &#34;GET&#34;, f&#39;tasks/{id}/stories&#39; ).get(&#34;data&#34;, {})</code></pre>
 </details>
 </dd>
@@ -3801,12 +3984,16 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">list_custom_fields</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Get all possible custom fields in a workspace.</p>
+<p>IMPORTANT: This is NOT the same as retrieving Project specific custom fields.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_custom_fields(self):
+    &#34;&#34;&#34;[API] Get all possible custom fields in a workspace.
+    
+    IMPORTANT: This is NOT the same as retrieving Project specific custom fields.&#34;&#34;&#34;
     return self._req(&#34;GET&#34;, f&#34;workspaces/{self.workspace}/custom_fields&#34;)</code></pre>
 </details>
 </dd>
@@ -3814,12 +4001,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">list_project_sections</span></span>(<span>self, project)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Retrieve all project sections.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_project_sections( self, project ):
+    &#34;&#34;&#34;[API] Retrieve all project sections.&#34;&#34;&#34;
     return self._req(&#34;GET&#34;, f&#34;projects/{project}/sections&#34;)</code></pre>
 </details>
 </dd>
@@ -3827,12 +4015,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">list_tagged_tasks</span></span>(<span>self, tag_id, modified_since=None)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Retrieve all tasks tagged with a specific tag ID.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_tagged_tasks(self, tag_id, modified_since=None ):
+    &#34;&#34;&#34;[API] Retrieve all tasks tagged with a specific tag ID.&#34;&#34;&#34;
     params = {}
 
     if modified_since:
@@ -3845,12 +4034,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">list_tags</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Retrieve all tags in the account.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_tags( self ):
+    &#34;&#34;&#34;[API] Retrieve all tags in the account.&#34;&#34;&#34;
     return self._req(&#34;GET&#34;, &#34;tags&#34;)</code></pre>
 </details>
 </dd>
@@ -3858,12 +4048,25 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">list_tasks</span></span>(<span>self, modified_since=None, tag=None)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>DEPRECATED - List all Tasks. Optionally, list those modified since a date or with a tag.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>modified_since</code></strong> :&ensp;<code>str</code></dt>
+<dd>An isoformat timestamp. When provided, retrieves Tasks modified after that time.</dd>
+<dt><strong><code>tag</code></strong> :&ensp;<code>str</code></dt>
+<dd>A tag to limit Tasks to. When provided, only retrieves Tasks with that tag.</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_tasks( self, modified_since=None, tag=None ):
+    &#34;&#34;&#34;DEPRECATED - List all Tasks. Optionally, list those modified since a date or with a tag.
+
+    Args:
+        modified_since (str): An isoformat timestamp. When provided, retrieves Tasks modified after that time.
+        tag (str): A tag to limit Tasks to. When provided, only retrieves Tasks with that tag.
+    &#34;&#34;&#34;
     params = {}
 
     if modified_since:
@@ -3878,12 +4081,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">list_workspaces</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Retrieve all workspaces.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list_workspaces( self ):
+    &#34;&#34;&#34;[API] Retrieve all workspaces.&#34;&#34;&#34;
     return self._req( &#34;GET&#34;, &#34;workspaces&#34; )</code></pre>
 </details>
 </dd>
@@ -3891,12 +4095,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">move_to_section</span></span>(<span>self, task_gid, section_gid)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Add a task to a given project section.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def move_to_section(self, task_gid, section_gid):
+    &#34;&#34;&#34;[API] Add a task to a given project section.&#34;&#34;&#34;
     return self._req(&#34;POST&#34;, f&#34;sections/{section_gid}/addTask&#34;, json={
         &#34;data&#34;: {
             &#34;task&#34;: str( task_gid )
@@ -3908,12 +4113,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">remove_tag</span></span>(<span>self, task_gid, tag_name, tag_list)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Remove a tag from a task.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def remove_tag(self, task_gid, tag_name, tag_list):
+    &#34;&#34;&#34;[API] Remove a tag from a task.&#34;&#34;&#34;
     matching_tag = [x for x in tag_list if x[&#39;name&#39;] == tag_name][0]
 
     if not matching_tag:
@@ -3928,12 +4134,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">remove_task_tag</span></span>(<span>self, gid, tag_id)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Remove a tag from a Task.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def remove_task_tag(self, gid, tag_id):
+    &#34;&#34;&#34;[API] Remove a tag from a Task.&#34;&#34;&#34;
     return self._req(&#34;POST&#34;, f&#34;tasks/{gid}/removeTag&#34;, json={
         &#34;data&#34;: {
             &#34;tag&#34;: str(tag_id)
@@ -3945,12 +4152,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">search_tasks</span></span>(<span>self, search_dict)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Search all Tasks in a workspace with a JSON Query.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def search_tasks(self, search_dict):
+    &#34;&#34;&#34;[API] Search all Tasks in a workspace with a JSON Query.&#34;&#34;&#34;
     return self._req(&#34;GET&#34;, f&#39;workspaces/{self.workspace}/tasks/search&#39;, params=search_dict)</code></pre>
 </details>
 </dd>
@@ -3986,12 +4194,13 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">sync_all_tags</span></span>(<span>self, task, tag_names, tag_list)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Given a list of names and existing tags, figure out which tags to add/delete from the Task to synchronise it.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def sync_all_tags( self, task, tag_names, tag_list ):
+    &#34;&#34;&#34;Given a list of names and existing tags, figure out which tags to add/delete from the Task to synchronise it.&#34;&#34;&#34;
     tags = [x.strip() for x in tag_names.split(&#39;;&#39;)]
 
     task = task.get(&#39;data&#39;, task)
@@ -4048,7 +4257,7 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">update_task</span></span>(<span>self, id, fields)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Updates a task in Asana with the fields given.
+<div class="desc"><p>[API] Updates a task in Asana with the fields given.
 The fields are in dict format, with a "." prefix
 for custom fields, and normal for other fields, eg.
 {
@@ -4067,7 +4276,7 @@ for custom fields, and normal for other fields, eg.
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def update_task(self, id, fields):
-    &#34;&#34;&#34;Updates a task in Asana with the fields given.
+    &#34;&#34;&#34;[API] Updates a task in Asana with the fields given.
     The fields are in dict format, with a &#34;.&#34; prefix
     for custom fields, and normal for other fields, eg.
     {
@@ -4087,13 +4296,28 @@ for custom fields, and normal for other fields, eg.
 <span>def <span class="ident">upload_task_attachment</span></span>(<span>self, gid, file_name, file_content, file_content_type=None)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>[API] Upload an attachment to a task.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>gid</code></strong></dt>
+<dd>The Task GID.</dd>
+<dt>file_name</dt>
+<dt><strong><code>file_content</code></strong></dt>
+<dd>A bytes-like representation of the file content.</dd>
+<dt><strong><code>file_content_type</code></strong></dt>
+<dd>The MIME type of the file.</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def upload_task_attachment(self, gid, file_name, file_content, file_content_type=None):
-
+    &#34;&#34;&#34;[API] Upload an attachment to a task.
+    Args:
+        gid: The Task GID.
+        file_name
+        file_content: A bytes-like representation of the file content.
+        file_content_type: The MIME type of the file.&#34;&#34;&#34;
     return self._req( &#34;POST&#34;, f&#34;tasks/{gid}/attachments&#34;, files=[(&#39;file&#39;, (file_name, file_content, file_content_type))] )</code></pre>
 </details>
 </dd>
